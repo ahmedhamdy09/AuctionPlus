@@ -1,0 +1,152 @@
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 15px 20px;
+    position: relative;
+    padding: 50px;
+}
+
+.contactDescrip {
+    width: 500px;
+    border: 4px solid #fff;
+    background: #0ab0ec;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    height: 600px;
+    position: relative;
+    top: -40px;
+}
+
+.contact .kercha {
+    position: absolute;
+    width: 134px;
+    height: 114px;
+    top: 199px;
+    border-radius: 50%;
+    background-color: #0ab0ec;
+    right: -23px;
+    z-index: 1;
+}
+
+/* .contactDescrip::after {
+    content: '';
+    position: absolute;
+    z-index: 99;
+    background-color: #000;
+    width: 500px;
+    left: 10px;
+
+
+} */
+
+.contactPhoto {
+    position: absolute;
+    left: -81px;
+}
+
+.contactPhoto img {
+    width: 450px;
+}
+
+.decription {
+    position: absolute;
+    top: 38%;
+    left: 57%;
+    color: #fff;
+    z-index: 2;
+}
+
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 5px;
+    border: 2px solid #fff;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 5px 10px #e4e4e4;
+    border-radius: 8px;
+    height: 500px;
+}
+
+label {
+    color: #000;
+    font-weight: bold;
+    font-size: 17px;
+    width: 100%;
+}
+
+.forms input {
+    background-color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 4px;
+    padding: 4px;
+    outline: none;
+    border: none;
+}
+
+.Twins {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 5px;
+}
+
+label .subject {
+    width: 100%;
+    padding: 4px;
+}
+
+input .subject {
+    width: 100%;
+}
+
+label .messagess {
+    width: 100%;
+    padding: 4px;
+}
+
+input.message {
+    width: 100%;
+    height: 280px;
+}
+
+.forms2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    margin: 50px;
+}
+
+.forms2 input,
+button {
+    margin: 0;
+}
+
+.forms2 input {
+    background: #fff;
+    margin: 0;
+    height: 50px;
+    border: 4px solid #0ab0ec;
+    border-radius: 8px;
+    outline: none;
+    width: 40%;
+}
+
+.forms2 button {
+    background: #0ab0ec;
+    color: #000;
+    border-radius: 8px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+}

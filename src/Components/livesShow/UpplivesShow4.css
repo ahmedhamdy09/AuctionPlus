@@ -1,0 +1,115 @@
+/* *{
+    box-sizing: border-box;
+} */
+/* .parent {
+    width: 80%;
+    margin: 50px 40px 200px;
+} */
+.parent {
+    margin: 55px auto;
+    display: block;
+    width: 80%;
+}
+
+.intro-txt {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.sub_p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(0, 0, 0, 50%);
+}
+
+.inp {
+    background-color: #ececec;
+}
+
+.pro-btn {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.channel-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.channel {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.arrow img {
+    width: 51px;
+    height: 51px;
+}
+
+.text-chat {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.contentA {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentA img {
+    width: 60px;
+}
+
+.p_foot {
+    color: #b6b6b8;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.clock {
+    width: 20.83px;
+    height: 20.83px;
+    margin-right: 10px
+}
+
+.time {
+    display: flex;
+}
+
+.time input {
+    background-color: #fafbfc;
+}
+
+.live {
+    text-align: center;
+}
+
+.live .live-btn {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-top: 20px;
+    width: 300px;
+    height: 58px;
+}

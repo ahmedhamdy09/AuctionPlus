@@ -1,0 +1,173 @@
+/* *{
+    box-sizing: border-box;
+} */
+/* --contain all page--- */
+.parent {
+    margin-left: 40px;
+    margin-top: 20px;
+    width: 90%;
+}
+
+/* --div contain user image-- */
+.userlogo {
+    width: 104px;
+    height: 104px;
+    background-color: #d5d5d6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* --user img-- */
+.user {
+    width: 60px;
+    height: 60px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content1 {
+    display: flex;
+}
+
+.con1 {
+    /* margin-top: 28px; */
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+/* --user name -- */
+.u_name {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: initial;
+    margin: 5px
+}
+
+/* --rateing number-- */
+.r_num {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #F8C308;
+}
+
+.star {
+    width: 13px;
+    margin-top: -10px;
+    margin-left: 3px;
+    margin-right: 30px;
+}
+
+/* --following btn-- */
+.btn-info {
+    width: 136px;
+    height: 40px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* --number of followers-- */
+.num {
+    font-weight: 600;
+    font-size: 29px;
+    line-height: 36px;
+}
+
+.follow {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+/* --seen icon-- */
+.eye {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px
+}
+
+.n_10 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.leave_txt {
+    color: #F44236;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/* --component in center of body-- */
+.main_comp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10em
+}
+
+.p1 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.p2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2C87A9;
+}
+
+/* --footer-- */
+.foot {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+/* --comment input-- */
+.comment {
+    width: 70%;
+}
+
+.share_txt {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2C87A9;
+}
+
+.shareIcon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 15px;
+    margin-left: 3px;
+}

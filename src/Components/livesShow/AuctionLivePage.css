@@ -1,0 +1,146 @@
+.fullPageAuction {
+    display: flex;
+    flex-direction: column;
+    /* align-items: baseline; */
+}
+
+.auctionshow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.generationAuction {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-left: auto; */
+    margin: 0 auto;
+    text-align: justify;
+    align-items: baseline;
+    margin-bottom: 23px;
+}
+
+.generationAuction h3,
+h2,
+p {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.generationAuction h3 {
+    color: #46A8CD;
+}
+
+.chooses {
+    display: flex;
+    /* margin: 0 auto; */
+    justify-content: center;
+}
+
+.searchBids {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 7px 0px 0px 7px;
+    padding: 4px;
+    height: 44px;
+
+}
+.searchBid{
+    height: 44px;
+
+}
+#bids {
+    border: 1px solid #ddd;
+    padding: 4px;
+    border-right: none;
+    margin: 0px;
+    height: 44px;
+}
+
+.searchScanners {
+    /* flex: 1 1; */
+    position: relative;
+    width: 600px;
+    background-image: url('./images/Ellipse 134.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* display: flex; */
+
+}
+
+.searchBidimg {
+    width: 100%;
+}
+
+.fluentlive {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+    flex-wrap: nowrap;
+}
+
+.divider {
+    border: none;
+    border-top: 4px solid gray;
+    margin: 20px 0;
+}
+
+.chh3 {
+    margin: 0 auto;
+    width: 100%;
+    text-align: end;
+
+}
+
+.contAuction {
+    text-align: center;
+}
+
+.contAuction h3 {
+    opacity: 0.7;
+}
+
+.livesMeet {
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+.viewShow {
+    color: #000;
+    text-decoration: none;
+    background-color: #46A8CD;
+    width: 100px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    border: 2px solid #46A8CD;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.modal.show .modal-dialog {
+    transform: none !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    /* display: flex; */
+}
+
+.modal-content {
+    margin-top: 43%;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px !important;
+    align-items: center;
+}

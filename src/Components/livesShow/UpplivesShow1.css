@@ -1,0 +1,167 @@
+    /* ----------------------------------
+
+-----------Esraa Style--------------
+
+------------------------------------
+    */
+
+    /* * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    } */
+
+    .parentss {
+        margin-top: 55px;
+        margin-bottom: 200px;
+    }
+
+    .containers {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px;
+    }
+
+    /* ----first component : back arrow , heading , schedule icon----- */
+    .arrow-back {
+        width: 30px;
+        height: 51px;
+        margin-right: 10px;
+    }
+
+    .text {
+        width: 388px;
+        height: 54px;
+        font-family: sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 54px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+
+    .text-back {
+        display: flex;
+    }
+
+    .schedule {
+        width: 39px;
+        height: 39px;
+        padding: 3.25px;
+    }
+
+    /* -------second component : user info --------- */
+    .sec {
+        width: 70%;
+        height: 404px;
+        background-color: #f5f6fa;
+        border: .5px solid #9098B1;
+        border-radius: 10px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .con {
+        display: flex;
+        align-items: center;
+        width: 95%;
+        margin: 20px;
+
+    }
+
+    .con,
+    .con1 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .img {
+        background-color: gainsboro;
+        width: 50px;
+        border-radius: 50%;
+        margin-top: -10px
+    }
+
+    .user-img {
+        width: 30px;
+        height: 40px;
+        margin: 8px;
+        padding: 3px;
+    }
+
+    .info p {
+        font-family: sans-serif;
+        margin-bottom: -1px;
+        font-weight: 500;
+        text-align: left;
+        margin-left: 10px;
+    }
+
+    .info span {
+        font-family: sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        text-align: left;
+        margin-left: 10px;
+        color: #bec0c5
+    }
+
+    .recored-icon {
+        width: 50px;
+        height: 20px;
+    }
+
+    /* ------third component : 3paragraphs----------- */
+    .para3 {
+        margin: 20px
+    }
+
+    .p1 {
+        color: #000000;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .p2 {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #000000;
+    }
+
+    .p3 {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+    }
+
+    .p3 span {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        color: #636363
+    }
+
+    /* ----fourth component : 3buttons */
+    .buttonss {
+        margin: 5px;
+    }
+
+    .buttonss button {
+        margin: 5px;
+    }
+
+    .buttonss .remind-btn img {
+        width: 16px;
+        margin-right: 7px;
+    }
+
+    .buttonss .invite-btn img {
+        width: 14px;
+        margin-left: 4px;
+    }

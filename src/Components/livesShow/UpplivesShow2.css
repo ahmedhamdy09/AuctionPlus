@@ -1,0 +1,111 @@
+/* ----------------------------------
+
+-----------Esraa Style--------------
+
+------------------------------------
+    */
+
+
+/* *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+} */
+/* .parent {
+    margin-top: 55px;
+    margin-bottom: 200px;
+} */
+.parent {
+    margin: 55px auto;
+    width: 80%;
+}
+
+.text-back {
+    display: flex;
+}
+
+.arrow-back {
+    width: 30px;
+    height: 51px;
+    margin-right: 10px;
+    margin-left: 40px;
+}
+
+.text-head {
+    width: 388px;
+    height: 54px;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+
+.arrow {
+    display: flex;
+}
+
+.arrow img {
+    width: 29px;
+    height: 29px;
+}
+
+.mb-3 input {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 90%;
+}
+
+.mb-3 .input1 {
+    width: 90%;
+}
+
+/* 
+.input1,
+.arrow,
+.contentE .text-chat,
+.p_foot {
+    margin-left: 40px;
+} */
+
+.text-chat {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.contentE {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.contentE img {
+    width: 60px;
+}
+
+.p_foot {
+    color: #b6b6b8;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.btn-foot .save-btn {
+    width: 160px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.btn-foot {
+    text-align: right;
+    width: 80%;
+}
