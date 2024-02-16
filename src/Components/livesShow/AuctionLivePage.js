@@ -18,6 +18,7 @@ const AuctionLivePage = () => {
   const goPageOption2 = () => {
     navigate("/stream");
   };
+
   return (
     <Container>
       <div className="fullPageAuction">
