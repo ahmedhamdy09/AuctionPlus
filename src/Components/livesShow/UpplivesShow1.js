@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const UppliveShow1 = () => {
   const navegate = useNavigate();
   const goPageOption1 = () => {
-    navegate("sdfhsdfj");
+    navegate("/");
   };
   return (
     <div className="parentss">

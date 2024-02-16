@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
-import LeftButton from "./LeftButton";
-import RightButton from "./RightButton";
+import LeftButton from "../../Products/LeftButton";
+import RightButton from "../../Products/RightButton";
 import { useParams } from "react-router-dom";
-import ViewOneProductsDetailsHook from "../../HookLogicCode/ProductsLogicHook/ViewOneProductsDetailsHook";
+import ViewOneProductsDetailsHook from "../../../HookLogicCode/ProductsLogicHook/ViewOneProductsDetailsHook";
 import { Spinner } from "react-bootstrap";
-const ProductsGallery = () => {
+const AuctionGallery = () => {
   // to view images gallery
   const { id } = useParams();
   // eslint-disable-next-line
@@ -39,4 +39,4 @@ const ProductsGallery = () => {
   );
 };
 
-export default ProductsGallery;
+export default AuctionGallery;

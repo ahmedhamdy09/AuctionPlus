@@ -5,7 +5,7 @@ import { getOneCategory } from "../../Redux/Actions/CategoryAction";
 import { getOneBrand } from "../../Redux/Actions/BrandAction";
 import { getProductLike } from "../../Redux/Actions/ProductsActions";
 
-import mobile from "../../assets/mobile.png";
+import spinners from "../../assets/icons8-spinner.gif";
 
 const ViewOneProductsDetailsHook = (prodID) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const ViewOneProductsDetailsHook = (prodID) => {
 
   // Check if oneProducts.data is available before accessing its properties
   let item = [];
-  if (oneProducts.data && oneProducts) {
+  if (oneProducts && oneProducts.data) {
     item = oneProducts.data;
   } else {
     item = [];
@@ -54,7 +54,7 @@ const ViewOneProductsDetailsHook = (prodID) => {
   }
   //++++++++++++++++++++++++++++++++++++
   let brand = [];
-  if (oneBrand.data) brand = oneBrand.data;
+  if (oneBrand && oneBrand.data) brand = oneBrand.data;
   else brand = [];
 
   //++++++++++++++++++++++++++++++
@@ -75,7 +75,7 @@ const ViewOneProductsDetailsHook = (prodID) => {
   else {
     images = [
       {
-        original: `${mobile}`,
+        original: `${spinners}`,
       },
     ];
   }

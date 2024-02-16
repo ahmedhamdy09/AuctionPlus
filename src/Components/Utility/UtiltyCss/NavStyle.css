@@ -51,13 +51,14 @@
     margin: 0px 3px;
 }
 
+
 .navbar-expand-sm .navbar-collapse {
     align-items: center !important;
 }
 
 .navbar-brand {
     padding: 0px
-}
+} 
 
 @media (max-width:1194px) {
     /* .navbar-collapse {

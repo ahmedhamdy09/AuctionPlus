@@ -26,8 +26,8 @@ import UserProfilePage from "./Page/Users/UserProfilePage";
 import AdminEditProductsPage from "./Page/Admin/AdminEditProductsPage";
 import ContactUs from "./Components/Utility/ContactUs";
 import AuctionLivePage from "./Components/livesShow/AuctionLivePage";
-import Electronic from "./Components/livesShow/AuctionProductDescription/Electrinic/Electronic";
-import Stream from "./Components/livesShow/AuctionProductDescription/Stream/Stream";
+import AuctionProductPage from "./Page/Products/AuctionProductsPage";
+import Stream from "./Components/livesShow/AuctionProductDescription/Stream"
 import UppliveShow1 from "./Components/livesShow/UpplivesShow1";
 import UppliveShow2 from "./Components/livesShow/UpplivesShow2";
 import UppliveShow3 from "./Components/livesShow/UpplivesShow3";
@@ -72,10 +72,10 @@ function App() {
             element={<AdminEditProductsPage />}
           />
 
-          <Route path="/auctionlive" element={<AuctionLivePage />} />
-          <Route path="/auctiondetails" element={<Electronic />} />
-          <Route path="/streamauction" element={<Stream />} />
-
+          <Route path="/auctionlive" element={<AuctionLivePage />} />      
+          <Route path="/auctionproductpage" element={<AuctionProductPage />} />
+          <Route path="/stream" element={<Stream />} />
+          
           <Route path="/upliveone" element={<UppliveShow1 />} />
           <Route path="/uplivetwo" element={<UppliveShow2 />} />
           <Route path="/uplivethree" element={<UppliveShow3 />} />

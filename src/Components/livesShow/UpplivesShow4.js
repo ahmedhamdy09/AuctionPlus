@@ -4,8 +4,13 @@ import "./UpplivesShow4.css";
 import chRight from "./images/chevron-right-solid.svg";
 import on from "./images/toggle-on-solid.svg";
 import clock from "./images/clock-solid.svg";
+// import { useNavigate } from "react-router-dom";
 
 const UppliveShow4 = () => {
+  // const navegate = useNavigate();
+  // const goPageOption1 = () => {
+  //   navegate("/");
+  // };
   return (
     <div className="parent">
       <p className="intro-txt" style={{ justifyContent: "initial" }}>

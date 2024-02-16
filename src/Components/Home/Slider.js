@@ -41,7 +41,7 @@ const Slider = () => {
             />
             <div className="cap">
               <h3 className="slider-title">There is a big discount</h3>
-              <p className="slider-text">Up to 50% discount on your purchase</p>
+              <p className="slider-text">Up to 30% discount on your purchase</p>
             </div>
           </div>
         </Carousel.Item>
@@ -55,7 +55,7 @@ const Slider = () => {
             />
             <div className="cap">
               <h3 className="slider-title">There is a big discount</h3>
-              <p className="slider-text">Up to 50% discount on your purchase</p>
+              <p className="slider-text">Up to 20% discount on your purchase</p>
             </div>
           </div>
         </Carousel.Item>
@@ -70,7 +70,7 @@ const Slider = () => {
             />
             <div className="cap">
               <h3 className="slider-title">There is a big discount</h3>
-              <p className="slider-text">Up to 50% discount on your purchase</p>
+              <p className="slider-text">Up to 40% discount on your purchase</p>
             </div>
           </div>
         </Carousel.Item>
@@ -85,7 +85,7 @@ const Slider = () => {
             />
             <div className="cap">
               <h3 className="slider-title">There is a big discount</h3>
-              <p className="slider-text">Up to 50% discount on your purchase</p>
+              <p className="slider-text">Up to 10% discount on your purchase</p>
             </div>
           </div>
         </Carousel.Item>

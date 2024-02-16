@@ -3,20 +3,20 @@ import "./AuctionLivePage.css";
 import searchIconsbid from "./images/input-group-append.png";
 import scannerMer from "./images/Seminar-pana 1.png";
 import fluentLive from "./images/fluent_live-24-filled.png";
-import {  Container, Modal } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import arror from "./images/feArrowDown1.png";
 import { useNavigate } from "react-router-dom";
 const AuctionLivePage = () => {
   const [show, setShow] = useState(false);
-  const navegate = useNavigate();
+  const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const goPageOption1 = () => {
-    navegate("sdfhsdfj");
+    navigate("/stream");
   };
 
   const goPageOption2 = () => {
-    navegate("sdsd");
+    navigate("/stream");
   };
   return (
     <Container>
@@ -59,7 +59,7 @@ const AuctionLivePage = () => {
         <div className="chh3">
           <div className="contAuction">
             <h3>There are no live shows at the moment</h3>
-            <a href="/liveshow" alt="live" className="livesMeet">
+            <a href="/stream" alt="live" className="livesMeet">
               Start live streaming now
             </a>
             <br />

@@ -5,8 +5,13 @@ import userImg from "./images/user-regular.svg";
 import star from "./images/star-solid.svg";
 import eye from "./images/eye-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
+// import { useNavigate } from "react-router-dom";
 
 const UppliveShow3 = () => {
+  // const navegate = useNavigate();
+  // const goPageOption1 = () => {
+  //   navegate("./UpplivesShow2.js");
+  // };
   return (
     <div className="parent">
       <div className="main">
@@ -18,13 +23,13 @@ const UppliveShow3 = () => {
           <div className="con1">
             <p className="u_name">Eslam Nasr</p>
             <div style={{ display: "flex" }}>
-            <span className="r_num">0.0</span>
-            <span>
-              <img src={star} alt="rate" className="star" />
-            </span>
-            <button type="button" class="btn btn-info follow-btn">
-              Follow
-            </button>
+              <span className="r_num">0.0</span>
+              <span>
+                <img src={star} alt="rate" className="star" />
+              </span>
+              <button type="button" class="btn btn-info follow-btn">
+                Follow
+              </button>
             </div>
             <br />
             <div style={{ display: "flex" }}>

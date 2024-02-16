@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Col, Row, Container } from "react-bootstrap";
 import "./UpplivesShow2.css";
 
 import arrowLeft from "./images/arrow-left-solid.svg";
 import chRight from "./images/chevron-right-solid.svg";
-import on from "./images/toggle-on-solid.svg";
+// import on from "./images/toggle-on-solid.svg";
+import { useNavigate } from "react-router-dom";
 
 const UppliveShow2 = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = () => {
+    setIsChecked((prevIsChecked) => !prevIsChecked);
+  };
+
+  const navigate = useNavigate();
+  const goPageOption2 = () => {
+    navigate("/uplivetwo");
+  };
   return (
     <div className="parent">
       <div className="text-back">
-        <img src={arrowLeft} alt="backArrow" className="arrow-back" />
+        <img
+          src={arrowLeft}
+          onClick={goPageOption2}
+          alt="backArrow"
+          className="arrow-back"
+        />
+
         <p className="text-head">Upcoming live shows</p>
       </div>
 
@@ -64,7 +81,17 @@ const UppliveShow2 = () => {
 
       <div className="contentE">
         <p className="text-chat">Text chat</p>
-        <img src={on} alt="on" />
+        {/* <img src={on} alt="on" /> */}
+        <label className="switchOnOff">
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleChange}
+            className="onOffinputs"
+          />
+          <span className="sliderSpans"></span>
+        </label>
+        {/* <p>{isChecked ? "ON" : "OFF"}</p> */}
       </div>
 
       <p className="p_foot">
