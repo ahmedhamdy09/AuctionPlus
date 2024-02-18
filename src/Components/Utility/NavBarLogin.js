@@ -51,7 +51,7 @@ const NavBarLogin = () => {
               <p className="linksPage">Home</p>
             </Nav.Link>
             <Nav.Link
-              href="/auctionlive"
+              href="/stream"
               className="nav-text d-flex  justify-content-center mt-2"
             >
               <p className="linksPage">Auctions</p>

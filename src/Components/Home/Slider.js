@@ -17,7 +17,7 @@ const Slider = () => {
       <div className="layoutd"></div>
 
       <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item className="slider-background" interval={2000}>
+        <Carousel.Item className="slider-background" interval={3000}>
           <div className="d-flex flex-row justify-content-center align-items-center">
             <img
               style={{ height: "296px", width: "100%", objectFit: "cover" }}
@@ -26,8 +26,11 @@ const Slider = () => {
               alt="First slide"
             />
             <div className="cap">
-              <h3 className="slider-title">There is a big discount</h3>
-              <p className="slider-text">Up to 50% discount on your purchase</p>
+              <h3>SUMMER 2024</h3>
+              <h3 className="slider-title">-30% Discount</h3>
+              <p className="slider-text">
+                We know how large objects will act, but things on a small scale.
+              </p>
             </div>
           </div>
         </Carousel.Item>

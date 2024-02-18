@@ -21,12 +21,20 @@ const LoginPage = () => {
             type="password"
             className="user-input text-center mx-auto"
           />
+          <a
+            href="/popupemail"
+            alt="forget password"
+            className="forgetpassauth"
+            style={{ textAlign: "center" }}
+          >
+            Forget Your Password
+          </a>
           <button className="btn-login mx-auto mt-4">Sign In</button>
           <label className="mx-auto my-4" style={{ textAlign: "center" }}>
             Don't have an account?{" "}
             <Link to="/register" style={{ textDecoration: "none" }}>
               <span style={{ cursor: "pointer" }} className="text-danger">
-                Submit
+                Register
               </span>
             </Link>
           </label>

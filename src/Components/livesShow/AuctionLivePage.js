@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AuctionLivePage.css";
-import searchIconsbid from "./images/input-group-append.png";
-import scannerMer from "./images/Seminar-pana 1.png";
+// import searchIconsbid from "./images/input-group-append.png";
+// import scannerMer from "./images/Seminar-pana 1.png";
 import fluentLive from "./images/fluent_live-24-filled.png";
 import { Container, Modal } from "react-bootstrap";
 import arror from "./images/feArrowDown1.png";
@@ -22,7 +22,7 @@ const AuctionLivePage = () => {
   return (
     <Container>
       <div className="fullPageAuction">
-        <div className="auctionshow">
+        {/* <div className="auctionshow">
           <div className="generationAuction">
             <h3>Next Generation Auction</h3>
             <h2>Find Your Next Deal!</h2>
@@ -50,8 +50,8 @@ const AuctionLivePage = () => {
           </div>
           <div className="searchScanners">
             <img src={scannerMer} className="searchBidimg" alt="searchBid" />
-          </div>
-        </div>
+          </div> 
+        </div>*/}
         <div className="fluentlive">
           <img src={fluentLive} className="searchBid" alt="searchBid" />
           <h2>Live auction area</h2>

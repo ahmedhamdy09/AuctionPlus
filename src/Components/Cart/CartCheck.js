@@ -9,19 +9,19 @@ const CartCheck = () => {
         <div className="d-flex  ">
           <input
             className="copon-input d-inline text-center "
-            placeholder="كود الخصم"
+            placeholder="Code Discount"
           />
-          <button className="copon-btn d-inline ">تطبيق</button>
+          <button className="copon-btn d-inline ">Apply</button>
         </div>
-        <div className="product-price d-inline w-100 my-3  border">
-          34000 جنية
-        </div>
+        <div className="product-price d-inline w-100 my-3  border">3000 $</div>
         <Link
           to="/order/paymethod"
           style={{ textDecoration: "none" }}
           className="product-cart-add  d-inline "
         >
-          <button className="product-cart-add w-100 px-2"> اتمام الشراء</button>
+          <button className="product-cart-add w-100 px-2">
+            Complete your Buy
+          </button>
         </Link>
       </Col>
     </Row>

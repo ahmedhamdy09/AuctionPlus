@@ -5,19 +5,14 @@ import CardProductsContainer from "../../Components/Products/CardProductsContain
 import DiscountSection from "../../Components/Home/DiscountSection";
 import BrandFeatures from "../../Components/Brand/BrandFeatures";
 import ViewHomeProductsHook from "../../HookLogicCode/ProductsLogicHook/ViewHomeProductsHook";
-import AuctionProductsContainer from "../../Components/livesShow/AuctionProductDescription/AuctionProductContainer"
+import AuctionLivePage from "../../Components/livesShow/AuctionLivePage";
 const HomePage = () => {
   const [items] = ViewHomeProductsHook();
   console.log(items);
   return (
     <div className="font" style={{ minHeight: "670px" }}>
       <Slider />
-      <AuctionProductsContainer
-       products={items}
-        title="Auction"
-        btntitle="More"
-        pathText="/auctionlive"
-       />
+      <AuctionLivePage title="Auction" btntitle="More" />
       <HomeCategory />
       <CardProductsContainer
         products={items}
@@ -26,12 +21,12 @@ const HomePage = () => {
         pathText="/products"
       />
       <DiscountSection />
-      <CardProductsContainer
+      {/* <CardProductsContainer
         products={items}
         title="Best Products"
         btntitle="More"
         pathText="/products"
-      />
+      /> */}
       <BrandFeatures title="All Famous Brand" btntitle="More" />
     </div>
   );

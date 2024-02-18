@@ -9,10 +9,10 @@ const CartItem = () => {
       <div className="w-100">
         <Row className="justify-content-between">
           <Col sm="12" className=" d-flex flex-row justify-content-between">
-            <div className="d-inline pt-2 cat-text">الالكترونيات</div>
+            <div className="d-inline pt-2 cat-text">Electronic</div>
             <div className="d-flex pt-2 " style={{ cursor: "pointer" }}>
               <img src={deleteicon} alt="" width="20px" height="24px" />
-              <div className="cat-text d-inline me-2">ازاله</div>
+              <div className="cat-text d-inline me-2">Delete</div>
             </div>
           </Col>
         </Row>
@@ -26,8 +26,8 @@ const CartItem = () => {
         </Row>
         <Row>
           <Col sm="12" className="mt-1">
-            <div className="cat-text d-inline">الماركة :</div>
-            <div className="barnd-text d-inline mx-1">ابل </div>
+            <div className="cat-text d-inline">Brand :</div>
+            <div className="barnd-text d-inline mx-1">Apple </div>
           </Col>
         </Row>
         <Row>
@@ -42,14 +42,14 @@ const CartItem = () => {
         <Row className="justify-content-between">
           <Col sm="12" className=" d-flex flex-row justify-content-between">
             <div className="d-inline pt-2 d-flex">
-              <div className="cat-text  d-inline">الكميه</div>
+              <div className="cat-text  d-inline">Quantity</div>
               <input
                 className="mx-2 "
                 type="number"
                 style={{ width: "40px", height: "25px" }}
               />
             </div>
-            <div className="d-inline pt-2 barnd-text">٣٠٠٠ جنية</div>
+            <div className="d-inline pt-2 barnd-text">3000 $</div>
           </Col>
         </Row>
       </div>

@@ -27,11 +27,14 @@ import AdminEditProductsPage from "./Page/Admin/AdminEditProductsPage";
 import ContactUs from "./Components/Utility/ContactUs";
 import AuctionLivePage from "./Components/livesShow/AuctionLivePage";
 import AuctionProductPage from "./Page/Products/AuctionProductsPage";
-import Stream from "./Components/livesShow/AuctionProductDescription/Stream"
+import Stream from "./Components/livesShow/AuctionProductDescription/Stream";
 import UppliveShow1 from "./Components/livesShow/UpplivesShow1";
 import UppliveShow2 from "./Components/livesShow/UpplivesShow2";
 import UppliveShow3 from "./Components/livesShow/UpplivesShow3";
 import UppliveShow4 from "./Components/livesShow/UpplivesShow4";
+import PopUPEmail from "./Page/Auth/ForgetPass/PopUPEmail";
+import PopUpOtp from "./Page/Auth/ForgetPass/PopUpOtp";
+import PopUpNewPass from "./Page/Auth/ForgetPass/PopUpNewPass";
 
 function App() {
   return (
@@ -71,17 +74,19 @@ function App() {
             path="/admin/editproduct/:id"
             element={<AdminEditProductsPage />}
           />
-
-          <Route path="/auctionlive" element={<AuctionLivePage />} />      
+          {/* starttauction */}
+          <Route path="/auctionlive" element={<AuctionLivePage />} />
           <Route path="/auctionproductpage" element={<AuctionProductPage />} />
           <Route path="/stream" element={<Stream />} />
-          
           <Route path="/upliveone" element={<UppliveShow1 />} />
           <Route path="/uplivetwo" element={<UppliveShow2 />} />
           <Route path="/uplivethree" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
-
+          {/* end auction */}
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/popupemail" element={<PopUPEmail />} />
+          <Route path="/popupotp" element={<PopUpOtp />} />
+          <Route path="/popupnewpass" element={<PopUpNewPass />} />
         </Routes>
         <Footer />
       </BrowserRouter>
