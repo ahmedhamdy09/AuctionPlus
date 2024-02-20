@@ -12,8 +12,8 @@ const HomePage = () => {
   return (
     <div className="font" style={{ minHeight: "670px" }}>
       <Slider />
-      <AuctionLivePage title="Auction" btntitle="More" />
       <HomeCategory />
+      <AuctionLivePage title="Auction" btntitle="More" />
       <CardProductsContainer
         products={items}
         title="Best Seller"
