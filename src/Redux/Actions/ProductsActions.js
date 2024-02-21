@@ -67,6 +67,22 @@ export const getAllProductsPageNumber = (page, limit) => async (dispatch) => {
     });
   }
 };
+//get all products with query string folter search box
+export const getAllProductsSearch = (queryString) => async (dispatch) => {
+  try {
+    const response = await useGetData(`/api/v1/products?${queryString}`);
+    dispatch({
+      type: GET_ALL_PRODUCTS,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_ERROR,
+      payload: "ERROR" + e,
+    });
+  }
+};
 
 //get one products with id
 export const getOneProduct = (id) => async (dispatch) => {

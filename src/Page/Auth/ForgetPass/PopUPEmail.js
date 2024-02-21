@@ -36,10 +36,13 @@ const PopUPEmail = () => {
               className="emailForget"
               type="email"
               placeholder="Enter Your E-mail"
+              required
             />
           </label>
           <br />
-          <button className="next" onClick={goPageOptionPopOtp}>Next</button>
+          <button className="next" onClick={goPageOptionPopOtp}>
+            Next
+          </button>
         </div>
       </div>
     </Container>

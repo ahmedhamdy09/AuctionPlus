@@ -2,8 +2,15 @@ import React from "react";
 import { Container, FormControl, Nav, Navbar } from "react-bootstrap";
 import logo from "../../assets/photo_2023-12-08_21-49-25.jpg";
 import "./UtiltyCss/NavStyle.css";
+import NabBarSearchHook from "../../HookLogicCode/Search/NabBarSearchHook";
 
 const NavBarLogin = () => {
+  // eslint-disable-next-line
+  const [onChangeSearch, searchWord] = NabBarSearchHook();
+  // search word
+  let word = "";
+  if (localStorage.getItem("searchWord") != null)
+    word = localStorage.getItem("searchWord");
   const navbarStyle = {
     backgroundColor: "#77D1F3",
     height: "80px",
@@ -73,6 +80,8 @@ const NavBarLogin = () => {
           <div className="icc">
             <i className="fa-solid fa-magnifying-glass"></i>
             <FormControl
+              value={word}
+              onChange={onChangeSearch}
               type="search"
               placeholder="Search for Products..."
               className="formsControl me-3 text-center"

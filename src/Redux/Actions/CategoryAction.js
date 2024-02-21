@@ -22,6 +22,7 @@ export const getAllCategory = (limits) => async (dispatch) => {
   }
 };
 
+
 // get one catogry
 export const getOneCategory = (id) => async (dispatch) => {
   try {

@@ -8,16 +8,18 @@ import Pagination from "../../Components/Utility/Pagination";
 import ViewSearchProducts from "../../HookLogicCode/ProductsLogicHook/ViewSearchProducts";
 const ShopProductsPage = () => {
   // eslint-disable-next-line
-  const [items, Paginations, onPress] = ViewSearchProducts();
+  const [items, Paginations, onPress,  getProduct, results] = ViewSearchProducts();
   // eslint-disable-next-line
   if (Paginations) var pageCount = Paginations;
   // eslint-disable-next-line
-  else Paginations = 0;
+   else pageCount = 0;
+ // let pageCount = Paginations || 0;
+
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryHeader />
       <Container>
-        <SearchCountResult title={`There are ${items.length} Search Result`} />
+        <SearchCountResult onClick={getProduct} title={`There are ${results} Search Result`} />
         <Row className="d-flex flex-row">
           <Col sm="2" xs="2" md="2" className="d-flex">
             <SideBarFilter />
