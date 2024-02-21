@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Spinner } from "react-bootstrap";
 import CategoryCard from "../Category/CategoryCard";
-import CardsCategory from "../../Page/Category/CardsCategory/CardCategory";
+// import SideCardCategory from "./CategoryCardContainer/SideCardCategory";
 
 const CategoryContainer = ({ data, loading }) => {
   const colors = [
@@ -15,7 +15,7 @@ const CategoryContainer = ({ data, loading }) => {
   return (
     <Container>
       <div className="admin-content-text mt-2">All Category</div>
-      <CardsCategory />
+      {/* <SideCardCategory /> */}
       <Row className="my-2 d-flex justify-content-between">
         {loading === false ? (
           data ? (
