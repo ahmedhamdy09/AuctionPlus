@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategory } from "../../Redux/Actions/CategoryAction";
 import { getAllBrand } from "../../Redux/Actions/BrandAction";
@@ -31,11 +31,41 @@ const SideBarSearchHook = () => {
     brand = allbrandSideBarSearch.data;
   }
 
-  // when user press ant category
+  //store id category in state
+  const [categoryCheckBox, setCategoryCheckBox] = useState([]);
+  // when user press any category
   const clickCategory = (e) => {
-    console.log(e.target.value);
+    let value = e.target.value;
+    if (value === "0") {
+      setCategoryCheckBox([]);
+    } else {
+      if (e.target.checked === true) {
+        setCategoryCheckBox([...categoryCheckBox, value]);
+      } else if (e.target.checked === false) {
+        const newArr = categoryCheckBox.filter((e) => e !== value);
+        setCategoryCheckBox(newArr);
+      }
+    }
   };
-  return [category, brand ,clickCategory];
+
+  // brand filter
+  //store id category in state
+  const [brandCheckBox, setBrandCheckBox] = useState([]);
+  // when user press any brand
+  const clickBrand = (e) => {
+    let value = e.target.value;
+    if (value === "0") {
+      setBrandCheckBox([]);
+    } else {
+      if (e.target.checked === true) {
+        setBrandCheckBox([...brandCheckBox, value]);
+      } else if (e.target.checked === false) {
+        const newArr = brandCheckBox.filter((e) => e !== value);
+        setBrandCheckBox(newArr);
+      }
+    }
+  };
+  return [category, brand, clickCategory ,clickBrand];
 };
 
 export default SideBarSearchHook;

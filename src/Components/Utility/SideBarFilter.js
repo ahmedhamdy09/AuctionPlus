@@ -3,14 +3,14 @@ import { Row } from "react-bootstrap";
 import SideBarSearchHook from "../../HookLogicCode/Search/SideBarSearchHook";
 
 const SideBarFilter = () => {
-  const [category, brand, clickCategory] = SideBarSearchHook();
+  const [category, brand, clickCategory,clickBrand] = SideBarSearchHook();
   return (
     <div className="mt-3">
       <Row>
         <div className="d-flex flex-column mt-2">
           <div className="filter-title">Category</div>
           <div className="d-flex mt-3">
-            <input type="checkbox" value="0" />
+            <input onChange={clickCategory} type="checkbox" value="0" />
             <div className="filter-sub me-2 ">All</div>
           </div>
           {category ? (
@@ -30,14 +30,14 @@ const SideBarFilter = () => {
         <div className="d-flex flex-column mt-2">
           <div className="filter-title mt-3">Brand</div>
           <div className="d-flex mt-3">
-            <input type="checkbox" value="0" />
+            <input onChange={clickBrand} type="checkbox" value="0" />
             <div className="filter-sub me-2 ">All</div>
           </div>
           {brand ? (
             brand.map((item, index) => {
               return (
                 <div className="d-flex mt-2" key={index}>
-                  <input type="checkbox" value={item._id} />
+                  <input onChange={clickBrand} type="checkbox" value={item._id} />
                   <div className="filter-sub me-2 ">{item.name}</div>
                 </div>
               );
