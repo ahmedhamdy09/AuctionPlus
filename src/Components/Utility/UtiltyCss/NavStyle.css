@@ -16,7 +16,10 @@
     border: none;
     /* border-radius: 7px; */
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
+
 
 
 .linksPage {
@@ -47,8 +50,10 @@
 .iconn i {
     font-size: 21px;
     color: black;
-
+    align-items: center;
     margin: 0px 3px;
+    display: flex;
+
 }
 
 
@@ -59,7 +64,33 @@
 .navbar-brand {
     padding: 0px
 } 
+nav{
+    background-color: "#77D1F3" !important;  
+}
+.nav-link{
+    padding: 0px !important;
+    margin-right: 20px;
+    font-weight: bold !important;
+    margin-bottom: 8px;
+}
+.navbar{
+    background-color: #77D1F3 !important;
+    height: "80px";
+}
+.icc{
+    display: flex;
+    width: 100%;
+}
+@media (min-width: 992px){
 
+
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    width: 100% !important;
+    display: flex;
+    justify-content: flex-end !important;
+}
+}
 @media (max-width:1194px) {
     /* .navbar-collapse {
         flex-basis: 100% !important;
