@@ -21,7 +21,7 @@ const UppliveShow3 = () => {
           </div>
 
           <div className="con1">
-            <p className="u_name">Eslam Nasr</p>
+            <p className="u_name">Ahmed Hamdy</p>
             <div style={{ display: "flex" }}>
               <span className="r_num">0.0</span>
               <span>
@@ -32,7 +32,7 @@ const UppliveShow3 = () => {
               </button>
             </div>
             <br />
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", marginTop: "-30px" }}>
               <span className="num">96K</span>{" "}
               <span className="follow">Followers</span>
             </div>

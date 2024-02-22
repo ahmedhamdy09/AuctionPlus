@@ -57,7 +57,7 @@ const Footer = () => {
       </div>
       <div className="d4">
         <p>
-          Made With By IS Team Suez Canal University Dr.Osama Farouk Monitor All
+          Made By IS Team Suez Canal University Dr.Osama Farouk Monitor All
           Right Reserved
         </p>
       </div>

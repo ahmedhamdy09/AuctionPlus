@@ -7,12 +7,24 @@ const ViewSearchProducts = () => {
   const dispatch = useDispatch();
 
   const getProduct = async () => {
-    let word = "";
-    if (localStorage.getItem("searchWord") != null)
-      word = localStorage.getItem("searchWord");
+    getStorage();
     sortData();
+    let priceFromString = "";
+    if (priceFrom === "" || priceFrom <= 0) {
+      priceFromString = "";
+    } else {
+      priceFromString = `&price[gte]=${priceFrom}`;
+    }
+    let priceToString = "";
+    if (priceTo === "" || priceTo <= 0) {
+      priceToString = "";
+    } else {
+      priceToString = `&price[lte]=${priceTo}`;
+    }
     await dispatch(
-      getAllProductsSearch(`sort=${sort}&limit=${limit}&keyword=${word}`)
+      getAllProductsSearch(
+        `sort=${sort}&limit=${limit}&keyword=${word}&${queryCategory}&${queryBrand}${priceFromString}${priceToString}`
+      )
     );
   };
   useEffect(
@@ -53,15 +65,49 @@ const ViewSearchProducts = () => {
 
   // when click paginations
   const onPress = async (page) => {
-    let word = "";
-    if (localStorage.getItem("searchWord") != null)
-      word = localStorage.getItem("searchWord");
+    getStorage();
     sortData();
     await dispatch(
       getAllProductsSearch(
-        `sort=${sort}&limit=${limit}&page=${page}&keyword=${word}`
+        `sort=${sort}&limit=${limit}&page=${page}&keyword=${word}&${queryCategory}&${queryBrand}${priceFromString}${priceToString}`
       )
     );
+  };
+
+  let word = "";
+  let queryCategory = "";
+  let queryBrand = "";
+  let priceFrom = "0";
+  let priceTo = "0";
+  let priceFromString = "";
+  let priceToString = "";
+  const getStorage = () => {
+    if (localStorage.getItem("searchWord") != null)
+      word = localStorage.getItem("searchWord");
+
+    if (localStorage.getItem("categoryCheckBox") != null)
+      queryCategory = localStorage.getItem("categoryCheckBox");
+
+    if (localStorage.getItem("brandCheckBox") != null)
+      queryBrand = localStorage.getItem("brandCheckBox");
+
+    if (localStorage.getItem("priceFrom") != null)
+      priceFrom = localStorage.getItem("priceFrom");
+
+    if (localStorage.getItem("priceTo") != null)
+      priceTo = localStorage.getItem("priceTo");
+
+    if (priceFrom === "" || priceFrom <= 0) {
+      priceFromString = "";
+    } else {
+      priceFromString = `&price[gte]=${priceFrom}`;
+    }
+
+    if (priceTo === "" || priceTo <= 0) {
+      priceToString = "";
+    } else {
+      priceToString = `&price[lte]=${priceTo}`;
+    }
   };
 
   let sortType = "",

@@ -3,7 +3,10 @@ import { Row } from "react-bootstrap";
 import SideBarSearchHook from "../../HookLogicCode/Search/SideBarSearchHook";
 
 const SideBarFilter = () => {
-  const [category, brand, clickCategory,clickBrand] = SideBarSearchHook();
+  const [category, brand, clickCategory, clickBrand, priceFrom, priceTo] =
+    SideBarSearchHook();
+  let localFrom = localStorage.getItem("priceFrom");
+  let localTo = localStorage.getItem("priceTo");
   return (
     <div className="mt-3">
       <Row>
@@ -17,7 +20,11 @@ const SideBarFilter = () => {
             category.map((item, index) => {
               return (
                 <div className="d-flex mt-2" key={index}>
-                  <input onChange={clickCategory} type="checkbox" value={item._id} />
+                  <input
+                    onChange={clickCategory}
+                    type="checkbox"
+                    value={item._id}
+                  />
                   <div className="filter-sub me-2 ">{item.name}</div>
                 </div>
               );
@@ -37,7 +44,11 @@ const SideBarFilter = () => {
             brand.map((item, index) => {
               return (
                 <div className="d-flex mt-2" key={index}>
-                  <input onChange={clickBrand} type="checkbox" value={item._id} />
+                  <input
+                    onChange={clickBrand}
+                    type="checkbox"
+                    value={item._id}
+                  />
                   <div className="filter-sub me-2 ">{item.name}</div>
                 </div>
               );
@@ -51,6 +62,8 @@ const SideBarFilter = () => {
         <div className="d-flex">
           <p className="filter-sub my-2">From:</p>
           <input
+            value={localFrom}
+            onChange={priceFrom}
             className="m-2 text-center"
             type="number"
             style={{ width: "50px", height: "25px" }}
@@ -59,6 +72,8 @@ const SideBarFilter = () => {
         <div className="d-flex">
           <p className="filter-sub my-2">To:</p>
           <input
+            value={localTo}
+            onChange={priceTo}
             className="m-2 text-center"
             type="number"
             style={{ width: "50px", height: "25px" }}
