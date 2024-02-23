@@ -19,13 +19,22 @@ const HomeCategoryLogic = () => {
   const loading = useSelector((state) => state.allCategory.loading);
 
   const colors = [
-    "#FFD3E8",
-    "#F4DBA5",
-    "#55CDFDF",
-    "#FF6262",
-    "#0034FF",
-    "#FFD3E8",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
   ];
+
+  // const  colors = [
+  //   "#FFD3E8",
+  //   "#F4DBA5",
+  //   "#55CDFDF",
+  //   "#FF6262",
+  //   "#0034FF",
+  //   "#FFD3E8",
+  // ]
   return [category, loading, colors];
 };
 

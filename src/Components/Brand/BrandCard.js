@@ -18,10 +18,13 @@ const BrandCard = ({ img }) => {
           height: "151px",
           borderRadius: "8px",
           border: "none",
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "none",
         }}
       >
-        <Card.Img style={{ width: "100%", height: "151px" }} src={img} />
+        <Card.Img
+          style={{ width: "100%", height: "151px", backgroundColor: "none" }}
+          src={img}
+        />
       </Card>
     </Col>
   );

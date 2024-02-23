@@ -15,7 +15,7 @@ const ProductsCard = ({ item }) => {
           borderRadius: "8px",
           border: "none",
           backgroundColor: "#FFFFFF",
-          boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
+          boxShadow: "0 16px 25px rgba(0,0,0,0.25)",
         }}
       >
         <Link to={`/products/${item?._id}`} style={{ textDecoration: "none" }}>
@@ -43,18 +43,18 @@ const ProductsCard = ({ item }) => {
           <Card.Text>
             <div className="d-flex justify-content-between ">
               <div className="d-flex">
-                <div className="card-price">{item?.price}</div>
-                <div className="card-currency mx-1">$</div>
+                <div className="card-price">{item?.price}$</div>
+                <div className="card-currency mx-1"></div>
               </div>
               <div className="d-flex">
+                <div className="card-rate mx-2">{item?.ratingsQuantity}</div>
                 <img
-                  className=""
+                  className="card-rate"
                   src={rate}
                   alt=""
                   height="20px"
                   width="20px"
                 />
-                <div className="card-rate mx-2">{item?.ratingsQuantity}</div>
               </div>
             </div>
           </Card.Text>

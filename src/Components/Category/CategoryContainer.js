@@ -5,13 +5,22 @@ import CategoryCard from "../Category/CategoryCard";
 
 const CategoryContainer = ({ data, loading }) => {
   const colors = [
-    "#FFD3E8",
-    "#F4DBA5",
-    "#55CDFDF",
-    "#FF6262",
-    "#0034FF",
-    "#FFD3E8",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
   ];
+
+  // const colors = [
+  //   "#FFD3E8",
+  //   "#F4DBA5",
+  //   "#55CDFDF",
+  //   "#FF6262",
+  //   "#0034FF",
+  //   "#FFD3E8",
+  // ];
   return (
     <Container>
       <div className="admin-content-text mt-2">All Category</div>
