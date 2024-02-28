@@ -1,4 +1,4 @@
-import { CREATE_NEW_USER } from "../Type";
+import { CREATE_NEW_USER , LOGIN_USER } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 
 //creat new user
@@ -13,6 +13,23 @@ export const createNewUser = (data) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: CREATE_NEW_USER,
+      payload: e.response,
+    });
+  }
+};
+
+//login user
+export const loginUser = (data) => async (dispatch) => {
+  try {
+    const response = await useInsertData(`/api/v1/auth/login`, data);
+    dispatch({
+      type: LOGIN_USER,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: LOGIN_USER,
       payload: e.response,
     });
   }

@@ -1,8 +1,19 @@
 import React from "react";
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row, Container, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import LoginHook from "../../HookLogicCode/Auth/LoginHook";
+import { ToastContainer } from "react-toastify";
 
 const LoginPage = () => {
+  const [
+    email,
+    password,
+    loading,
+    onChangeEmail,
+    onChangePassword,
+    onSubmit,
+    isPress,
+  ] = LoginHook();
   return (
     <Container style={{ minHeight: "680px" }}>
       <Row className="py-5 d-flex justify-content-center ">
@@ -12,11 +23,15 @@ const LoginPage = () => {
           </label>
           <label className="mx-auto title-login">Sign In</label>
           <input
+            value={email}
+            onChange={onChangeEmail}
             placeholder="Email"
-            type="text"
+            type="email"
             className="user-input my-3 text-center mx-auto"
           />
           <input
+            value={password}
+            onChange={onChangePassword}
             placeholder="Password"
             type="password"
             className="user-input text-center mx-auto"
@@ -29,7 +44,9 @@ const LoginPage = () => {
           >
             Forget Your Password
           </a>
-          <button className="btn-login mx-auto mt-4">Sign In</button>
+          <button onClick={onSubmit} className="btn-login mx-auto mt-4">
+            Sign In
+          </button>
           <label className="mx-auto my-4" style={{ textAlign: "center" }}>
             Don't have an account?{" "}
             <Link to="/register" style={{ textDecoration: "none" }}>
@@ -38,6 +55,13 @@ const LoginPage = () => {
               </span>
             </Link>
           </label>
+          {isPress === true ? (
+            loading === true ? (
+              <Spinner animation="border" role="status">
+                {/* <span className="visually-hidden">Loading...</span> */}
+              </Spinner>
+            ) : null
+          ) : null}
         </Col>
 
         <label className="mx-auto my-4">
@@ -54,6 +78,7 @@ const LoginPage = () => {
           </Link>
         </label>
       </Row>
+      <ToastContainer />
     </Container>
   );
 };
