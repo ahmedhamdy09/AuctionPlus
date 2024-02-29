@@ -7,9 +7,11 @@ import {
 import useGetData from "../../Hooks/useGetData";
 import { useInsertDataWithImages } from "../../Hooks/useInsertData";
 // get all catogry
-export const getAllCategory = (limits) => async (dispatch) => {
+// limits
+export const getAllCategory = (limit) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/categories?limit=${limits}`);
+    const response = await useGetData(`/api/v1/category?limit=${limit}`);
+    // const response = await useGetData(`/api/v1/categories?limit=${limits}`);
     dispatch({
       type: GET_ALL_CATEGORY,
       payload: response,
@@ -22,11 +24,12 @@ export const getAllCategory = (limits) => async (dispatch) => {
   }
 };
 
-
 // get one catogry
 export const getOneCategory = (id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/categories/${id}`);
+    const response = await useGetData(`/api/v1/category/${id}`);
+
+    // const response = await useGetData(`/api/v1/categories/${id}`);
     dispatch({
       type: GET_ONE_CATEGORY,
       payload: response,
@@ -42,9 +45,10 @@ export const getOneCategory = (id) => async (dispatch) => {
 //get all category with pagination
 export const getAllCategoryPage = (page) => async (dispatch) => {
   try {
-    const response = await useGetData(
-      `/api/v1/categories?limit=6&page=${page}`
-    );
+    const response = await useGetData(`/api/v1/category?page=${page}&limit=6`);
+    // const response = await useGetData(
+    //   `/api/v1/categories?limit=6&page=${page}`
+    // );
     dispatch({
       type: GET_ALL_CATEGORY,
       payload: response,
@@ -60,9 +64,13 @@ export const getAllCategoryPage = (page) => async (dispatch) => {
 export const createCategory = (formData) => async (dispatch) => {
   try {
     const response = await useInsertDataWithImages(
-      `/api/v1/categories`,
+      `/api/v1/category`,
       formData
     );
+    // const response = await useInsertDataWithImages(
+    //   `/api/v1/categories`,
+    //   formData
+    // );
     dispatch({
       type: CREATE_CATEGORY,
       payload: response,
