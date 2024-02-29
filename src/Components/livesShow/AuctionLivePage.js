@@ -12,46 +12,16 @@ const AuctionLivePage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const goPageOption1 = () => {
-    navigate("/stream");
+    navigate("/uplivetwo");
   };
 
   const goPageOption2 = () => {
-    navigate("/stream");
+    navigate("/uplivefour");
   };
 
   return (
     <Container>
       <div className="fullPageAuction">
-        {/* <div className="auctionshow">
-          <div className="generationAuction">
-            <h3>Next Generation Auction</h3>
-            <h2>Find Your Next Deal!</h2>
-            <p>
-              Online Auction is where everyone goes to
-              <br />
-              shop, sell,and give ,while discovering
-              <br />
-              variety and affordability
-            </p>
-            <div className="chooses">
-              <input
-                type="text"
-                placeholder="search for bids"
-                className="searchBids"
-              />
-              <select name="bids" id="bids">
-                <option value="Category">Category</option>
-                <option value="Category">Category</option>
-                <option value="Category">Category</option>
-                <option value="Category">Category</option>
-              </select>
-              <img src={searchIconsbid} className="searchBid" alt="searchBid" />
-            </div>
-          </div>
-          <div className="searchScanners">
-            <img src={scannerMer} className="searchBidimg" alt="searchBid" />
-          </div> 
-        </div>*/}
         <div className="fluentlive">
           <img src={fluentLive} className="searchBid" alt="searchBid" />
           <h2>Live auction area</h2>

@@ -6,6 +6,7 @@ import { loginUser } from "../../Redux/Actions/AuthAction";
 
 const LoginHook = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,16 +54,19 @@ const LoginHook = () => {
           console.log(res.data);
           if (res.data.token) {
             localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.data));
             notify("Login Success", "success");
             setTimeout(() => {
-              navigate("/");
+              window.location.href = "/";
             }, 1500);
           } else {
             localStorage.removeItem("token");
+            localStorage.removeItem("user");
           }
           if (res.status) {
             if (res.data.message === "Incorrect email or password") {
               localStorage.removeItem("token");
+              localStorage.removeItem("user");
               notify("Login Failed", "error");
             }
           }
