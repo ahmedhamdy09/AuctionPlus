@@ -6,7 +6,7 @@ import { useInsertData } from "../../Hooks/useInsertData";
 //create subCategory
 export const createSubCategory = (data) => async (dispatch) => {
   try {
-    const response = await useInsertData(`/api/v1/subcategory`, data);
+    const response = await useInsertData(`/api/v1/subcategories`, data);
 
     // const response = await useInsertData(`/api/v1/subcategories`, data);
     dispatch({
@@ -25,7 +25,7 @@ export const createSubCategory = (data) => async (dispatch) => {
 //get subCategory depends in category id
 export const getOneSubCategory = (id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/subcategory/${id}`);
+    const response = await useGetData(`/api/v1/subcategories/${id}`);
 
     // const response = await useGetData(`/api/v1/categories/${id}/subcategories`);
     // console.log(response.data);
