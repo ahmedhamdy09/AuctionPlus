@@ -9,11 +9,8 @@ import {
 import logo from "../../assets/photo_2023-12-08_21-49-25.jpg";
 import "./UtiltyCss/NavStyle.css";
 import NabBarSearchHook from "../../HookLogicCode/Search/NabBarSearchHook";
-// import { useDispatch } from "react-redux";
-// import { getLoggedUser } from "../../Redux/Actions/AuthAction";
 
 const NavBarLogin = () => {
-  // const dispatch = useDispatch();
   // eslint-disable-next-line
   const [onChangeSearch, searchWord] = NabBarSearchHook();
   // search word
@@ -24,24 +21,16 @@ const NavBarLogin = () => {
     width: "100%",
   };
 
-  // let user = "";
-  // if (localStorage.getItem("user") != null)
-  //    user = JSON.parse(localStorage.getItem("user"));
-
   const [user, setUser] = useState("");
-
-  // logged user Not Working yet
-  // const res = useSelector((state) => state.authReducer.currentLoggedUser);
-
   useEffect(
     () => {
       if (localStorage.getItem("user") != null)
         setUser(JSON.parse(localStorage.getItem("user")));
-      // dispatch(getLoggedUser());
     },
     // eslint-disable-next-line
     []
   );
+
   const logOut = () => {
     localStorage.removeItem("user");
     setUser("");
@@ -123,13 +112,15 @@ const NavBarLogin = () => {
                     id="basic-nav-dropdown"
                     style={{ marginTop: "6px" }}
                   >
-                    {/* <NavDropdown.Item href="/admin/allproducts">
-                      Admin
-                    </NavDropdown.Item> */}
-
-                    <NavDropdown.Item href="/user/profile">
-                      Personal page
-                    </NavDropdown.Item>
+                    {user.role === "admin" ? (
+                      <NavDropdown.Item href="/admin/allproducts">
+                        Admin Dashboard
+                      </NavDropdown.Item>
+                    ) : (
+                      <NavDropdown.Item href="/user/profile">
+                        Personal page
+                      </NavDropdown.Item>
+                    )}
 
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={logOut} href="/">

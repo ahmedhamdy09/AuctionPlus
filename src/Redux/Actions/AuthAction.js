@@ -1,6 +1,14 @@
 // eslint-disable-next-line
-import { CREATE_NEW_USER, LOGIN_USER, GET_CURRENT_USER } from "../Type";
+import {
+  CREATE_NEW_USER,
+  LOGIN_USER,
+  FORGET_PASSWORD,
+  VERIFY_OTP,
+  RESET_PASSWORD,
+} from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
+import { useUpdateData } from "../../Hooks/useUpdateData";
+
 // import useGetDataToken from "../../Hooks/UseGetDataToken.js";
 
 //creat new user
@@ -32,6 +40,57 @@ export const loginUser = (data) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: LOGIN_USER,
+      payload: e.response,
+    });
+  }
+};
+
+// forgetPasswrod Email
+export const forgetEmail = (data) => async (dispatch) => {
+  try {
+    const response = await useInsertData(`/api/v1/auth/forgotPassword`, data);
+    dispatch({
+      type: FORGET_PASSWORD,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: FORGET_PASSWORD,
+      payload: e.response,
+    });
+  }
+};
+
+// forgetPasswrod otp
+export const verfiyOtp = (data) => async (dispatch) => {
+  try {
+    const response = await useInsertData(`/api/v1/auth/verifyResetCode`, data);
+    dispatch({
+      type: VERIFY_OTP,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: VERIFY_OTP,
+      payload: e.response,
+    });
+  }
+};
+
+// reset Password
+export const resetPassword = (data) => async (dispatch) => {
+  try {
+    const response = await useUpdateData(`/api/v1/auth/resetPassword`, data);
+    dispatch({
+      type: RESET_PASSWORD,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: RESET_PASSWORD,
       payload: e.response,
     });
   }

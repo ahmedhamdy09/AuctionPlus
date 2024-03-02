@@ -4,14 +4,7 @@ import CategoryCard from "../Category/CategoryCard";
 // import SideCardCategory from "./CategoryCardContainer/SideCardCategory";
 
 const CategoryContainer = ({ data, loading }) => {
-  const colors = [
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-  ];
+  const colors = ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
 
   // const colors = [
   //   "#FFD3E8",

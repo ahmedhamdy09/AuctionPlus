@@ -25,7 +25,11 @@ const RegisterHookLogic = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const validationValues = () => {
+
+  const res = useSelector((state) => state.authReducer.createUser);
+  // save data
+  const onSubmit = async (e) => {
+    e.preventDefault();
     if (name === "") {
       notify("Please Write Your UserName", "error");
       return;
@@ -38,12 +42,6 @@ const RegisterHookLogic = () => {
       notify("Please verify your password", "error");
       return;
     }
-  };
-
-  const res = useSelector((state) => state.authReducer.createUser);
-  // save data
-  const onSubmit = async () => {
-    validationValues();
     setLoading(true);
     await dispatch(
       createNewUser({

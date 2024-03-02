@@ -8,7 +8,6 @@ export const createSubCategory = (data) => async (dispatch) => {
   try {
     const response = await useInsertData(`/api/v1/subcategories`, data);
 
-    // const response = await useInsertData(`/api/v1/subcategories`, data);
     dispatch({
       type: CREATE_SUB_CATEGORY,
       payload: response,
@@ -23,12 +22,12 @@ export const createSubCategory = (data) => async (dispatch) => {
 };
 
 //get subCategory depends in category id
-export const getOneSubCategory = (id) => async (dispatch) => {
-  try {
-    const response = await useGetData(`/api/v1/subcategories/${id}`);
 
-    // const response = await useGetData(`/api/v1/categories/${id}/subcategories`);
-    // console.log(response.data);
+// id
+export const getOneSubCategory = (_id) => async (dispatch) => {
+  try {
+    const response = await useGetData(`/api/v1/subcategories/${_id}`);
+
     dispatch({
       type: GET_SUB_CATEGORY,
       payload: response,

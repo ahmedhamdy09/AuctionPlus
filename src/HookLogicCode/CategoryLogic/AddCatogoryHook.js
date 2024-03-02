@@ -13,7 +13,6 @@ const AddCatogoryHook = () => {
   const [imgs, setImgs] = useState(avatar);
   // user write categry save it
   const [writes, setWrites] = useState("");
-
   //عاوز الفايل والمسار بتاعه
   const [selectedFile, setSelectedFile] = useState(null);
 

@@ -32,4 +32,10 @@ export const CREATE_NEW_USER = "CREATE_NEW_USER";
 
 export const LOGIN_USER = "LOGIN_USER";
 
+export const FORGET_PASSWORD = "FORGET_PASSWORD";
+
+export const VERIFY_OTP = "VERIFY_OTP";
+
+export const RESET_PASSWORD = "RESET_PASSWORD"
+
 // export const GET_CURRENT_USER = "GET_CURRENT_USER";
