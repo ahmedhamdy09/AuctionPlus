@@ -6,17 +6,20 @@ import ForgetPassEmailHook from "../../../HookLogicCode/Auth/ForgetPassEmailHook
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import PopUpOtp from "./PopUpOtp";
-const PopUPEmail = () => {
-  const [onChangeEmail, email, onSubmit,setShow,show,handleShow,handleClose] = ForgetPassEmailHook();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-   
-  };
+const PopUPEmail = ({ setShowF }) => {
+  const [
+    onChangeEmail,
+    email,
+    onSubmit,
+    setShow,
+    show,
+    handleShow,
+    handleClose,
+  ] = ForgetPassEmailHook();
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="forgetPass">
           <div className="imgs">
             <img className="shopsImg" src={imagesShop} alt="shop" />
@@ -49,7 +52,7 @@ const PopUPEmail = () => {
               />
             </label>
             <br />
-            <button onClick={onSubmit}  className="next">
+            <button onClick={onSubmit} className="next">
               Next
             </button>
           </div>

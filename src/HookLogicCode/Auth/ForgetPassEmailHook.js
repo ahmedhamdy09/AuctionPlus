@@ -18,26 +18,26 @@ const ForgetPassEmailHook = () => {
     setEmail(e.target.value);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault() 
     if (email === "") {
       notify("please insert your email", "error");
       return;
-    }else{
-      localStorage.setItem("user-email",email);
-
+    }
+      // localStorage.setItem("user-email",email);
       setLoading(true);
-  
       await dispatch(
         forgetEmail({
-          email: email,
+          email,
         })
       );
       setLoading(false);
-      handleShow()
-    }
+      // handleShow()
+    
    
   };
   const res = useSelector((state) => state.authReducer.forgetPassword);
+  console.log("🚀 ~ ForgetPassEmailHook ~ res:", res)
   useEffect(
     () => {
       if (loading === false) {

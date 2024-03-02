@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container, Modal } from "react-bootstrap";
 import "./ForgetPassCSS/Popup.css";
 import imagesShop from "../../../assets/image 1.png";
 import { useNavigate } from "react-router-dom";
 import notify from "../../../HookLogicCode/useNotifaction";
 import { useDispatch, useSelector } from "react-redux";
 import { verfiyOtp } from "../../../Redux//Actions/AuthAction";
+import PopUpNewPass from "./PopUpNewPass";
 const PopUpOtp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [otp, setOtp] = useState(new Array(4).fill(""));
+  console.log("🚀 ~ PopUpOtp ~ otp:", otp)
   const [loading, setLoading] = useState(true);
   // const handleChange = (e, index) => {
   //   if (isNaN(e.target.value)) return false;
@@ -53,6 +57,7 @@ const PopUpOtp = () => {
         resetCode: otp,
       })
     );
+    handleShow()
     setLoading(false);
   };
 
@@ -154,6 +159,23 @@ const PopUpOtp = () => {
           </div>
         </div>
       </form>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <PopUpNewPass />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          {/* <Button variant="primary">Understood</Button> */}
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

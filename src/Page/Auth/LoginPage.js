@@ -15,9 +15,9 @@ const LoginPage = () => {
     onSubmit,
     isPress,
   ] = LoginHook();
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showF, setShowF] = useState(false);
+  const handleClose = () => setShowF(false);
+  const handleShow = () => setShowF(true);
   return (
     <>
       <Container style={{ minHeight: "680px" }}>
@@ -90,14 +90,14 @@ const LoginPage = () => {
         <ToastContainer />
       </Container>
       <Modal
-        show={show}
+        show={showF}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <PopUPEmail />
+          <PopUPEmail setShowF={setShowF}/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

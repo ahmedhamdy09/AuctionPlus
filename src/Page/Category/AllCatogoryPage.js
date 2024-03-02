@@ -5,6 +5,7 @@ import AllCatogoryPageLogic from "../../HookLogicCode/CategoryLogic/AllCatogoryP
 const AllCatogoryPage = () => {
   // in all catogory page hooks
   const [category, loading, pageCount, getPage] = AllCatogoryPageLogic();
+  console.log("🚀 ~ AllCatogoryPage ~ category:", category);
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryContainer data={category.data} loading={loading} />

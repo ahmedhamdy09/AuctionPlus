@@ -86,7 +86,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           {/* <Route path="/popupemail" element={<PopUPEmail />} /> */}
           <Route path="/popupotp" element={<PopUpOtp />} />
-          <Route path="/popupnewpass" element={<PopUpNewPass />} />
+          {/* <Route path="/popupnewpass" element={<PopUpNewPass />} /> */}
         </Routes>
         <Footer />
       </BrowserRouter>

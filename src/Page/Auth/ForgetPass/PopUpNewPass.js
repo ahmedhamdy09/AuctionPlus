@@ -61,6 +61,7 @@ const PopUpNewPass = () => {
           </div>
         </div>
       </form>
+      
     </Container>
   );
 };
