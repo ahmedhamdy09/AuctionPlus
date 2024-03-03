@@ -16,19 +16,7 @@ const PopUpOtp = () => {
   const [otp, setOtp] = useState(new Array(4).fill(""));
   console.log("🚀 ~ PopUpOtp ~ otp:", otp)
   const [loading, setLoading] = useState(true);
-  // const handleChange = (e, index) => {
-  //   if (isNaN(e.target.value)) return false;
-
-  //   setOtp([
-  //     ...otp.map((data, idx) => {
-  //       return idx === index ? e.target.value : data;
-  //     }),
-  //   ]);
-
-  //   if (e.target.value && e.target.nextSibling) {
-  //     e.target.nextSibling.focus();
-  //   }
-  // };
+ 
   const handleChange = (e, index) => {
     if (isNaN(e.target.value)) return false;
 
@@ -105,25 +93,7 @@ const PopUpOtp = () => {
               </p>
             </div>
             <div className="otp-reset">
-              {/* {otp.map((item, index) => {
-                return (
-                  <input
-                    key={index}
-                    id="otp"
-                    className="emailForget"
-                    type="text"
-                    value={item}
-                    maxLength={1}
-                    onChange={(e) => handleChange(e, index)}
-                    required
-                    style={{
-                      backgroundColor: "#ABABAB",
-                      color: "#FFFFFF",
-                      fontWeight: "bold",
-                    }}
-                  />
-                );
-              })} */}
+            
               {otp.map((item, index) => {
                 return (
                   <input
