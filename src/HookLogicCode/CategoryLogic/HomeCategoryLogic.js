@@ -10,6 +10,7 @@ const HomeCategoryLogic = () => {
   useEffect(
     () => {
       dispatch(getAllCategory(6));
+      // dispatch(getAllCategory());
     },
     // eslint-disable-next-line
     []
@@ -18,14 +19,7 @@ const HomeCategoryLogic = () => {
   const category = useSelector((state) => state.allCategory.category);
   const loading = useSelector((state) => state.allCategory.loading);
 
-  const colors = [
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-  ];
+  const colors = ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
 
   // const  colors = [
   //   "#FFD3E8",

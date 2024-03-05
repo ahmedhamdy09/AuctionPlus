@@ -84,7 +84,7 @@ export default function Stream() {
               <h3>There are no live shows at the moment</h3>
               <FaMicrophone className="mic" />
               <a
-                href="/liveshow"
+                href="/uplivefour"
                 alt="live"
                 className=""
                 style={{ textDecoration: "none" }}

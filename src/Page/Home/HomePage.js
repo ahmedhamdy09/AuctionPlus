@@ -8,7 +8,7 @@ import ViewHomeProductsHook from "../../HookLogicCode/ProductsLogicHook/ViewHome
 import AuctionLivePage from "../../Components/livesShow/AuctionLivePage";
 const HomePage = () => {
   const [items] = ViewHomeProductsHook();
-  console.log(items);
+  // console.log(items);
   return (
     <div className="font" style={{ minHeight: "670px" }}>
       <Slider />

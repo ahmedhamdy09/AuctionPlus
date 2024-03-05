@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Col, Row, Container } from "react-bootstrap";
 import "./UpplivesShow4.css";
 import chRight from "./images/chevron-right-solid.svg";
-import on from "./images/toggle-on-solid.svg";
+// import on from "./images/toggle-on-solid.svg";
 import clock from "./images/clock-solid.svg";
 // import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,12 @@ const UppliveShow4 = () => {
   // const goPageOption1 = () => {
   //   navegate("/");
   // };
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = () => {
+    setIsChecked((prevIsChecked) => !prevIsChecked);
+  };
+
   return (
     <div className="parent">
       <p className="intro-txt" style={{ justifyContent: "initial" }}>
@@ -35,7 +41,16 @@ const UppliveShow4 = () => {
       <div className="chat-section">
         <div className="contentA">
           <p className="text-chat">Text chat</p>
-          <img src={on} alt="on" />
+          {/* <img src={on} alt="on" /> */}
+          <label className="switchOnOff">
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleChange}
+              className="onOffinputs"
+            />
+            <span className="sliderSpans"></span>
+          </label>
         </div>
         <p className="p_foot">
           Can the audience send messages in a live Tok broadcast?

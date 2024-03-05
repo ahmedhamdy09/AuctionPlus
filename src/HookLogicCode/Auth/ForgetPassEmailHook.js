@@ -24,7 +24,7 @@ const ForgetPassEmailHook = () => {
       notify("please insert your email", "error");
       return;
     }
-      // localStorage.setItem("user-email",email);
+      localStorage.setItem("user-email",email);
       setLoading(true);
       await dispatch(
         forgetEmail({

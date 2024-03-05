@@ -10,7 +10,7 @@ import { useInsertDataWithImages } from "../../Hooks/useInsertData";
 // limits
 export const getAllCategory = (limit) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/categories?limit=${limit}`);
+    const response = await useGetData(`/api/v1/category?limit=${limit}`);
     dispatch({
       type: GET_ALL_CATEGORY,
       payload: response,
@@ -26,7 +26,7 @@ export const getAllCategory = (limit) => async (dispatch) => {
 // get one catogry
 export const getOneCategory = (_id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/categories/${_id}`);
+    const response = await useGetData(`/api/v1/category/${_id}`);
 
     dispatch({
       type: GET_ONE_CATEGORY,
@@ -43,9 +43,7 @@ export const getOneCategory = (_id) => async (dispatch) => {
 //get all category with pagination
 export const getAllCategoryPage = (page) => async (dispatch) => {
   try {
-    const response = await useGetData(
-      `/api/v1/categories?page=${page}&limit=3`
-    );
+    const response = await useGetData(`/api/v1/category?page=${page}&limit=3`);
 
     dispatch({
       type: GET_ALL_CATEGORY,
@@ -62,7 +60,7 @@ export const getAllCategoryPage = (page) => async (dispatch) => {
 export const createCategory = (formData) => async (dispatch) => {
   try {
     const response = await useInsertDataWithImages(
-      `/api/v1/categories`,
+      `/api/v1/category`,
       formData
     );
 

@@ -86,3 +86,21 @@
     height: auto !important;
     margin: auto !important;
 }
+
+.otpdesign {
+    /* width: 50px;
+    height: 40px; */
+    width: 30%;
+    height: 30px;
+    border: 1px solid gray;
+    background-color: #ABABAB;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    /* border: none; */
+    border-radius: 5px;
+    outline: none;
+    padding: 0 10px;
+    margin: 28px;
+}

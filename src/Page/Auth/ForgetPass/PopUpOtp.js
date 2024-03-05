@@ -1,74 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Button, Container, Modal } from "react-bootstrap";
+import React from "react";
+import { Container } from "react-bootstrap";
 import "./ForgetPassCSS/Popup.css";
 import imagesShop from "../../../assets/image 1.png";
-import { useNavigate } from "react-router-dom";
-import notify from "../../../HookLogicCode/useNotifaction";
-import { useDispatch, useSelector } from "react-redux";
-import { verfiyOtp } from "../../../Redux//Actions/AuthAction";
-import PopUpNewPass from "./PopUpNewPass";
+import VerifyOTP from "../../../HookLogicCode/Auth/VerfyPassOTP";
+
 const PopUpOtp = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [otp, setOtp] = useState(new Array(4).fill(""));
-  console.log("🚀 ~ PopUpOtp ~ otp:", otp)
-  const [loading, setLoading] = useState(true);
- 
-  const handleChange = (e, index) => {
-    if (isNaN(e.target.value)) return false;
-
-    const newOtp = [...otp];
-    newOtp[index] =
-      e.target.value.length > 1 ? e.target.value.slice(0, 1) : e.target.value;
-    setOtp(newOtp);
-
-    if (e.target.value.length === 1 && e.target.nextSibling) {
-      e.target.nextSibling.focus();
-    }
-  };
-
-  const res = useSelector((state) => state.authReducer.verifyOtp);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (otp === "") {
-      notify("please insert your code", "error");
-      return;
-    }
-    setLoading(true);
-
-    await dispatch(
-      verfiyOtp({
-        resetCode: otp,
-      })
-    );
-    handleShow()
-    setLoading(false);
-  };
-
-  useEffect(
-    () => {
-      if (loading === false) {
-        if (res) {
-          console.log(res);
-          if (res.data.status === "success") {
-            notify("the code otp is succes", "success");
-            setTimeout(() => {
-              navigate("/popupnewpass");
-            }, 1500);
-          }
-          if (res.data.status === "fail") {
-            notify("the code otp is failure sending", "error");
-          }
-        }
-      }
-    },
-    // eslint-disable-next-line
-    [loading]
-  );
+  const [onChangeCode, code, onSubmit] = VerifyOTP();
   return (
     <Container>
       <form>
@@ -93,61 +30,89 @@ const PopUpOtp = () => {
               </p>
             </div>
             <div className="otp-reset">
-            
-              {otp.map((item, index) => {
-                return (
-                  <input
-                    key={index}
-                    id={`otp-${index}`}
-                    className="emailForget"
-                    type="text"
-                    value={otp[index]}
-                    maxLength={1}
-                    onChange={(e) => handleChange(e, index)}
-                    required
-                    style={{
-                      width: "50px",
-                      height: "40px",
-                      backgroundColor: "#ABABAB",
-                      color: "#FFFFFF",
-                      fontWeight: "bold",
-                      fontSize: "20px",
-                      textAlign: "center",
-                      border: "none",
-                      borderRadius: "5px",
-                      outline: "none",
-                      padding: "0 10px",
-                    }}
-                  />
-                );
-              })}
+             
+                <label className="ForgetLabel">
+              <p className="emailss">OTP Verfiy</p>
+              <br />
+              <input
+                value={code}
+                onChange={onChangeCode}
+                className="otpdesign"
+                type="password"
+              />{" "}
+            </label>
             </div>
             <br />
-            <button onClick={handleSubmit} type="submit" className="next">
+            <button onClick={onSubmit} type="submit" className="next">
               Next
             </button>
           </div>
         </div>
       </form>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <PopUpNewPass />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          {/* <Button variant="primary">Understood</Button> */}
-        </Modal.Footer>
-      </Modal>
     </Container>
   );
 };
 
 export default PopUpOtp;
+
+// const dispatch = useDispatch();
+// const navigate = useNavigate();
+// const [show, setShow] = useState(false);
+// const handleClose = () => setShow(false);
+// const handleShow = () => setShow(true);
+// const [otp, setOtp] = useState(new Array(6).fill(""));
+// console.log("🚀 ~ PopUpOtp ~ otp:", otp);
+// const [loading, setLoading] = useState(true);
+
+// const handleChange = (e, index) => {
+//   if (isNaN(e.target.value)) return false;
+
+//   const newOtp = [...otp];
+//   newOtp[index] =
+//     e.target.value.length > 1 ? e.target.value.slice(0, 1) : e.target.value;
+//   setOtp(newOtp);
+
+//   if (e.target.value.length === 1 && e.target.nextSibling) {
+//     e.target.nextSibling.focus();
+//   }
+// };
+
+// const res = useSelector((state) => state.authReducer.verifyOtp);
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   if (otp === "") {
+//     notify("please insert your code", "error");
+//     return;
+//   }
+//   setLoading(true);
+
+//   await dispatch(
+//     verfiyOtp({
+//       resetCode: otp,
+//     })
+//   );
+//   handleShow();
+//   setLoading(false);
+// };
+
+// useEffect(
+//   () => {
+//     if (loading === false) {
+//       if (res) {
+//         console.log(res);
+//         if (res.data.status === "success") {
+//           notify("the code otp is succes", "success");
+//           setTimeout(() => {
+//             navigate("/popupnewpass");
+//           }, 1500);
+//         }
+//         if (res.data.status === "fail") {
+//           notify("the code otp is failure sending", "error");
+//         }
+//       }
+//     }
+//   },
+//   // eslint-disable-next-line
+//   [loading]
+// );

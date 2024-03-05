@@ -5,13 +5,9 @@ import userImg from "./images/user-regular.svg";
 import star from "./images/star-solid.svg";
 import eye from "./images/eye-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
-// import { useNavigate } from "react-router-dom";
+// import VideoCall from "./VideoCall"; 
 
 const UppliveShow3 = () => {
-  // const navegate = useNavigate();
-  // const goPageOption1 = () => {
-  //   navegate("./UpplivesShow2.js");
-  // };
   return (
     <div className="parent">
       <div className="main">
@@ -64,6 +60,9 @@ const UppliveShow3 = () => {
           <img src={share} alt="share" class="shareIcon" />
         </div>
       </div>
+
+      {/* Add the VideoCall component here */}
+      {/* <VideoCall /> */}
     </div>
   );
 };

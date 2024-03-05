@@ -5,11 +5,13 @@ import RegisterHookLogic from "../../HookLogicCode/Auth/RegisterHookLogic";
 import { ToastContainer } from "react-toastify";
 
 const RegisterPage = () => {
+   // eslint-disable-next-line 
   const [
     name,
     email,
     password,
     confirmPassword,
+    // eslint-disable-next-line 
     loading,
     onChangeName,
     onChangeEmail,

@@ -16,7 +16,7 @@ const AuctionLivePage = () => {
   };
 
   const goPageOption2 = () => {
-    navigate("/uplivefour");
+    navigate("/uplivetwo");
   };
 
   return (

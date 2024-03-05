@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ForgetPassCSS/Popup.css";
 import imagesShop from "../../../assets/image 1.png";
-import { Button, Container, Modal } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import ForgetPassEmailHook from "../../../HookLogicCode/Auth/ForgetPassEmailHook";
 import { ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import PopUpOtp from "./PopUpOtp";
-const PopUPEmail = ({ setShowF }) => {
+const PopUPEmail = () => {
   const [
     onChangeEmail,
     email,
     onSubmit,
-    setShow,
-    show,
-    handleShow,
-    handleClose,
+    
   ] = ForgetPassEmailHook();
 
   return (
@@ -48,7 +43,6 @@ const PopUPEmail = ({ setShowF }) => {
                 className="emailForget"
                 type="email"
                 placeholder="Enter Your E-mail"
-                // required
               />
             </label>
             <br />
@@ -59,25 +53,36 @@ const PopUPEmail = ({ setShowF }) => {
         </div>
       </form>
       <ToastContainer />
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <PopUpOtp />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          {/* <Button variant="primary">Understood</Button> */}
-        </Modal.Footer>
-      </Modal>
     </Container>
   );
 };
 
 export default PopUPEmail;
+
+// <Modal
+// show={show}
+// onHide={handleClose}
+// backdrop="static"
+// keyboard={false}
+// >
+// <Modal.Header closeButton></Modal.Header>
+// <Modal.Body>
+//   <PopUpOtp />
+// </Modal.Body>
+// <Modal.Footer>
+//   <Button variant="secondary" onClick={handleClose}>
+//     Close
+//   </Button>
+// </Modal.Footer>
+// </Modal>
+
+
+// { setShowF }
+// // eslint-disable-next-line
+// setShow,
+// // eslint-disable-next-line
+// show,
+// // eslint-disable-next-line
+// handleShow,
+// // eslint-disable-next-line
+// handleClose,

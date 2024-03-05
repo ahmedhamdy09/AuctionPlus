@@ -84,9 +84,9 @@ function App() {
           <Route path="/uplivefour" element={<UppliveShow4 />} />
           {/* end auction */}
           <Route path="/contactus" element={<ContactUs />} />
-          {/* <Route path="/popupemail" element={<PopUPEmail />} /> */}
+          <Route path="/popupemail" element={<PopUPEmail />} />
           <Route path="/popupotp" element={<PopUpOtp />} />
-          {/* <Route path="/popupnewpass" element={<PopUpNewPass />} /> */}
+          <Route path="/popupnewpass" element={<PopUpNewPass />} />
         </Routes>
         <Footer />
       </BrowserRouter>
