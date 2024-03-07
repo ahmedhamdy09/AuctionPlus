@@ -85,6 +85,12 @@ const NavBarLogin = () => {
               >
                 Categories
               </Nav.Link>
+              <Nav.Link
+                href="/contactus"
+                className="nav-text d-flex  justify-content-center mt-2"
+              >
+                ContactUs
+              </Nav.Link>
               <div className="icc">
                 <i className="fa-solid fa-magnifying-glass"></i>
                 <FormControl

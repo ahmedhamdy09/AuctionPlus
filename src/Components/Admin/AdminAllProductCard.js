@@ -3,7 +3,7 @@ import { Col, Card, Row, Modal, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteProducts } from "../../Redux/Actions/ProductsActions";
-
+import rate from "../../assets/rate.png";
 const AdminAllProductCard = ({ item }) => {
   const [show, setShow] = useState(false);
 
@@ -69,9 +69,16 @@ const AdminAllProductCard = ({ item }) => {
             <Card.Text>
               <div className="d-flex justify-content-between">
                 <div className="card-rate">{item.ratingsQuantity}</div>
+                <img
+                  className="card-rate"
+                  src={rate}
+                  alt=""
+                  height="20px"
+                  width="20px"
+                />
                 <div className="d-flex">
-                  <div className="card-price">{item.price}</div>
-                  <div className="card-currency mx-1">$</div>
+                  <div className="card-price">{item.price}$</div>
+                  {/* <div className="card-currency mx-1">$</div> */}
                 </div>
               </div>
             </Card.Text>

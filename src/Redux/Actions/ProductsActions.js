@@ -85,9 +85,9 @@ export const getAllProductsSearch = (queryString) => async (dispatch) => {
 };
 
 //get one products with id
-export const getOneProduct = (id) => async (dispatch) => {
+export const getOneProduct = (_id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/products/${id}`);
+    const response = await useGetData(`/api/v1/products/${_id}`);
     dispatch({
       type: GET_PRODUCT_DETAILS,
       payload: response,
@@ -102,9 +102,9 @@ export const getOneProduct = (id) => async (dispatch) => {
 };
 
 //get one products with id
-export const getProductLike = (id) => async (dispatch) => {
+export const getProductLike = (_id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/products/?category=${id}`);
+    const response = await useGetData(`/api/v1/products/?category=${_id}`);
     dispatch({
       type: GET_PRODUCT_LIKE,
       payload: response,
@@ -119,9 +119,9 @@ export const getProductLike = (id) => async (dispatch) => {
 };
 
 //delete one products with id
-export const deleteProducts = (id) => async (dispatch) => {
+export const deleteProducts = (_id) => async (dispatch) => {
   try {
-    const response = await useDeleteData(`/api/v1/products/${id}`);
+    const response = await useDeleteData(`/api/v1/products/${_id}`);
     dispatch({
       type: DELETE_PRODUCT,
       payload: response,
@@ -136,10 +136,10 @@ export const deleteProducts = (id) => async (dispatch) => {
 };
 
 //update one products with id
-export const updateProducts = (id, data) => async (dispatch) => {
+export const updateProducts = (_id, data) => async (dispatch) => {
   try {
     const response = await useUpdateDataWithImages(
-      `/api/v1/products/${id}`,
+      `/api/v1/products/${_id}`,
       data
     );
     dispatch({

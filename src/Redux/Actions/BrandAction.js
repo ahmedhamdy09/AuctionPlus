@@ -2,9 +2,9 @@ import { GET_ALL_BRAND, CREATE_BRAND, GET_ONE_BRAND, GET_ERROR } from "../Type";
 import useGetData from "../../Hooks/useGetData";
 import { useInsertDataWithImages } from "../../Hooks/useInsertData";
 // get all Brand
-export const getAllBrand = (limits) => async (dispatch) => {
+export const getAllBrand = (limit) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/brands?limit=${limits}`);
+    const response = await useGetData(`/api/v1/brands?limit=${limit}`);
     dispatch({
       type: GET_ALL_BRAND,
       payload: response,
@@ -18,9 +18,9 @@ export const getAllBrand = (limits) => async (dispatch) => {
 };
 
 // get one Brand
-export const getOneBrand = (id) => async (dispatch) => {
+export const getOneBrand = (_id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/brands/${id}`);
+    const response = await useGetData(`/api/v1/brands/${_id}`);
     dispatch({
       type: GET_ONE_BRAND,
       payload: response,
