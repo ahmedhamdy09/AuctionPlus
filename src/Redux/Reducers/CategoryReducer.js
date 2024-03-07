@@ -7,6 +7,7 @@ import {
 
 const initail = {
   category: [],
+  createcategory:[],
   oneCategory: [],
   loading: true,
 };
@@ -28,7 +29,8 @@ const categoryReducer = (state = initail, action) => {
       };
     case CREATE_CATEGORY:
       return {
-        category: action.payload,
+
+        createcategory: action.payload,
         loading: false,
       };
     case GET_ERROR:

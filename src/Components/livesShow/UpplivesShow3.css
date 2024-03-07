@@ -5,7 +5,9 @@
 .parent {
     margin-left: 40px;
     margin-top: 20px;
-    width: 90%;
+    width: 95%;
+    position: relative;
+    padding: 15px;
 }
 
 /* --div contain user image-- */
@@ -34,6 +36,12 @@
 
 .content1 {
     display: flex;
+    z-index: 9;
+}
+
+.content2 {
+    display: flex;
+    z-index: 9;
 }
 
 .con1 {
@@ -124,13 +132,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10em
+    position: relative;
+    z-index: 9;
+    margin-top: 10em;
+    color: #fff !important;
+    bottom: -20px;
 }
 
 .p1 {
     font-size: 36px;
     font-weight: 500;
     line-height: 54px;
+    color: #fff;
     letter-spacing: 0em;
     text-align: left;
 }
@@ -147,7 +160,7 @@
 /* --footer-- */
 .foot {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 100px;
 }
 
@@ -170,4 +183,13 @@
     height: 30px;
     margin-bottom: 15px;
     margin-left: 3px;
+}
+
+/**video*/
+video {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0px;
+    object-fit: contain;
 }

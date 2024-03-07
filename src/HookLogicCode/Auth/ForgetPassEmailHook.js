@@ -19,37 +19,35 @@ const ForgetPassEmailHook = () => {
   };
 
   const onSubmit = async (e) => {
-    e.preventDefault() 
+    e.preventDefault();
     if (email === "") {
       notify("please insert your email", "error");
       return;
     }
-      localStorage.setItem("user-email",email);
-      setLoading(true);
-      await dispatch(
-        forgetEmail({
-          email,
-        })
-      );
-      setLoading(false);
-      // handleShow()
-    
-   
+    localStorage.setItem("user-email", email);
+    setLoading(true);
+    await dispatch(
+      forgetEmail({
+        email,
+      })
+    );
+    setLoading(false);
+    // handleShow()
   };
   const res = useSelector((state) => state.authReducer.forgetPassword);
-  console.log("🚀 ~ ForgetPassEmailHook ~ res:", res)
+  console.log("🚀 ~ ForgetPassEmailHook ~ res:", res);
   useEffect(
     () => {
       if (loading === false) {
         if (res) {
           console.log(res);
-          if (res.data.status === "success") {
+          if (res.status === 200 || res.status === 201) {
             notify("the email is sending to otp", "success");
             setTimeout(() => {
               navigate("/popupotp");
             }, 1000);
           }
-          if (res.data.status === "fail") {
+          if (res.status !== 200) {
             notify("the email not working", "error");
           }
         }
@@ -58,7 +56,15 @@ const ForgetPassEmailHook = () => {
     // eslint-disable-next-line
     [loading]
   );
-  return [onChangeEmail, email, onSubmit,setShow,show,handleShow,handleClose];
+  return [
+    onChangeEmail,
+    email,
+    onSubmit,
+    setShow,
+    show,
+    handleShow,
+    handleClose,
+  ];
 };
 
 export default ForgetPassEmailHook;

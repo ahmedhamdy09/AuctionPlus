@@ -3,6 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import favoff from "../../assets/fav-off.png";
 import rate from "../../assets/rate.png";
 import { Link } from "react-router-dom";
+import { ImgUrl } from "../../Api/baseURL";
 
 const ProductsCard = ({ item }) => {
   return (
@@ -11,7 +12,7 @@ const ProductsCard = ({ item }) => {
         className="my-2"
         style={{
           width: "100%",
-          height: "345px",
+          height: "380px",
           borderRadius: "8px",
           border: "none",
           backgroundColor: "#FFFFFF",
@@ -21,7 +22,7 @@ const ProductsCard = ({ item }) => {
         <Link to={`/products/${item?._id}`} style={{ textDecoration: "none" }}>
           <Card.Img
             style={{ height: "228px", width: "100%", objectFit: "cover" }}
-            src={item?.imageCover}
+            src={ImgUrl+item?.imageCover}
           />
         </Link>
 

@@ -38,7 +38,7 @@ const AdminAllProductCard = ({ item }) => {
         className="my-2"
         style={{
           width: "100%",
-          height: "350px",
+          height: "380px",
           borderRadius: "8px",
           border: "none",
           backgroundColor: "#FFFFFF",
@@ -67,15 +67,15 @@ const AdminAllProductCard = ({ item }) => {
               <div className="card-title">{item.title}</div>
             </Card.Title>
             <Card.Text>
-              <div className="d-flex justify-content-between">
-                <div className="card-rate">{item.ratingsQuantity}</div>
-                <img
+              <div className="d-flex justify-content-between ratandp">
+                <div className="card-rate">{item.ratingsQuantity}       <img
                   className="card-rate"
                   src={rate}
                   alt=""
                   height="20px"
                   width="20px"
-                />
+                /></div>
+          
                 <div className="d-flex">
                   <div className="card-price">{item.price}$</div>
                   {/* <div className="card-currency mx-1">$</div> */}

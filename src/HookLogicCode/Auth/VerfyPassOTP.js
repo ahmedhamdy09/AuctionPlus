@@ -14,7 +14,9 @@ const VerifyOTP = () => {
     setCode(e.target.value);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    
     if (code === "") {
       notify("please insert your code", "error");
       return;
@@ -36,13 +38,13 @@ const VerifyOTP = () => {
       if (loading === false) {
         if (res) {
           console.log(res);
-          if (res.data.status === "success") {
+          if (res.status === 200 || res.status === 201) {
             notify("the code otp is sending to email", "success");
             setTimeout(() => {
               navigate("/popupnewpass");
             }, 1000);
           }
-          if (res.data.status === "fail") {
+          if (res.status !== 200) {
             notify("the code otp is failure sending", "error");
           }
         }

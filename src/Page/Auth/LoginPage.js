@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Col, Row, Container, Spinner, Modal, Button } from "react-bootstrap";
+import React from "react";
+import { Col, Row, Container, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LoginHook from "../../HookLogicCode/Auth/LoginHook";
 import { ToastContainer } from "react-toastify";
-import PopUPEmail from "./ForgetPass/PopUPEmail";
+// import PopUPEmail from "./ForgetPass/PopUPEmail";
 
 const LoginPage = () => {
   const [
@@ -15,9 +15,9 @@ const LoginPage = () => {
     onSubmit,
     isPress,
   ] = LoginHook();
-  const [showF, setShowF] = useState(false);
-  const handleClose = () => setShowF(false);
-  const handleShow = () => setShowF(true);
+  // const [showF, setShowF] = useState(false);
+  // const handleClose = () => setShowF(false);
+  // const handleShow = () => setShowF(true);
   return (
     <>
       <Container style={{ minHeight: "680px" }}>
@@ -41,8 +41,9 @@ const LoginPage = () => {
               type="password"
               className="user-input text-center mx-auto"
             />
-            <p
-              onClick={handleShow}
+            <Link
+              to={"/popupemail"}
+              // onClick={handleShow}
               className="forgetpassauth"
               style={{
                 textAlign: "center",
@@ -52,7 +53,7 @@ const LoginPage = () => {
               }}
             >
               Forget Your Password
-            </p>
+            </Link>
             <button onClick={onSubmit} className="btn-login mx-auto mt-4">
               Sign In
             </button>
@@ -89,7 +90,7 @@ const LoginPage = () => {
         </Row>
         <ToastContainer />
       </Container>
-      <Modal
+      {/* <Modal
         show={showF}
         onHide={handleClose}
         backdrop="static"
@@ -103,9 +104,9 @@ const LoginPage = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          {/* <Button variant="primary">Understood</Button> */}
+          <Button variant="primary">Understood</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

@@ -43,7 +43,7 @@ const PopUpOtp = () => {
             </label>
             </div>
             <br />
-            <button onClick={onSubmit} type="submit" className="next">
+            <button onClick={onSubmit} className="next">
               Next
             </button>
           </div>

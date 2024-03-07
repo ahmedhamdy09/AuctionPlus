@@ -17,6 +17,7 @@ const AdminAddSubCategory = () => {
     handleSubmit,
     onChangeName,
   ] = AddSubCategoryHook();
+  console.log(category);
   return (
     <div>
       <Row className="justify-content-start ">
@@ -36,7 +37,7 @@ const AdminAddSubCategory = () => {
             onChange={handleChange}
           >
             <option value="0">Choose Category</option>
-            {category.data
+            {category && category.data
               ? category.data.map((item) => {
                   return (
                     <option value={item._id} key={item._id}>

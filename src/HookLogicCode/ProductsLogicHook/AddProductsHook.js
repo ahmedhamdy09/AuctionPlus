@@ -21,13 +21,13 @@ const AddProductsHook = () => {
 
   // get last category state from redux
   const category = useSelector((state) => state.allCategory.category);
-
+  console.log(category);
   //get last brand state from redux
   const brand = useSelector((state) => state.allBrand.brand);
 
   // get last sub category
   const subCategory = useSelector((state) => state.subCategory.subcategory);
-
+  console.log(subCategory);
   const onSelect = (selectedList) => {
     console.log(selectedsubCategoryID);
     setSelectedSubCategoryID(selectedList);
@@ -55,7 +55,7 @@ const AddProductsHook = () => {
   const [priceAfter, setPriceAfter] = useState("price after discount");
   const [quantity, setQuantity] = useState("Quantity available");
   // eslint-disable-next-line
-  const [categoryID, setCategoryID] = useState("");
+  const [categoryID, setCategoryID] = useState(0);
   // eslint-disable-next-line
   const [brandID, setBrandID] = useState("");
   // eslint-disable-next-line
@@ -120,10 +120,9 @@ const AddProductsHook = () => {
   const onSelectCategory = async (e) => {
     if (e.target.value !== 0) {
       await dispatch(getOneSubCategory(e.target.value));
+      setCategoryID(e.target.value);
     }
-    setCategoryID(e.target.value);
   };
-  // console.log(categoryID);
   useEffect(
     () => {
       if (categoryID !== 0) {
@@ -136,6 +135,19 @@ const AddProductsHook = () => {
     // eslint-disable-next-line
     [categoryID]
   );
+  // console.log(categoryID);
+  // useEffect(
+  //   () => {
+  //     if (categoryID !== 0) {
+  //       if (subCategory.data) {
+  //         setOptions(subCategory.data);
+  //       }
+  //     }
+  //     // eslint-disable-next-line
+  //   },
+  //   // eslint-disable-next-line
+  //   [categoryID]
+  // );
   const onSelectBrand = (e) => {
     setBrandID(e.target.value);
   };

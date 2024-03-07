@@ -55,13 +55,12 @@ const PopUpNewPass = () => {
               />
             </label>
             <br />
-            <button onClick={onSubmit} type="submit" className="next">
+            <button onClick={onSubmit} className="next">
               Finish
             </button>
           </div>
         </div>
       </form>
-      
     </Container>
   );
 };

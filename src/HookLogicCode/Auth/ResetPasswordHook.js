@@ -17,7 +17,8 @@ const ResetPasswordHook = () => {
   const OnChangeConfirmPassword = (e) => {
     setComfirmPassword(e.target.value);
   };
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
     if (password === "") {
       notify("Please insert Your Password", "error");
       return;
@@ -44,13 +45,13 @@ const ResetPasswordHook = () => {
       if (loading === false) {
         if (res) {
           console.log(res);
-          if (res.data.status === "Success") {
+          if (res.status === 200 || res.status === 201) {
             notify("Password Change Success", "success");
             setTimeout(() => {
               navigate("/login");
             }, 1500);
           }
-          if (res.data.status === "fail") {
+          if (res.status !== 200) {
             notify("Please request a new code", "error");
           }
         }

@@ -36,7 +36,7 @@ const AddCatogoryHook = () => {
     }
   };
 
-  const res = useSelector((state) => state.allCategory.category);
+  const res = useSelector((state) => state.allCategory.createcategory);
 
   //save data in database
   const handleSubmit = async (e) => {

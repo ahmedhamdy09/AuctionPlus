@@ -36,6 +36,7 @@ const AdminAddProducts = () => {
     onSelectBrand,
     handleSubmit,
   ] = AddProductsHook();
+  console.log(options);
   return (
     <div>
       <Row className="justify-content-start ">

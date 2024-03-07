@@ -26,7 +26,7 @@ const AddSubCategoryHook = () => {
   //   console.log(category);
   // }
   //get sub category state from redux
-  const subcategory = useSelector((state) => state.subCategory.subcategory);
+  const subcategory = useSelector((state) => state.subCategory.createSubCategroy);
 
   //on change dropdown menu
   const handleChange = (e) => {
