@@ -36,7 +36,6 @@ const AdminAddProducts = () => {
     onSelectBrand,
     handleSubmit,
   ] = AddProductsHook();
-  console.log(options);
   return (
     <div>
       <Row className="justify-content-start ">
@@ -105,7 +104,7 @@ const AdminAddProducts = () => {
               : null}
           </select>
 
-          <Multiselect
+          {/* <Multiselect
             className="mt-2 text-end"
             placeholder="SubCategory"
             options={options}
@@ -113,7 +112,19 @@ const AdminAddProducts = () => {
             onRemove={onRemove}
             displayValue="name"
             style={{ color: "red" }}
-          />
+          /> */}
+          {Array.isArray(options) && (
+            <Multiselect
+              className="mt-2 text-end"
+              placeholder="SubCategory"
+              options={options}
+              onSelect={onSelect}
+              onRemove={onRemove}
+              displayValue="name"
+              style={{ color: "red" }}
+            />
+          )}
+
           <select
             onChange={onSelectBrand}
             name="brand"
@@ -121,7 +132,7 @@ const AdminAddProducts = () => {
             className="select input-form-area mt-3 px-2 "
           >
             <option value="0">Choose Brand</option>
-            {brand.data
+            {brand && brand.data
               ? brand.data.map((item, index) => {
                   return (
                     <option key={index} value={item._id}>

@@ -69,23 +69,39 @@ const AddBrandPageLogic = () => {
 
   // loading convert true to false
   // eslint-disable-next-lineclear
+  // useEffect(() => {
+  //   if (loading === false) {
+  //     setImgs(avatar);
+  //     setWrites("");
+  //     setSelectedFile(null);
+  //     console.log("Is Done.");
+  //     setLoading(true);
+  //     setTimeout(() => setPress(false), 2000);
+  //     //eslint-disable-next-line
+  //     if (res.status === 201) {
+  //       notify("Add Brand Successfully", "success");
+  //     } else {
+  //       notify("Is Problem Here,Please solve it", "error");
+  //     }
+  //   }
+  //   // eslint-disable-next-line
+  // }, [loading]);
   useEffect(() => {
-    if (loading === false) {
+    if (loading === false && res && res.status) {
       setImgs(avatar);
       setWrites("");
       setSelectedFile(null);
       console.log("Is Done.");
       setLoading(true);
       setTimeout(() => setPress(false), 2000);
-      //eslint-disable-next-line
       if (res.status === 201) {
         notify("Add Brand Successfully", "success");
       } else {
         notify("Is Problem Here,Please solve it", "error");
       }
     }
-    // eslint-disable-next-line
-  }, [loading]);
+  }, [loading, res]);
+
   return [
     imgs,
     writes,

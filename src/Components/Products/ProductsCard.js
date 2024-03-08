@@ -22,7 +22,7 @@ const ProductsCard = ({ item }) => {
         <Link to={`/products/${item?._id}`} style={{ textDecoration: "none" }}>
           <Card.Img
             style={{ height: "228px", width: "100%", objectFit: "cover" }}
-            src={ImgUrl+item?.imageCover}
+            src={ImgUrl + item?.imageCover}
           />
         </Link>
 

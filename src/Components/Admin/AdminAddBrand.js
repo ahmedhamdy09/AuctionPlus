@@ -19,7 +19,6 @@ const AdminAddBrand = () => {
         <div className="admin-content-text pb-4">Add New Brand</div>
         <Col sm="8">
           <div className="text-form pb-2">Brand Image</div>
-          {/* <img src={avatar} alt="" height="100px" width="120px" /> */}
           <div>
             <label for="upload-photo">
               <img

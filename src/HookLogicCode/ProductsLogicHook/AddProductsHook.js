@@ -12,7 +12,6 @@ const AddProductsHook = () => {
   useEffect(
     () => {
       dispatch(getAllCategory());
-      // eslint-disable-next-line
       dispatch(getAllBrand());
     },
     // eslint-disable-next-line
@@ -21,19 +20,18 @@ const AddProductsHook = () => {
 
   // get last category state from redux
   const category = useSelector((state) => state.allCategory.category);
-  console.log(category);
   //get last brand state from redux
   const brand = useSelector((state) => state.allBrand.brand);
 
   // get last sub category
   const subCategory = useSelector((state) => state.subCategory.subcategory);
-  console.log(subCategory);
+  // console.log(subCategory);
   const onSelect = (selectedList) => {
-    console.log(selectedsubCategoryID);
+    // console.log(selectedsubCategoryID);
     setSelectedSubCategoryID(selectedList);
   };
   const onRemove = (selectedList) => {
-    console.log(selectedsubCategoryID);
+    // console.log(selectedsubCategoryID);
     setSelectedSubCategoryID(selectedList);
   };
 
@@ -55,7 +53,7 @@ const AddProductsHook = () => {
   const [priceAfter, setPriceAfter] = useState("price after discount");
   const [quantity, setQuantity] = useState("Quantity available");
   // eslint-disable-next-line
-  const [categoryID, setCategoryID] = useState(0);
+  const [categoryID, setCategoryID] = useState("");
   // eslint-disable-next-line
   const [brandID, setBrandID] = useState("");
   // eslint-disable-next-line
@@ -108,7 +106,6 @@ const AddProductsHook = () => {
     setColors([...colors, color.hex]);
     setShowColor(!showColor);
   };
-  // console.log(colors);
 
   // to remove colors
   const removeColor = (color) => {
@@ -123,6 +120,7 @@ const AddProductsHook = () => {
       setCategoryID(e.target.value);
     }
   };
+
   useEffect(
     () => {
       if (categoryID !== 0) {
@@ -135,19 +133,6 @@ const AddProductsHook = () => {
     // eslint-disable-next-line
     [categoryID]
   );
-  // console.log(categoryID);
-  // useEffect(
-  //   () => {
-  //     if (categoryID !== 0) {
-  //       if (subCategory.data) {
-  //         setOptions(subCategory.data);
-  //       }
-  //     }
-  //     // eslint-disable-next-line
-  //   },
-  //   // eslint-disable-next-line
-  //   [categoryID]
-  // );
   const onSelectBrand = (e) => {
     setBrandID(e.target.value);
   };
@@ -200,10 +185,16 @@ const AddProductsHook = () => {
 
     itemImages.map((item) => formData.append("images", item));
 
-    colors.map((color) => formData.append("availableColors", color));
+    colors.map((color) => formData.append("available", color));
+
+    // colors.map((color) => formData.append("availableColors", color));
+    // selectedsubCategoryID.map((item) =>
+    //   formData.append("subcategory", item._id)
+    // );
     selectedsubCategoryID.map((item) =>
-      formData.append("subcategory", item._id)
+      formData.append("subcategories", item._id)
     );
+
     setLoading(true);
     await dispatch(createProducts(formData));
     setLoading(false);

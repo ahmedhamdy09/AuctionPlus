@@ -24,7 +24,7 @@ const BrandCard = ({ img }) => {
       >
         <Card.Img
           style={{ width: "100%", height: "151px", backgroundColor: "none" }}
-          src={ImgUrl+img}
+          src={ImgUrl + img}
         />
       </Card>
     </Col>
