@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
-import { ImgUrl } from "../../Api/baseURL";
+// import { ImgUrl } from "../../Api/baseURL";
 
 const BrandCard = ({ img }) => {
   // console.log(img);
@@ -24,7 +24,7 @@ const BrandCard = ({ img }) => {
       >
         <Card.Img
           style={{ width: "100%", height: "151px", backgroundColor: "none" }}
-          src={ImgUrl + img}
+          src={img}
         />
       </Card>
     </Col>

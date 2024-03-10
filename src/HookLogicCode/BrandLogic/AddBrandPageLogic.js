@@ -16,7 +16,7 @@ const AddBrandPageLogic = () => {
   console.log(writes);
   //عاوز الفايل والمسار بتاعه
   const [selectedFile, setSelectedFile] = useState(null);
-  console.log(selectedFile);
+  // console.log(selectedFile);
 
   // loading state
   const [loading, setLoading] = useState(true);

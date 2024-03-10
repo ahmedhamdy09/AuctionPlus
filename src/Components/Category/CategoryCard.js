@@ -1,9 +1,9 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import { ImgUrl } from "../../Api/baseURL";
+// import { ImgUrl } from "../../Api/baseURL";
 
 const CategoryCard = ({ background, img, title }) => {
-  console.log(img)
+  console.log(img);
   return (
     <Col
       xs="6"
@@ -17,7 +17,7 @@ const CategoryCard = ({ background, img, title }) => {
           className="categoty-card "
           style={{ backgroundColor: `${background}` }}
         ></div>{" "}
-        <img alt="zcv" src={ImgUrl + img} className="categoty-card-img" />
+        <img alt="zcv" src={img} className="categoty-card-img" />
         <p className="categoty-card-text my-2">{title}</p>
       </div>
     </Col>

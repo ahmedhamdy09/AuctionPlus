@@ -65,17 +65,21 @@ const AdminAllProductCard = ({ item }) => {
           <Card.Body>
             <Card.Title>
               <div className="card-title">{item.title}</div>
+              <div className="card-title">{item.name}</div>
             </Card.Title>
             <Card.Text>
               <div className="d-flex justify-content-between ratandp">
-                <div className="card-rate">{item.ratingsQuantity}       <img
-                  className="card-rate"
-                  src={rate}
-                  alt=""
-                  height="20px"
-                  width="20px"
-                /></div>
-          
+                <div className="card-rate">
+                  {item.ratingsQuantity}{" "}
+                  <img
+                    className="card-rate"
+                    src={rate}
+                    alt=""
+                    height="20px"
+                    width="20px"
+                  />
+                </div>
+
                 <div className="d-flex">
                   <div className="card-price">{item.price}$</div>
                   {/* <div className="card-currency mx-1">$</div> */}

@@ -26,7 +26,8 @@ export const createSubCategory = (data) => async (dispatch) => {
 // id
 export const getOneSubCategory = (_id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/subcategory/${_id}`);
+    // const response = await useGetData(`/api/v1/subcategory/${_id}`);
+    const response = await useGetData(`/api/v1/category/${_id}/subcategories`);
 
     dispatch({
       type: GET_SUB_CATEGORY,

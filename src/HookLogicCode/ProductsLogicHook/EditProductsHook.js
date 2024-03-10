@@ -86,7 +86,8 @@ const AdminEditProductsHook = (id) => {
       setQuantity(item.data.quantity);
       setCategoryID(item.data.category);
       setBrandID(item.data.brand);
-      setColors(item.data.availableColors);
+      setColors(item.data.available);
+      // setColors(item.data.availableColors);
     }
   }, [item]);
 
@@ -232,7 +233,9 @@ const AdminEditProductsHook = (id) => {
     });
     // send img in server
     const formData = new FormData();
-    formData.append("title", prodName);
+    // formData.append("title", prodName);
+    formData.append("name", prodName);
+
     formData.append("description", prodDescritpion);
     formData.append("quantity", quantity);
     formData.append("price", priceBefore);
@@ -243,9 +246,14 @@ const AdminEditProductsHook = (id) => {
     formData.append("category", categoryID);
     formData.append("brand", brandID);
 
-    colors.map((color) => formData.append("availableColors", color));
+    colors.map((color) => formData.append("colors", color));
+
+    // colors.map((color) => formData.append("availableColors", color));
+    // selectedsubCategoryID.map((item) =>
+    //   formData.append("subcategory", item._id)
+    // );
     selectedsubCategoryID.map((item) =>
-      formData.append("subcategory", item._id)
+      formData.append("subcategories", item._id)
     );
     setTimeout(async () => {
       setLoading(true);
@@ -259,7 +267,7 @@ const AdminEditProductsHook = (id) => {
 
   useEffect(
     () => {
-      if (loading === false) {
+      if (loading === false && product && product.status) {
         setCategoryID(0);
         setColors([]);
         setImages([]);

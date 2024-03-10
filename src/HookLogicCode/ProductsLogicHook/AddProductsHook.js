@@ -175,7 +175,7 @@ const AddProductsHook = () => {
     );
     // send img in server
     const formData = new FormData();
-    formData.append("title", prodName);
+    formData.append("name", prodName);
     formData.append("description", prodDescritpion);
     formData.append("quantity", quantity);
     formData.append("price", priceBefore);
@@ -185,12 +185,8 @@ const AddProductsHook = () => {
 
     itemImages.map((item) => formData.append("images", item));
 
-    colors.map((color) => formData.append("available", color));
+    colors.map((color) => formData.append("colors", color));
 
-    // colors.map((color) => formData.append("availableColors", color));
-    // selectedsubCategoryID.map((item) =>
-    //   formData.append("subcategory", item._id)
-    // );
     selectedsubCategoryID.map((item) =>
       formData.append("subcategories", item._id)
     );
@@ -205,7 +201,7 @@ const AddProductsHook = () => {
 
   useEffect(
     () => {
-      if (loading === false) {
+      if (loading === false && product && product.status) {
         setCategoryID(0);
         setColors([]);
         setImages([]);
@@ -230,6 +226,7 @@ const AddProductsHook = () => {
     // eslint-disable-next-line
     [loading]
   );
+
   return [
     onChangeProductName,
     onChangeDescritpionName,
