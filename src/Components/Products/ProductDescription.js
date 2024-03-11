@@ -15,7 +15,8 @@ const ProductDescription = () => {
       <Row>
         <Col md="8">
           <div className="cat-title d-inline">
-            {item.title}
+            {/* {item.title} */}
+            {item.name}
             <div className="cat-rate d-inline mx-3">{item.ratingsQuantity}</div>
           </div>
         </Col>

@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategory } from "../../Redux/Actions/CategoryAction";
 import { getAllBrand } from "../../Redux/Actions/BrandAction";
-// eslint-disable-next-line 
-import { getOneSubCategory, getOneSubCategoryProducts } from "../../Redux/Actions/SubCategoryAction";
+// eslint-disable-next-line
+import {
+  // eslint-disable-next-line
+  getOneSubCategory,
+  getOneSubCategoryProducts,
+} from "../../Redux/Actions/SubCategoryAction";
 import { createProducts } from "../../Redux/Actions/ProductsActions";
 import notify from "../../HookLogicCode/useNotifaction";
 
@@ -26,7 +30,9 @@ const AddProductsHook = () => {
 
   // get last sub category
   // const subCategory = useSelector((state) => state.subCategory.subcategory);
-  const subCategory = useSelector((state) => state.subCategory.subcategoryproducts);
+  const subCategory = useSelector(
+    (state) => state.subCategory.subcategoryproducts
+  );
 
   // console.log(subCategory);
   const onSelect = (selectedList) => {
@@ -183,6 +189,7 @@ const AddProductsHook = () => {
     formData.append("description", prodDescritpion);
     formData.append("quantity", quantity);
     formData.append("price", priceBefore);
+    formData.append("discountedPrice", priceAfter);
     formData.append("imageCover", imgCover);
     formData.append("category", categoryID);
     formData.append("brand", brandID);
@@ -199,6 +206,11 @@ const AddProductsHook = () => {
     await dispatch(createProducts(formData));
     setLoading(false);
   };
+
+  console.log(selectedsubCategoryID);
+  console.log(categoryID);
+  console.log(brandID);
+  console.log(colors);
 
   //get last brand state from redux
   const product = useSelector((state) => state.allproducts.products);
@@ -219,9 +231,9 @@ const AddProductsHook = () => {
         setTimeout(() => setLoading(true), 1500);
 
         if (product) {
-          if (product.status === 201) {
+          if (product.status === 201 || product.status === 200) {
             notify("The product has been added successfully", "success");
-          } else if (product.status !== 201) {
+          } else if (product.status !== 201 || product.status !== 200) {
             notify("There is a problem adding products", "error");
           }
         }

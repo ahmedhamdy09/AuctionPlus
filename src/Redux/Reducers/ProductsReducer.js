@@ -22,7 +22,7 @@ const productsReducer = (state = initail, action) => {
   switch (action.type) {
     case CREATE_PRODUCTS:
       return {
-        ...state,
+        // ...state,
         // update state
         products: action.payload,
         loading: false,
