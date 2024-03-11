@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategory } from "../../Redux/Actions/CategoryAction";
 import { getAllBrand } from "../../Redux/Actions/BrandAction";
-import { getOneSubCategory } from "../../Redux/Actions/SubCategoryAction";
+// eslint-disable-next-line 
+import { getOneSubCategory, getOneSubCategoryProducts } from "../../Redux/Actions/SubCategoryAction";
 import { createProducts } from "../../Redux/Actions/ProductsActions";
 import notify from "../../HookLogicCode/useNotifaction";
 
@@ -24,7 +25,9 @@ const AddProductsHook = () => {
   const brand = useSelector((state) => state.allBrand.brand);
 
   // get last sub category
-  const subCategory = useSelector((state) => state.subCategory.subcategory);
+  // const subCategory = useSelector((state) => state.subCategory.subcategory);
+  const subCategory = useSelector((state) => state.subCategory.subcategoryproducts);
+
   // console.log(subCategory);
   const onSelect = (selectedList) => {
     // console.log(selectedsubCategoryID);
@@ -116,7 +119,8 @@ const AddProductsHook = () => {
   // when select category to store item
   const onSelectCategory = async (e) => {
     if (e.target.value !== 0) {
-      await dispatch(getOneSubCategory(e.target.value));
+      // await dispatch(getOneSubCategory(e.target.value));
+      await dispatch(getOneSubCategoryProducts(e.target.value));
       setCategoryID(e.target.value);
     }
   };

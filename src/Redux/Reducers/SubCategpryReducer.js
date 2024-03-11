@@ -1,8 +1,9 @@
-import { GET_ERROR, GET_SUB_CATEGORY, CREATE_SUB_CATEGORY } from "../Type";
+import { GET_ERROR, GET_SUB_CATEGORY, CREATE_SUB_CATEGORY, GET_SUB_CATEGORY_PRODUCTS } from "../Type";
 
 const initail = {
   subcategory: [],
   // createSubCategroy: [],
+  subcategoryproducts:[],
   loading: true,
 };
 
@@ -23,6 +24,13 @@ const subCategoryReducer = (state = initail, action) => {
         subcategory: action.payload,
         loading: false,
       };
+      case GET_SUB_CATEGORY_PRODUCTS:
+        return {
+          // ...state,
+          // update state
+          subcategoryproducts: action.payload,
+          loading: false,
+        };
     case GET_ERROR:
       return {
         loading: true,

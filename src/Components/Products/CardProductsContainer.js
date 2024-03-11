@@ -21,3 +21,4 @@ const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
 };
 
 export default CardProductsContainer;
+
