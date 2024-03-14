@@ -14,7 +14,7 @@ const ViewOneProductsDetailsHook = (prodID) => {
       dispatch(getOneProduct(prodID));
     },
     // eslint-disable-next-line
-    []
+    [prodID]
   );
 
   const oneProducts = useSelector((state) => state.allproducts.oneProduct);
@@ -26,11 +26,13 @@ const ViewOneProductsDetailsHook = (prodID) => {
 
   // Check if oneProducts.data is available before accessing its properties
   let item = [];
-  if (oneProducts && oneProducts.data) {
-    item = oneProducts.data;
+  if (oneProducts) {
+    // item = oneProducts.data;
+    item = oneProducts;
   } else {
     item = [];
   }
+  console.log(oneProducts);
   // or
   // const item = oneProducts && oneProducts.data ? oneProducts.data : {};
 

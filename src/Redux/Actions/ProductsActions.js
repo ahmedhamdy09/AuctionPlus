@@ -11,6 +11,8 @@ import {
   GET_ERROR,
 } from "../Type";
 import { useUpdateDataWithImages } from "../../Hooks/useUpdateData";
+// eslint-disable-next-line
+import useGetDataToken from "../../Hooks/UseGetDataToken";
 
 //create products with pagination
 export const createProducts = (formatData) => async (dispatch) => {
@@ -88,6 +90,8 @@ export const getAllProductsSearch = (queryString) => async (dispatch) => {
 export const getOneProduct = (_id) => async (dispatch) => {
   try {
     const response = await useGetData(`/api/v1/products/${_id}`);
+    // const response = await useGetDataToken(`/api/v1/products/${_id}`);
+
     dispatch({
       type: GET_PRODUCT_DETAILS,
       payload: response,
@@ -105,6 +109,7 @@ export const getOneProduct = (_id) => async (dispatch) => {
 export const getProductLike = (_id) => async (dispatch) => {
   try {
     const response = await useGetData(`/api/v1/products/?category=${_id}`);
+
     dispatch({
       type: GET_PRODUCT_LIKE,
       payload: response,

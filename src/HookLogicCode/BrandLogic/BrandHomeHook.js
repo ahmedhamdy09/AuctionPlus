@@ -4,7 +4,7 @@ import { getAllBrand } from "../../Redux/Actions/BrandAction";
 const BrandHomeHook = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllBrand());
+    dispatch(getAllBrand(5));
     // eslint-disable-next-line
   }, []);
 

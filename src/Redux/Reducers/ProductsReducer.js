@@ -22,7 +22,7 @@ const productsReducer = (state = initail, action) => {
   switch (action.type) {
     case CREATE_PRODUCTS:
       return {
-        // ...state,
+        ...state,
         // update state
         products: action.payload,
         loading: false,
@@ -36,6 +36,7 @@ const productsReducer = (state = initail, action) => {
       };
     case GET_PRODUCT_DETAILS:
       return {
+        // ...state,
         // update state
         oneProduct: action.payload,
         loading: false,
