@@ -36,7 +36,7 @@ const productsReducer = (state = initail, action) => {
       };
     case GET_PRODUCT_DETAILS:
       return {
-        // ...state,
+        ...state,
         // update state
         oneProduct: action.payload,
         loading: false,

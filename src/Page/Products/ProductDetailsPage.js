@@ -13,12 +13,19 @@ const ProductDetailsPage = () => {
   const [item, images, cat, brand, prod] = ViewOneProductsDetailsHook(id);
 
   if (prod) var items = prod.slice(0, 4);
+  // console.log(item);
+
+  if (item) {
+    var rateAvgerage = item.ratingsAverage;
+    // نسيت تغيرها
+    var rateQuantity = item.ratingsQuantity;
+  } 
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryHeader />
       <Container>
         <ProductDetails />
-        <RateContainer />
+        <RateContainer rateAvgerage={rateAvgerage} rateQuantity={rateQuantity}/>
         <CardProductsContainer products={items} title="Products you may like" />
       </Container>
     </div>
@@ -26,4 +33,3 @@ const ProductDetailsPage = () => {
 };
 
 export default ProductDetailsPage;
-

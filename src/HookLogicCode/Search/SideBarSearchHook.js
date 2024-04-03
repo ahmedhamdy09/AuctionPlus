@@ -25,13 +25,13 @@ const SideBarSearchHook = () => {
 
   //to get brand sidebar search
   let category = [];
-  if (allCategorySideBarSearch.data) {
+  if (allCategorySideBarSearch && allCategorySideBarSearch.data) {
     category = allCategorySideBarSearch.data;
   }
 
   //to get category sidebar search
   let brand = [];
-  if (allbrandSideBarSearch.data) {
+  if (allbrandSideBarSearch && allbrandSideBarSearch.data) {
     brand = allbrandSideBarSearch.data;
   }
 

@@ -87,7 +87,6 @@ const AdminEditProductsHook = (id) => {
       setCategoryID(item.data.category);
       setBrandID(item.data.brand);
       setColors(item.data.available);
-      // setColors(item.data.availableColors);
     }
   }, [item]);
 
@@ -217,10 +216,7 @@ const AdminEditProductsHook = (id) => {
       imgCover = dataURLtoFile(images[0], Math.random() + ".png");
     }
 
-    // or
-    // convert base 64 image to file
-    // const imgCover = dataURLtoFile(images[0], Math.random() + ".png");
-
+   
     let itemImages = [];
     // convert array of base 64 image to file
     // eslint-disable-next-line
@@ -248,10 +244,7 @@ const AdminEditProductsHook = (id) => {
 
     colors.map((color) => formData.append("colors", color));
 
-    // colors.map((color) => formData.append("availableColors", color));
-    // selectedsubCategoryID.map((item) =>
-    //   formData.append("subcategory", item._id)
-    // );
+   
     selectedsubCategoryID.map((item) =>
       formData.append("subcategories", item._id)
     );

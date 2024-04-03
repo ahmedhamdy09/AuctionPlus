@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../../Redux/Actions/ProductsActions";
+// eslint-disable-next-line
 import { getOneCategory } from "../../Redux/Actions/CategoryAction";
 import { getOneBrand } from "../../Redux/Actions/BrandAction";
+// eslint-disable-next-line
 import { getProductLike } from "../../Redux/Actions/ProductsActions";
 
 import spinners from "../../assets/icons8-spinner.gif";
@@ -32,21 +34,22 @@ const ViewOneProductsDetailsHook = (prodID) => {
   } else {
     item = [];
   }
-  console.log(oneProducts);
-  // or
-  // const item = oneProducts && oneProducts.data ? oneProducts.data : {};
+  // console.log(oneProducts);
 
+  // problem is here
   useEffect(
     () => {
-      if (item.category) dispatch(getOneCategory(item.category));
+      /// problmesssssssssssssssssssss is hereeeeeeeeeeeeeeeeeee
+      //if (item.category) dispatch(getOneCategory(item.category));
       if (item.brand) dispatch(getOneBrand(item.brand));
       // same products
-      if (item.category) dispatch(getProductLike(item.category)); // prouducts like same
+      // if (item.category) dispatch(getProductLike(item.category)); // prouducts like same
     },
 
     // eslint-disable-next-line
     [item]
   );
+
   //+++++++++++++++++++++++++++++++++++++++++
   let cat = [];
   if (oneCategory && oneCategory.data) {

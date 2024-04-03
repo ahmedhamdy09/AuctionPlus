@@ -6,7 +6,6 @@ import { deleteProducts } from "../../Redux/Actions/ProductsActions";
 import rate from "../../assets/rate.png";
 const AdminAllProductCard = ({ item }) => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

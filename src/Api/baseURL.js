@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const baseURL = axios.create({ baseURL: "http://62.77.154.115:8000" });
+const baseURL = axios.create({
+  baseURL: "https://graduation-api-qq1p.onrender.com",
+});
 export default baseURL;
 
 // export const ImgUrl = "http://62.77.154.115:8000";

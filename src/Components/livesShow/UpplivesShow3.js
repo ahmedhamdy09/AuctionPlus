@@ -5,7 +5,6 @@ import userImg from "./images/user-regular.svg";
 import star from "./images/star-solid.svg";
 import eye from "./images/eye-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
-import VideoCall from "./VideoCall";
 
 const UppliveShow3 = () => {
   return (
@@ -46,11 +45,6 @@ const UppliveShow3 = () => {
           <p class="p1">Wait for the host to start th show</p>
           <p class="p2">Tomorrow, 12:00 AM</p>
         </div>
-
-        {/* Add the VideoCall component here */}
-        
-        <VideoCall />
-        {/* <VideoCall />    <VideoCall />    <VideoCall />    <VideoCall />    <VideoCall />  */}
       </div>
 
       <div className="foot">

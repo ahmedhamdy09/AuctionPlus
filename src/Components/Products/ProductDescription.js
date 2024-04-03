@@ -7,17 +7,20 @@ const ProductDescription = () => {
   const { id } = useParams();
   // eslint-disable-next-line
   const [item, images, cat, brand] = ViewOneProductsDetailsHook(id);
+  // console.log(item);
   return (
     <div>
       <Row className="mt-2">
-        <div className="cat-text">{cat.name} :</div>
+        {/* <div className="cat-text">{cat.name} :</div> */}
+        <div className="cat-text">{item.category?.name}</div>
       </Row>
       <Row>
         <Col md="8">
           <div className="cat-title d-inline">
-            {/* {item.title} */}
             {item.name}
-            <div className="cat-rate d-inline mx-3">{item.ratingsQuantity}</div>
+            {/* <div className="cat-rate d-inline mx-3">{item.ratingsQuantity}</div> */}
+            <div className="cat-rate d-inline mx-3">{item.ratingsAverage}</div>
+
           </div>
         </Col>
       </Row>
@@ -29,8 +32,8 @@ const ProductDescription = () => {
       </Row>
       <Row>
         <Col md="8" className="mt-1 d-flex">
-          {item.availableColors
-            ? item.availableColors.map((color, index) => {
+            {item.colors
+            ? item.colors.map((color, index) => {
                 return (
                   <div
                     key={index}
@@ -54,7 +57,8 @@ const ProductDescription = () => {
       <Row className="mt-4">
         <Col md="12">
           <div className="product-price d-inline px-3 py-3 border">
-            {item.price} $
+            {/* {item.price} $ */}
+            {item.discountedPrice} $
           </div>
           <div className="product-cart-add px-3 py-3 d-inline mx-3">
             add Carts
