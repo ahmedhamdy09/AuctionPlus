@@ -50,11 +50,11 @@ const AdminEditProducts = () => {
           <Col sm="8">
             <div className="text-form pb-2">Products Image</div>
             <MultiImageInput
-              images={images}
+              images={images?images.map(it=>it):[]} 
               setImages={setImages}
               cropConfig={{ crop, ruleOfThirds: true }}
               theme={"light"}
-              max={4}
+              max={4} 
               // allowCrop={false}
             />
             <input
@@ -96,6 +96,7 @@ const AdminEditProducts = () => {
             <select
               name="category"
               value={categoryID}
+              disabled
               onChange={onSelectCategory}
               className="select input-form-area mt-3 px-2 "
             >
@@ -116,6 +117,7 @@ const AdminEditProducts = () => {
               className="mt-2 text-end"
               placeholder="SubCategory"
               options={options}
+              disabled
               onSelect={onSelect}
               onRemove={onRemove}
               displayValue="name"
@@ -124,6 +126,7 @@ const AdminEditProducts = () => {
             <select
               onChange={onSelectBrand}
               value={brandID}
+              disabled
               name="brand"
               id="brand"
               className="select input-form-area mt-3 px-2 "
@@ -143,7 +146,7 @@ const AdminEditProducts = () => {
               Available colors of the product
             </div>
             <div className="mt-1 d-flex">
-              {colors.length >= 1
+              {colors&&colors.length >= 1
                 ? colors.map((color, index) => {
                     return (
                       <div

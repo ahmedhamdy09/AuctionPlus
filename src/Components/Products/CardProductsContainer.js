@@ -12,13 +12,15 @@ const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
       {products ? (
         <SubTitle title={title} btntitle={btntitle} pathText={pathText} />
       ) : null}
-      <Row className="my-2 d-flex justify-content-between">
+      {/* <Row className="my-2 d-flex justify-content-between"> */}
+      <div className="salamacard">
         {products
           ? products.map((item, index) => (
               <ProductsCard favProducts={favProducts} key={index} item={item} />
             ))
           : null}
-      </Row>
+          </div>
+      {/* </Row> */}
     </Container>
   );
 };

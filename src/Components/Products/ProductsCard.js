@@ -10,14 +10,15 @@ const ProductsCard = ({ item, favProducts }) => {
   // eslint-disable-next-line
   const [removeToWishListData, addToWishListData, handleFavourite,favImg] = ProductsCardHook(item, favProducts);
   return (
-    <Col xs="6" sm="6" md="4" lg="3" className="d-flex">
+   <>
       <Card
         className="my-2"
         style={{
-          width: "100%",
+          width: "300px",
           height: "380px",
           borderRadius: "8px",
           border: "none",
+          overflow:'hidden',
           backgroundColor: "#FFFFFF",
           boxShadow: "0 16px 25px rgba(0,0,0,0.25)",
         }}
@@ -71,7 +72,7 @@ const ProductsCard = ({ item, favProducts }) => {
         </Card.Body>
       </Card>
       <ToastContainer />
-    </Col>
+      </>
     
   );
 };

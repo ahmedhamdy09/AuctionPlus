@@ -28,9 +28,9 @@ const AdminEditProductsHook = (id) => {
 
   //get one products details
   const item = useSelector((state) => state.allproducts.oneProduct);
-
+console.log(item);
   // get last category state from redux
-  const category = useSelector((state) => state.allCategory.category);
+  const category = useSelector((state) => state.allCategory.category); 
 
   //get last brand state from redux
   const brand = useSelector((state) => state.allBrand.brand);
@@ -59,7 +59,7 @@ const AdminEditProductsHook = (id) => {
   const [images, setImages] = useState([]);
 
   //values state
-  const [prodName, setProdName] = useState([]);
+  const [prodName, setProdName] = useState("");
   const [prodDescritpion, setProdDescritpion] = useState("");
   const [priceBefore, setPriceBefore] = useState("price before discount");
   const [priceAfter, setPriceAfter] = useState("price after discount");
@@ -78,15 +78,15 @@ const AdminEditProductsHook = (id) => {
   const [colors, setColors] = useState([]);
 
   useEffect(() => {
-    if (item && item.data) {
-      setImages(item.data.images);
-      setProdName(item.data.title);
-      setProdDescritpion(item.data.description);
-      setPriceBefore(item.data.price);
-      setQuantity(item.data.quantity);
-      setCategoryID(item.data.category);
-      setBrandID(item.data.brand);
-      setColors(item.data.available);
+    if (item ) {
+      setImages(item.images);
+      setProdName(item.name);
+      setProdDescritpion(item.description);
+      setPriceBefore(item.price);
+      setQuantity(item.quantity);
+      setCategoryID(item.category);
+      setBrandID(item.brand);
+      setColors(item.available);
     }
   }, [item]);
 

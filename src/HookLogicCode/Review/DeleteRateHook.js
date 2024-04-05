@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteReviewOneProducts } from "../../Redux/Actions/ReviewActions";
 
 const DeleteRateHook = (review) => {
+  //
   const dispatch = useDispatch();
   const [isUser, setIsUser] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -26,13 +27,16 @@ const DeleteRateHook = (review) => {
 
   const handleDelete = async () => {
     setLoading(true);
-    await dispatch(deleteReviewOneProducts(review._id));
-    setLoading(false);
-    handleClose();
+    console.log(review)
+      await dispatch(deleteReviewOneProducts(review._id));
+      setLoading(false);
+      handleClose();
+    
+
   };
 
   const res = useSelector((state) => state.reviewReducer.deleteReview);
-
+console.log(res)
   useEffect(
     () => {
       if (loading === false) {
