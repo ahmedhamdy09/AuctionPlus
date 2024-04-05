@@ -1,48 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Card, Col } from "react-bootstrap";
-import favoff from "../../assets/fav-off.png";
-import favon from "../../assets/icons8-heart.gif";
+
 import rate from "../../assets/rate.png";
 import { Link } from "react-router-dom";
-import { addProductsToWishLists } from "../../Redux/Actions/WishListActions";
-import { useDispatch, useSelector } from "react-redux";
-import notify from "../../HookLogicCode/useNotifaction";
 import { ToastContainer } from "react-toastify";
-// import { ImgUrl } from "../../Api/baseURL";
+import ProductsCardHook from "../../HookLogicCode/WishList/ProductsCardHook";
 
-const ProductsCard = ({ item }) => {
-  const dispatch = useDispatch();
-  const [favImg, setFavImg] = useState(favoff);
-  const [isFav, setIsFav] = useState(false);
-
-  const handleFavourite = () => {
-    setIsFav(!isFav);
-  };
-
-  const res = useSelector((state) => state.addToWishlistReducer.addWishlist);
-  // console.log(res);
-  useEffect(() => {
-    if (isFav === false) {
-      setFavImg(favoff);
-    } else {
-      addToWishListData();
-    }
-  },
-  // eslint-disable-next-line 
-  [isFav]);
-
-  const addToWishListData = async () => {
-    await dispatch(
-      addProductsToWishLists({
-        productId: item._id,
-      })
-    );
-    if(res && res.status === 200) {
-      notify("The products have been successfully added to the wish list", "Success")
-    }
-    setFavImg(favon);
-  };
-
+const ProductsCard = ({ item, favProducts }) => {
+  // eslint-disable-next-line
+  const [removeToWishListData, addToWishListData, handleFavourite,favImg] = ProductsCardHook(item, favProducts);
   return (
     <Col xs="6" sm="6" md="4" lg="3" className="d-flex">
       <Card
@@ -106,6 +72,7 @@ const ProductsCard = ({ item }) => {
       </Card>
       <ToastContainer />
     </Col>
+    
   );
 };
 

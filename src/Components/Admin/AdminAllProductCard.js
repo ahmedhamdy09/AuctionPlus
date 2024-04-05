@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { deleteProducts } from "../../Redux/Actions/ProductsActions";
 import rate from "../../assets/rate.png";
 const AdminAllProductCard = ({ item }) => {
+  console.log(item)
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -14,7 +15,7 @@ const AdminAllProductCard = ({ item }) => {
   const handleDelete = async () => {
     await dispatch(deleteProducts(item._id));
     setShow(false);
-    window.location.reload();
+  //  setTimeout(()=>window.location.reload(),3000)
   };
   return (
     <Col xs="12" sm="6" md="5" lg="4" className="d-flex">

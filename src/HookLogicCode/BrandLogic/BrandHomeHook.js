@@ -11,7 +11,7 @@ const BrandHomeHook = () => {
   // get last brand from redux
   // brand reducer in root reducer file
   const brand = useSelector((state) => state.allBrand.brand);
-  console.log(brand);
+  // console.log(brand);
   // get last loading state from redux
   const loading = useSelector((state) => state.allBrand.loading);
   console.log(loading);

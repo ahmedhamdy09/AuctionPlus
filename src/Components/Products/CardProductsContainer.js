@@ -3,7 +3,10 @@ import ProductsCard from "./ProductsCard";
 import { Container, Row } from "react-bootstrap";
 import SubTitle from "../Utility/SubTitle";
 
+import CardProductHook from "../../HookLogicCode/WishList/CardProductHook";
+
 const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
+  const [favProducts] = CardProductHook()
   return (
     <Container>
       {products ? (
@@ -12,7 +15,7 @@ const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
       <Row className="my-2 d-flex justify-content-between">
         {products
           ? products.map((item, index) => (
-              <ProductsCard key={index} item={item} />
+              <ProductsCard favProducts={favProducts} key={index} item={item} />
             ))
           : null}
       </Row>
@@ -21,4 +24,3 @@ const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
 };
 
 export default CardProductsContainer;
-
