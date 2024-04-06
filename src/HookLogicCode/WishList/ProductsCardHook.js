@@ -25,11 +25,11 @@ const ProductsCardHook = (item, favProducts) => {
     [favProducts]
   );
 
-  const handleFavourite = async() => {
+  const handleFavourite = async () => {
     if (isFav) {
-     await removeToWishListData();
+      await removeToWishListData();
     } else {
-     await addToWishListData();
+      await addToWishListData();
     }
   };
 
@@ -67,7 +67,7 @@ const ProductsCardHook = (item, favProducts) => {
     setIsFav(false);
     setFavImg(favoff);
     setLoadingRemove(true);
-    console.log(item)
+    console.log(item);
     await dispatch(removeProductsToWishLists(item._id));
     setLoadingRemove(false);
   };
@@ -93,17 +93,17 @@ const ProductsCardHook = (item, favProducts) => {
     () => {
       if (loadingRemove === false) {
         if (resRemove && resRemove.status === "success") {
-            console.log(resRemove);
+          console.log(resRemove);
           notify("The products have been Removed from the wish list", "warn");
         } else if (resRemove && resRemove.status === 401) {
-          notify("You are not Login", "error");
+          notify("The Product Not Removed", "error");
         }
       }
     },
     // eslint-disable-next-line
     [loadingRemove]
   );
-  return [removeToWishListData, addToWishListData, handleFavourite,favImg]
+  return [removeToWishListData, addToWishListData, handleFavourite, favImg];
 };
 
 export default ProductsCardHook;
