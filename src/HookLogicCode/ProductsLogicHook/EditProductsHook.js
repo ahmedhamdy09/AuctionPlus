@@ -28,9 +28,9 @@ const AdminEditProductsHook = (id) => {
 
   //get one products details
   const item = useSelector((state) => state.allproducts.oneProduct);
-console.log(item);
+  // console.log(item);
   // get last category state from redux
-  const category = useSelector((state) => state.allCategory.category); 
+  const category = useSelector((state) => state.allCategory.category);
 
   //get last brand state from redux
   const brand = useSelector((state) => state.allBrand.brand);
@@ -39,11 +39,11 @@ console.log(item);
   const subCategory = useSelector((state) => state.subCategory.subcategory);
 
   const onSelect = (selectedList) => {
-    console.log(selectedsubCategoryID);
+    // console.log(selectedsubCategoryID);
     setSelectedSubCategoryID(selectedList);
   };
   const onRemove = (selectedList) => {
-    console.log(selectedsubCategoryID);
+    // console.log(selectedsubCategoryID);
     setSelectedSubCategoryID(selectedList);
   };
 
@@ -78,7 +78,7 @@ console.log(item);
   const [colors, setColors] = useState([]);
 
   useEffect(() => {
-    if (item ) {
+    if (item) {
       setImages(item.images);
       setProdName(item.name);
       setProdDescritpion(item.description);
@@ -86,7 +86,9 @@ console.log(item);
       setQuantity(item.quantity);
       setCategoryID(item.category);
       setBrandID(item.brand);
-      setColors(item.available);
+      setColors(item.colors);
+
+      // setColors(item.available);
     }
   }, [item]);
 
@@ -216,7 +218,6 @@ console.log(item);
       imgCover = dataURLtoFile(images[0], Math.random() + ".png");
     }
 
-   
     let itemImages = [];
     // convert array of base 64 image to file
     // eslint-disable-next-line
@@ -242,9 +243,11 @@ console.log(item);
     formData.append("category", categoryID);
     formData.append("brand", brandID);
 
-    colors.map((color) => formData.append("colors", color));
+    // colors.map((color) => formData.append("colors", color));
+    if (Array.isArray(colors)) {
+      colors.map((color) => formData.append("colors", color));
+    }
 
-   
     selectedsubCategoryID.map((item) =>
       formData.append("subcategories", item._id)
     );

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { deleteProducts } from "../../Redux/Actions/ProductsActions";
 import rate from "../../assets/rate.png";
 const AdminAllProductCard = ({ item }) => {
-  console.log(item)
+  // console.log(item)
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

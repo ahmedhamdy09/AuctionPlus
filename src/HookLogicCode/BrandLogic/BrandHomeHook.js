@@ -14,7 +14,7 @@ const BrandHomeHook = () => {
   // console.log(brand);
   // get last loading state from redux
   const loading = useSelector((state) => state.allBrand.loading);
-  console.log(loading);
+  // console.log(loading);
 
   return [brand, loading];
 };

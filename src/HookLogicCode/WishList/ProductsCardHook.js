@@ -25,11 +25,11 @@ const ProductsCardHook = (item, favProducts) => {
     [favProducts]
   );
 
-  const handleFavourite = () => {
+  const handleFavourite = async() => {
     if (isFav) {
-      removeToWishListData();
+     await removeToWishListData();
     } else {
-      addToWishListData();
+     await addToWishListData();
     }
   };
 
@@ -49,7 +49,7 @@ const ProductsCardHook = (item, favProducts) => {
   const resRemove = useSelector(
     (state) => state.addToWishlistReducer.removeWishlist
   );
-  console.log( resRemove);
+  // console.log( resRemove);
 
   const addToWishListData = async () => {
     setIsFav(true);

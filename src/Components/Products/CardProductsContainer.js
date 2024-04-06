@@ -1,8 +1,7 @@
 import React from "react";
 import ProductsCard from "./ProductsCard";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import SubTitle from "../Utility/SubTitle";
-
 import CardProductHook from "../../HookLogicCode/WishList/CardProductHook";
 
 const CardProductsContainer = ({ title, btntitle, pathText, products }) => {

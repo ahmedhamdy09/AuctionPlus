@@ -134,7 +134,7 @@ const AddProductsHook = () => {
   useEffect(
     () => {
       if (categoryID !== 0) {
-        if (subCategory.data) {
+        if (subCategory && subCategory.data) {
           setOptions(subCategory.data);
         }
       }
@@ -207,10 +207,10 @@ const AddProductsHook = () => {
     setLoading(false);
   };
 
-  console.log(selectedsubCategoryID);
-  console.log(categoryID);
-  console.log(brandID);
-  console.log(colors);
+  // console.log(selectedsubCategoryID);
+  // console.log(categoryID);
+  // console.log(brandID);
+  // console.log(colors);
 
   //get last brand state from redux
   const product = useSelector((state) => state.allproducts.products);

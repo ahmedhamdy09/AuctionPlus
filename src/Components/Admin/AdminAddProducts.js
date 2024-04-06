@@ -48,7 +48,6 @@ const AdminAddProducts = () => {
             cropConfig={{ crop, ruleOfThirds: true }}
             theme={"light"}
             max={4}
-            // allowCrop={false}
           />
           <input
             value={prodName}
