@@ -5,7 +5,7 @@ import SubTitle from "../Utility/SubTitle";
 import CardProductHook from "../../HookLogicCode/WishList/CardProductHook";
 
 const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
-  const [favProducts] = CardProductHook()
+  const [favProducts] = CardProductHook();
   return (
     <Container>
       {products ? (
@@ -18,7 +18,7 @@ const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
               <ProductsCard favProducts={favProducts} key={index} item={item} />
             ))
           : null}
-          </div>
+      </div>
       {/* </Row> */}
     </Container>
   );
