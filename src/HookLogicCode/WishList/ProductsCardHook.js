@@ -46,9 +46,12 @@ const ProductsCardHook = (item, favProducts) => {
   );
 
   const resAdd = useSelector((state) => state.addToWishlistReducer.addWishlist);
+  console.log("🚀 ~ ProductsCardHook ~ resAdd:", resAdd)
   const resRemove = useSelector(
     (state) => state.addToWishlistReducer.removeWishlist
   );
+  console.log("🚀 ~ ProductsCardHook ~ resRemove:", resRemove)
+
   // console.log(resAdd, resRemove);
 
   const addToWishListData = async () => {
@@ -91,7 +94,7 @@ const ProductsCardHook = (item, favProducts) => {
   useEffect(
     () => {
       if (loadingRemove === false) {
-        if (resRemove && resRemove.status === "success") {
+        if (resRemove && resRemove.status === 200) {
           notify("The products have been Removed from the wish list", "warn");
         } else if (resRemove && resRemove.status === 401) {
           notify("The Product Not Removed", "error");
