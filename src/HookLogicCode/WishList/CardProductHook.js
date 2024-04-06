@@ -27,7 +27,6 @@ const CardProductHook = () => {
     () => {
       if (loading === false) {
         // if (res&&res.data.length >= 1) {
-        //   // console.log(res.data);
         //   setFavProducts(res.data.map((item) => item._id));
         // }
         if (Array.isArray(res.data)) {

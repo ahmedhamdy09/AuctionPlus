@@ -49,7 +49,7 @@ const ProductsCardHook = (item, favProducts) => {
   const resRemove = useSelector(
     (state) => state.addToWishlistReducer.removeWishlist
   );
-  // console.log( resRemove);
+  // console.log(resAdd, resRemove);
 
   const addToWishListData = async () => {
     setIsFav(true);
@@ -67,7 +67,6 @@ const ProductsCardHook = (item, favProducts) => {
     setIsFav(false);
     setFavImg(favoff);
     setLoadingRemove(true);
-    console.log(item);
     await dispatch(removeProductsToWishLists(item._id));
     setLoadingRemove(false);
   };
@@ -93,7 +92,6 @@ const ProductsCardHook = (item, favProducts) => {
     () => {
       if (loadingRemove === false) {
         if (resRemove && resRemove.status === "success") {
-          console.log(resRemove);
           notify("The products have been Removed from the wish list", "warn");
         } else if (resRemove && resRemove.status === 401) {
           notify("The Product Not Removed", "error");
