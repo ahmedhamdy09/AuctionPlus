@@ -81,7 +81,7 @@ const RegisterHookLogic = () => {
     // eslint-disable-next-line
     [loading]
   );
-
+ 
   return [
     name,
     email,
