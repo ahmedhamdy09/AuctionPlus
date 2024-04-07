@@ -27,6 +27,7 @@ const RegisterHookLogic = () => {
 
 
   const res = useSelector((state) => state.authReducer.createUser);
+  console.log("🚀 ~ RegisterHookLogic ~ res:", res)
   // save data
   const onSubmit = async (e) => {
     e.preventDefault();
