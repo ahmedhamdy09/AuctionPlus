@@ -76,7 +76,7 @@ const AdminEditProductsHook = (id) => {
   const [showColor, setShowColor] = useState(false);
   // to store all pick color
   const [colors, setColors] = useState([]);
-
+console.log(item)
   useEffect(() => {
     if (item) {
       setImages(item.images);
@@ -244,9 +244,12 @@ const AdminEditProductsHook = (id) => {
     formData.append("brand", brandID);
 
     // colors.map((color) => formData.append("colors", color));
-    if (Array.isArray(colors)) {
-      colors.map((color) => formData.append("colors", color));
-    }
+    // if (Array.isArray(colors)) {
+    //   colors.map((color) => formData.append("colors", color));
+    // }
+    colors.map((item) => {
+      return formData.append("colors", item);
+    });
 
     selectedsubCategoryID.map((item) =>
       formData.append("subcategories", item._id)

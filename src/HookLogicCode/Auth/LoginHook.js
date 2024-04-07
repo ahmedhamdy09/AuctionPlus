@@ -51,10 +51,10 @@ const LoginHook = () => {
     () => {
       if (loading === false) {
         if (res && res.data) {
-          console.log(res.data);
-          if (res.token) {
-            localStorage.setItem("token", res.token);
-            localStorage.setItem("user", JSON.stringify(res.data));
+          console.log(res);
+          if (res.data.token) {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.data));
             notify("Login Success", "success");
             setTimeout(() => {
               window.location.href = "/";
