@@ -31,8 +31,7 @@ const CardProductHook = () => {
         // }
         if (Array.isArray(res.data)) {
           setFavProducts(res.data.map((item) => item._id));
-        }
-        else setFavProducts([]);
+        } else setFavProducts([]);
       }
     },
     // eslint-disable-next-line

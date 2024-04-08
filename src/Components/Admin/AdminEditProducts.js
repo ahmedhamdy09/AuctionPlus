@@ -96,7 +96,6 @@ const AdminEditProducts = () => {
             <select
               name="category"
               value={categoryID}
-              disabled
               onChange={onSelectCategory}
               className="select input-form-area mt-3 px-2 "
             >
@@ -117,7 +116,6 @@ const AdminEditProducts = () => {
               className="mt-2 text-end"
               placeholder="SubCategory"
               options={options}
-              disabled
               onSelect={onSelect}
               onRemove={onRemove}
               displayValue="name"
@@ -126,7 +124,6 @@ const AdminEditProducts = () => {
             <select
               onChange={onSelectBrand}
               value={brandID}
-              disabled
               name="brand"
               id="brand"
               className="select input-form-area mt-3 px-2 "

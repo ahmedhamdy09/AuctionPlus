@@ -1,6 +1,5 @@
 import React from "react";
 import { Card} from "react-bootstrap";
-
 import rate from "../../assets/rate.png";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
