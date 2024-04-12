@@ -34,11 +34,11 @@ const EditYourCommentHook = (review) => {
   };
 
   const res = useSelector((state) => state.reviewReducer.updateReview);
-
+  
   useEffect(
     () => {
       if (loading === false) {
-        // console.log(res);
+        console.log(res);
         if (res.status && res.status === 200) {
           notify("The Comment Was Updated", "success");
           setTimeout(() => {

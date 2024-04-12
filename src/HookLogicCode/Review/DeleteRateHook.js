@@ -17,9 +17,11 @@ const DeleteRateHook = (review) => {
   let user = JSON.parse(localStorage.getItem("user"));
   useEffect(
     () => {
-      if (user && review.user._id === user._id) {
-        setIsUser(true);
-      }
+      try {
+        if (user && review.user._id === user._id) {
+          setIsUser(true);
+        }
+      } catch (e) {}
     },
     // eslint-disable-next-line
     []
@@ -27,25 +29,24 @@ const DeleteRateHook = (review) => {
 
   const handleDelete = async () => {
     setLoading(true);
-    console.log(review)
-      await dispatch(deleteReviewOneProducts(review._id));
-      setLoading(false);
-      handleClose();
-    
-
+    // console.log(review);
+    await dispatch(deleteReviewOneProducts(review._id));
+    setLoading(false);
+    handleClose();
   };
 
   const res = useSelector((state) => state.reviewReducer.deleteReview);
-console.log(res)
+  // console.log(res);
   useEffect(
     () => {
       if (loading === false) {
         if (res && res === "") {
-          // if (res.status && res.status === 200) {
-          notify("The Comment Is Deleted", "success");
-          setTimeout(() => {
-            window.location.reload(false);
-          }, 1000);
+          if (res.status && res.status === 200) {
+            notify("The Comment Is Deleted", "success");
+            setTimeout(() => {
+              window.location.reload(false);
+            }, 1000);
+          }
         } else notify("The Comment Not Deleted", "error");
       }
     },
@@ -57,3 +58,4 @@ console.log(res)
 };
 
 export default DeleteRateHook;
+

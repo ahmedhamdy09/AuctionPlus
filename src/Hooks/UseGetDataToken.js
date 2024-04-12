@@ -11,4 +11,3 @@ const useGetDataToken = async (url) => {
 };
 
 export default useGetDataToken;
-

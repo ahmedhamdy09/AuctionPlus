@@ -55,3 +55,13 @@ export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
 export const REMOVE_WISHLIST = "REMOVE_WISHLIST";
 
 export const GET_USER_WISHLIST = "GET_USER_WISHLIST";
+
+export const ADD_COUPONS = "ADD_COUPONS";
+
+export const GET_ALL_COUPONS = "GET_ALL_COUPONS";
+
+export const DELETE_COUPONS = "DELETE_COUPONS";
+
+export const GET_ONE_COUPONS = "GET_ONE_COUPONS";
+
+export const EDIT_COUPONS = "EDIT_COUPONS";

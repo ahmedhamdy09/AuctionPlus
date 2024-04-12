@@ -35,6 +35,8 @@ import UppliveShow4 from "./Components/livesShow/UpplivesShow4";
 import PopUPEmail from "./Page/Auth/ForgetPass/PopUPEmail";
 import PopUpOtp from "./Page/Auth/ForgetPass/PopUpOtp";
 import PopUpNewPass from "./Page/Auth/ForgetPass/PopUpNewPass";
+import AdminAddCouponsPage from "./Page/Admin/AdminAddCouponsPage";
+import AdminEditCouponPage from "./Page/Admin/AdminEditCouponPage";
 
 function App() {
   return (
@@ -61,6 +63,11 @@ function App() {
             element={<AdminSubCategoryPage />}
           />
           <Route path="/admin/addproduct" element={<AdminAddProductPage />} />
+          <Route path="/admin/addcoupons" element={<AdminAddCouponsPage />} />
+          <Route
+            path="/admin/editcoupons/:id"
+            element={<AdminEditCouponPage />}
+          />
           <Route path="/user/allorders" element={<UserAllOrderPage />} />
           <Route
             path="/user/favoriteproducts"

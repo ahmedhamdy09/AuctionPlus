@@ -74,7 +74,7 @@ const LoginPage = () => {
             ) : null}
           </Col>
 
-          <label className="mx-auto my-4">
+          {/* <label className="mx-auto my-4">
             <Link to="/admin/allproducts" style={{ textDecoration: "none" }}>
               <span style={{ cursor: "pointer" }} className="text-danger">
                 Admin login
@@ -86,7 +86,7 @@ const LoginPage = () => {
                 User login
               </span>
             </Link>
-          </label>
+          </label> */}
         </Row>
         <ToastContainer />
       </Container>

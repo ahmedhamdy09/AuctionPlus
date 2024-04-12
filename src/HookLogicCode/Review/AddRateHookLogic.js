@@ -43,7 +43,7 @@ const AddRateHookLogic = (id) => {
     () => {
       if (loading === false) {
         if (res) {
-          console.log(res);
+          // console.log(res);
           if (res.status && res.status === 403) {
             notify("Admins are not allowed to rate", "error");
           } else if (
