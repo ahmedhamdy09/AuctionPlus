@@ -43,7 +43,7 @@ const GetAllUserCartHook = () => {
     [loading]
   );
 
-  return [itemsNum,cartItems,totalPrice];
+  return [itemsNum, cartItems, totalPrice];
 };
 
 export default GetAllUserCartHook;
