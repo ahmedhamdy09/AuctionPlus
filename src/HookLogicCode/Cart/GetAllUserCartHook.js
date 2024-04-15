@@ -7,6 +7,7 @@ const GetAllUserCartHook = () => {
   const [loading, setLoading] = useState(true);
   const [itemsNum, setItemsNum] = useState(0);
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(
     () => {
@@ -30,9 +31,11 @@ const GetAllUserCartHook = () => {
         if (res && res.status === "success") {
           setItemsNum(res.numOfCartItems);
           setCartItems(res.data.cartItems);
+          setTotalPrice(res.data.totalCartPrice);
         } else {
           setItemsNum(0);
           setCartItems([]);
+          setTotalPrice(0);
         }
       }
     },
@@ -40,7 +43,7 @@ const GetAllUserCartHook = () => {
     [loading]
   );
 
-  return [itemsNum,cartItems];
+  return [itemsNum,cartItems,totalPrice];
 };
 
 export default GetAllUserCartHook;

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 import mobile from "../../assets/mobile.png";
 import deleteicon from "../../assets/delete.png";
 import axios from "axios";
+import DeleteCartHook from "../../HookLogicCode/Cart/DeleteCartHook";
 
 const CartItem = ({ item }) => {
+  // eslint-disable-next-line
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
@@ -21,9 +23,31 @@ const CartItem = ({ item }) => {
     fetchProducts();
   }, []);
 
-  console.log(products);
+  const [
+    // eslint-disable-next-line
+    handleAllDeleteCart,
+    show,
+    handleClose,
+    handleShow,
+    handleDeleteOneItem,
+  ] = DeleteCartHook(item._id);
+
   return (
     <Col xs="12" className="cart-item-body my-2 d-flex px-2">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Apply Delete</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure Delete this Cart?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleDeleteOneItem}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <img
         width="160px"
         height="197px"
@@ -37,7 +61,11 @@ const CartItem = ({ item }) => {
             <div className="d-inline pt-2 cat-text">
               {/* {products.category.name || ""} */}
             </div>
-            <div className="d-flex pt-2 " style={{ cursor: "pointer" }}>
+            <div
+              onClick={handleShow}
+              className="d-flex pt-2 "
+              style={{ cursor: "pointer" }}
+            >
               <img src={deleteicon} alt="" width="20px" height="24px" />
               <div className="cat-text d-inline me-2">Delete</div>
             </div>
