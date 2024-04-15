@@ -58,7 +58,7 @@ const DeleteCartHook = (item) => {
   const handleDeleteOneItem = async () => {
     await dispatch(deleteOneCart(item._id));
     setShow(false);
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   const handleUpdateCart = async () => {
