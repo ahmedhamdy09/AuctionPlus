@@ -3,10 +3,12 @@ import {
   GET_ALL_USER_CART_ITEMS,
   CLEAR_ALL_USER_CART_ITEMS,
   DELETE_ONE_CART_ITEMS,
+  UPDATE_CART_ITEMS,
 } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
 import useDeleteData from "../../Hooks/useDeleteData";
+import { useUpdateData } from "../../Hooks/useUpdateData";
 
 // Add Cart
 export const addProductToCart = (body) => async (dispatch) => {
@@ -59,7 +61,7 @@ export const clearAllCart = () => async (dispatch) => {
   }
 };
 
-// clear All Cart items
+// delete one Cart items
 export const deleteOneCart = (id) => async (dispatch) => {
   try {
     // use insert data because is post
@@ -71,6 +73,23 @@ export const deleteOneCart = (id) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: DELETE_ONE_CART_ITEMS,
+      payload: e.response,
+    });
+  }
+};
+
+// update  Cart items
+export const updateCart = (id, body) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useUpdateData(`/api/v1/cart/${id}`, body);
+    dispatch({
+      type: UPDATE_CART_ITEMS,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_CART_ITEMS,
       payload: e.response,
     });
   }

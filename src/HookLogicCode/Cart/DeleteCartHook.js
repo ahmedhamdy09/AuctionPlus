@@ -1,17 +1,36 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import notify from "../../HookLogicCode/useNotifaction";
-import { clearAllCart, deleteOneCart } from "../../Redux/Actions/CartAction";
+import {
+  clearAllCart,
+  deleteOneCart,
+  updateCart,
+} from "../../Redux/Actions/CartAction";
 
-const DeleteCartHook = (itemID) => {
+const DeleteCartHook = (item) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const [itemCount, setItemCount] = useState(0);
 
   const handleAllDeleteCart = async () => {
     setLoading(true);
     await dispatch(clearAllCart());
     setLoading(false);
   };
+
+  const onChangeCountQuantity = (e) => {
+    setItemCount(e.target.value);
+  };
+
+  useEffect(
+    () => {
+      if (item) {
+        setItemCount(item.quantity);
+      }
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   const res = useSelector(
     (state) => state.addProductToCart.clearAlluserCartItems
@@ -37,11 +56,30 @@ const DeleteCartHook = (itemID) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleDeleteOneItem = async () => {
-    await dispatch(deleteOneCart(itemID));
+    await dispatch(deleteOneCart(item._id));
     setShow(false);
     window.location.reload(false);
   };
-  return [handleAllDeleteCart,show,handleClose,handleShow,handleDeleteOneItem];
+
+  const handleUpdateCart = async () => {
+    await dispatch(
+      updateCart(item._id, {
+        quantity: itemCount,
+      })
+    );
+    window.location.reload(false);
+  };
+
+  return [
+    handleAllDeleteCart,
+    show,
+    handleClose,
+    handleShow,
+    handleDeleteOneItem,
+    itemCount,
+    onChangeCountQuantity,
+    handleUpdateCart,
+  ];
 };
 
 export default DeleteCartHook;

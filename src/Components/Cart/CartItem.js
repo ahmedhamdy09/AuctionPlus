@@ -30,7 +30,10 @@ const CartItem = ({ item }) => {
     handleClose,
     handleShow,
     handleDeleteOneItem,
-  ] = DeleteCartHook(item._id);
+    itemCount,
+    onChangeCountQuantity,
+    handleUpdateCart,
+  ] = DeleteCartHook(item);
 
   return (
     <Col xs="12" className="cart-item-body my-2 d-flex px-2">
@@ -107,11 +110,13 @@ const CartItem = ({ item }) => {
             <div className="d-inline pt-2 d-flex">
               <div className="cat-text  d-inline">Quantity</div>
               <input
-                value={item.quantity}
-                className="mx-2 "
+                value={itemCount}
+                onChange={onChangeCountQuantity}
+                className="mx-2 text-center"
                 type="number"
-                style={{ width: "40px", height: "25px" }}
+                style={{ width: "60px", height: "40px" }}
               />
+              <button onClick={handleUpdateCart} className="btn btn-dark">Apply</button>
             </div>
             <div className="d-inline pt-2 barnd-text">{item.price || 0} $</div>
           </Col>

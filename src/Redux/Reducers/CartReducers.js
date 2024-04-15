@@ -1,10 +1,17 @@
-import { ADD_PRODUCT_TO_CART,GET_ALL_USER_CART_ITEMS, CLEAR_ALL_USER_CART_ITEMS,DELETE_ONE_CART_ITEMS } from "../Type";
+import {
+  ADD_PRODUCT_TO_CART,
+  GET_ALL_USER_CART_ITEMS,
+  CLEAR_ALL_USER_CART_ITEMS,
+  DELETE_ONE_CART_ITEMS,
+  UPDATE_CART_ITEMS,
+} from "../Type";
 
 const initail = {
   addProductToCart: [],
   getAlluserCartItems: [],
   clearAlluserCartItems: [],
   deleteOneCartItems: [],
+  updateCartItems: [],
 };
 
 const addProductToCart = (state = initail, action) => {
@@ -15,25 +22,31 @@ const addProductToCart = (state = initail, action) => {
         // update state
         addProductToCart: action.payload,
       };
-      case GET_ALL_USER_CART_ITEMS:
-        return {
-          ...state,
-          // update state
-          getAlluserCartItems: action.payload,
-        };
-        case CLEAR_ALL_USER_CART_ITEMS:
-          return {
-            ...state,
-            // update state
-            clearAlluserCartItems: action.payload,
-          };
-          case DELETE_ONE_CART_ITEMS:
-            return {
-              ...state,
-              // update state
-              deleteOneCartItems: action.payload,
-            };        
-    default: 
+    case GET_ALL_USER_CART_ITEMS:
+      return {
+        ...state,
+        // update state
+        getAlluserCartItems: action.payload,
+      };
+    case CLEAR_ALL_USER_CART_ITEMS:
+      return {
+        ...state,
+        // update state
+        clearAlluserCartItems: action.payload,
+      };
+    case DELETE_ONE_CART_ITEMS:
+      return {
+        ...state,
+        // update state
+        deleteOneCartItems: action.payload,
+      };
+    case UPDATE_CART_ITEMS:
+      return {
+        ...state,
+        // update state
+        updateCartItems: action.payload,
+      };
+    default:
       return state;
   }
 };
