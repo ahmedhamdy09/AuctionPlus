@@ -72,10 +72,11 @@ const CartItem = ({ item }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+      {OneP&&OneP.length?OneP.map((it) => (
+         item.product === it.id ? (
       <Col xs="12" className="cart-item-body my-2 d-flex px-2">
-        {OneP&&OneP.length?OneP.map((it) => (
-          <>
-            {item.product === it.id ? (
+  
+           
               <img
                 width="160px"
                 height="197px"
@@ -83,9 +84,7 @@ const CartItem = ({ item }) => {
                 // src={mobile}
                 alt={''}
               />
-            ) : null}
-          </>
-        )):null}
+
         <div className="w-100">
           <Row className="justify-content-between">
             <Col sm="12" className=" d-flex flex-row justify-content-between">
@@ -97,7 +96,7 @@ const CartItem = ({ item }) => {
                 className="d-flex pt-2 "
                 style={{ cursor: "pointer" }}
               >
-                <img src={deleteicon} alt="" width="20px" height="24px" />
+                <img style={{objectFit:'cover',width:'33%'}} src={deleteicon} alt="" width="20px" height="24px" />
                 <div className="cat-text d-inline me-2">Delete</div>
               </div>
             </Col>
@@ -114,7 +113,7 @@ const CartItem = ({ item }) => {
           </Row>
           <Row>
             <Col sm="12" className="mt-1">
-              <div className="cat-text d-inline">Brand :</div>
+              <div className="cat-text d-inline">Category : {it.category.name}</div>
               <div className="barnd-text d-inline mx-1">
                 {" "}
                 {/* {item.product.brand || ""} */}
@@ -152,9 +151,12 @@ const CartItem = ({ item }) => {
                 {item.price || 0} $
               </div>
             </Col>
+  
           </Row>
         </div>
       </Col>
+) : null
+        )):null}
     </>
   );
 };
