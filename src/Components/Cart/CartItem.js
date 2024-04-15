@@ -12,7 +12,6 @@ const CartItem = ({ item }) => {
         const response = await axios.get(
           "https://graduation-api-qq1p.onrender.com/api/v1/products"
         );
-        // console.log(response);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -22,13 +21,14 @@ const CartItem = ({ item }) => {
     fetchProducts();
   }, []);
 
-  // console.log(products);
+  console.log(products);
   return (
     <Col xs="12" className="cart-item-body my-2 d-flex px-2">
       <img
         width="160px"
         height="197px"
-        src={products.imageCover || mobile}
+        // src={products.imageCover || mobile}
+        src={mobile}
         alt=""
       />
       <div className="w-100">
@@ -46,7 +46,7 @@ const CartItem = ({ item }) => {
         <Row className="justify-content-center mt-2">
           <Col sm="12" className=" d-flex flex-row justify-content-start">
             <div className="d-inline pt-2 cat-title">
-              {item.product.title || ""}
+              {/* {products.name || ""} */}
             </div>
             <div className="d-inline pt-2 cat-rate me-2">
               {item.product.ratingsAverage || 0}
@@ -59,7 +59,7 @@ const CartItem = ({ item }) => {
             <div className="barnd-text d-inline mx-1">
               {" "}
               {/* {item.product.brand || ""} */}
-              {products.brand || ""}
+              {/* {products.brand || ""} */}
             </div>
           </Col>
         </Row>

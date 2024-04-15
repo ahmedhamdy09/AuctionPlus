@@ -26,12 +26,13 @@ const CardProductHook = () => {
   useEffect(
     () => {
       if (loading === false) {
-        // if (res&&res.data.length >= 1) {
+        // if (res && res.data.length >= 1) {
         //   setFavProducts(res.data.map((item) => item._id));
         // }
-        if (Array.isArray(res.data)) {
+        if (Array.isArray(res && res.data)) {
           setFavProducts(res.data.map((item) => item._id));
-        } else setFavProducts([]);
+        }
+        else setFavProducts([]);
       }
     },
     // eslint-disable-next-line
