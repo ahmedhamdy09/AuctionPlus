@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createBrand } from "../../Redux/Actions/BrandAction";
 import notify from "../../HookLogicCode/useNotifaction";
 // eslint-disable-next-line
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddBrandPageLogic = () => {

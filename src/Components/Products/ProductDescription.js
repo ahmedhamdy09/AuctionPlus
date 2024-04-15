@@ -2,12 +2,15 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import ViewOneProductsDetailsHook from "../../HookLogicCode/ProductsLogicHook/ViewOneProductsDetailsHook";
+import AddToCart from "../../HookLogicCode/Cart/AddToCart";
+import { ToastContainer } from "react-toastify";
 
 const ProductDescription = () => {
   const { id } = useParams();
   // eslint-disable-next-line
   const [item, images, cat, brand] = ViewOneProductsDetailsHook(id);
-  // console.log(item);
+
+  const [colorClick, indexColor, addToCartHandle] = AddToCart(id, item);
   return (
     <div>
       <Row className="mt-2">
@@ -20,7 +23,6 @@ const ProductDescription = () => {
             {item.name}
             {/* <div className="cat-rate d-inline mx-3">{item.ratingsQuantity}</div> */}
             <div className="cat-rate d-inline mx-3">{item.ratingsAverage}</div>
-
           </div>
         </Col>
       </Row>
@@ -32,13 +34,17 @@ const ProductDescription = () => {
       </Row>
       <Row>
         <Col md="8" className="mt-1 d-flex">
-            {item.colors
+          {item.colors
             ? item.colors.map((color, index) => {
                 return (
                   <div
                     key={index}
-                    className="color ms-2 border"
-                    style={{ backgroundColor: color }}
+                    onClick={() => colorClick(index, color)}
+                    className="color ms-2"
+                    style={{
+                      backgroundColor: color,
+                      border: indexColor === index ? "2px solid black" : "none",
+                    }}
                   ></div>
                 );
               })
@@ -60,11 +66,15 @@ const ProductDescription = () => {
             {/* {item.price} $ */}
             {item.discountedPrice} $
           </div>
-          <div className="product-cart-add px-3 py-3 d-inline mx-3">
+          <div
+            onClick={addToCartHandle}
+            className="product-cart-add px-3 py-3 d-inline mx-3"
+          >
             add Carts
           </div>
         </Col>
       </Row>
+      <ToastContainer />
     </div>
   );
 };

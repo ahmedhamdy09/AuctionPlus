@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import notify from "../../HookLogicCode/useNotifaction";
+import { addUserAddress } from "../../Redux/Actions/AddressAction";
+import { useNavigate } from "react-router-dom";
 
 const AddAddressHook = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [alias, setAlias] = useState("");
   const [details, setDetails] = useState("");
@@ -28,10 +31,45 @@ const AddAddressHook = () => {
       return;
     }
     setLoading(true);
-    await dispatch();
+    await dispatch(
+      addUserAddress({
+        alias: alias,
+        details: details,
+        phone: phone,
+        city: "",
+        postalCode: "",
+      })
+    );
     setLoading(false);
   };
-  return [alias, details, phone, onChangeAlias, onChangeDetails, onChangePhone,onSubmit];
+  const res = useSelector((state) => state.userAddressReducer.addUserAddress);
+
+  useEffect(
+    () => {
+      if (loading === false) {
+        if (res && res.status === 200) {
+          notify("Address added Success", "success");
+          setTimeout(() => {
+            navigate("/user/addresses");
+          }, 1000);
+        } else {
+          notify("This Address Not Added", "error");
+        }
+      }
+    },
+    // eslint-disable-next-line
+    [loading]
+  );
+
+  return [
+    alias,
+    details,
+    phone,
+    onChangeAlias,
+    onChangeDetails,
+    onChangePhone,
+    onSubmit,
+  ];
 };
 
 export default AddAddressHook;

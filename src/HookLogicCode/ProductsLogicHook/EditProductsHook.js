@@ -280,9 +280,9 @@ const AdminEditProductsHook = (id) => {
         setTimeout(() => setLoading(true), 1500);
 
         if (product) {
-          if (product.status === 201) {
+          if (product.status === 201 || product.status === 200) {
             notify("The product has been Updated successfully", "success");
-          } else if (product.status !== 201) {
+          } else if (product.status !== 201 || product.status !== 200) {
             notify("There is a problem Updated products", "error");
           }
         }

@@ -2,8 +2,12 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CartItem from "../../Components/Cart/CartItem";
 import CartCheck from "../../Components/Cart/CartCheck";
+import GetAllUserCartHook from "../../HookLogicCode/Cart/GetAllUserCartHook";
 
 const CartPage = () => {
+  // eslint-disable-next-line
+  const [itemsNum, cartItems] = GetAllUserCartHook();
+// console.log(cartItems);
   return (
     <Container style={{ minHeight: "670px" }}>
       <Row>
@@ -12,10 +16,13 @@ const CartPage = () => {
 
       <Row className="d-flex justify-content-center">
         <Col xs="12" md="9">
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartItems && cartItems.length >= 1 ? (
+            cartItems.map((item, index) => {
+              return <CartItem key={index} item={item} />;
+            })
+          ) : (
+            <h3>No Cart Now..</h3>
+          )}
         </Col>
 
         <Col xs="6" md="3">

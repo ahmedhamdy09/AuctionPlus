@@ -9,6 +9,7 @@ import {
 import logo from "../../assets/photo_2023-12-08_21-49-25.jpg";
 import "./UtiltyCss/NavStyle.css";
 import NabBarSearchHook from "../../HookLogicCode/Search/NabBarSearchHook";
+import GetAllUserCartHook from "../../HookLogicCode/Cart/GetAllUserCartHook";
 
 const NavBarLogin = () => {
   // eslint-disable-next-line
@@ -37,6 +38,7 @@ const NavBarLogin = () => {
     setUser("");
   };
 
+  const [itemsNum] = GetAllUserCartHook();
   return (
     <>
       <Navbar expand="lg">
@@ -64,7 +66,6 @@ const NavBarLogin = () => {
               <Nav.Link
                 href="/"
                 className="nav-text d-flex  justify-content-center  mt-2 "
-                // style={{ marginLeft: "auto" }}
               >
                 Home
               </Nav.Link>
@@ -105,13 +106,19 @@ const NavBarLogin = () => {
                 />
               </div>
               <Nav className="me-auto iconn">
+                {/* <i
+                  className="fa-regular fa-heart"
+                  style={{ marginTop: "-10px", cursor: "pointer" }}
+                ></i> */}
                 <Nav.Link
                   href="/cart"
-                  className="nav-text d-flex  justify-content-center"
+                  className="nav-text position-relative d-flex  justify-content-center"
                   style={{ color: "white" }}
                 >
-                  <i className="fa-regular fa-heart"></i>
                   <i className="fa-solid fa-cart-shopping"></i>
+                  <span class="position-absolute top-10 start-0 translate-middle badge rounded-pill bg-danger">
+                    {itemsNum || 0}
+                  </span>
                 </Nav.Link>
                 {user && user.name !== "" ? (
                   <NavDropdown

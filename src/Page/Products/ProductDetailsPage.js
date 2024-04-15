@@ -19,13 +19,16 @@ const ProductDetailsPage = () => {
     var rateAvgerage = item.ratingsAverage;
     // نسيت تغيرها
     var rateQuantity = item.ratingsQuantity;
-  } 
+  }
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryHeader />
       <Container>
         <ProductDetails />
-        <RateContainer rateAvgerage={rateAvgerage} rateQuantity={rateQuantity}/>
+        <RateContainer
+          rateAvgerage={rateAvgerage}
+          rateQuantity={rateQuantity}
+        />
         <CardProductsContainer products={items} title="Products you may like" />
       </Container>
     </div>

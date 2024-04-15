@@ -2,14 +2,21 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import UserAddressCard from "./UserAddressCard";
+import ViewAddressHook from "../../HookLogicCode/User/ViewAddressHook";
 
 const UserAllAdress = () => {
+  const [res] = ViewAddressHook();
+  console.log(res);
   return (
     <div>
       <div className="admin-content-text pb-4">Address Book</div>
-      <UserAddressCard />
-      <UserAddressCard />
-      <UserAddressCard />
+      {res.data ? (
+        res.data.map((item, index) => {
+          return <UserAddressCard key={index} item={item} />;
+        })
+      ) : (
+        <h3>No Address Now..</h3>
+      )}
 
       <Row className="justify-content-center">
         <Col sm="5" className="d-flex justify-content-center">

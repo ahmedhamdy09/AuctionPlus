@@ -112,6 +112,16 @@ const AdminEditProducts = () => {
                 : null}
             </select>
 
+            {/* <Multiselect
+              className="mt-2 text-end"
+              placeholder="SubCategory"
+              options={options}
+              onSelect={onSelect}
+              onRemove={onRemove}
+              displayValue="name"
+              style={{ color: "red" }}
+            /> */}
+            {Array.isArray(options) && (
             <Multiselect
               className="mt-2 text-end"
               placeholder="SubCategory"
@@ -121,6 +131,8 @@ const AdminEditProducts = () => {
               displayValue="name"
               style={{ color: "red" }}
             />
+          )}
+
             <select
               onChange={onSelectBrand}
               value={brandID}
