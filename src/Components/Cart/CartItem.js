@@ -5,36 +5,44 @@ import deleteicon from "../../assets/delete.png";
 import axios from "axios";
 import DeleteCartHook from "../../HookLogicCode/Cart/DeleteCartHook";
 import { useDispatch, useSelector } from "react-redux";
-import { getOneProduct } from "../../Redux/Actions/ProductsActions";
+import {
+  getAllProducts,
+  getOneProduct,
+} from "../../Redux/Actions/ProductsActions";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   // eslint-disable-next-line
-  const [products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://graduation-api-qq1p.onrender.com/api/v1/products"
-  //       );
-  //       setProducts(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching products:", error);
-  //     }
-  //   };
-
-  //   fetchProducts();
-  // }, []);
-  const oneProducts = useSelector((state) => state.allproducts.oneProduct);
-  console.log(oneProducts);
-
+  // const [products, setProducts] = useState([]);
+  const allProducts = useSelector((state) => state.allproducts.allProducts);
+  useEffect(
+    () => {
+      dispatch(getAllProducts());
+    },
+    // eslint-disable-next-line
+    []
+  );
+  // const product = products.find(ite => ite.id === item.product);
+  const [OneP, setOneP] = useState(null);
+  console.log("🚀 ~ CartItem ~ OneP:", OneP);
   useEffect(() => {
-    const get = async () => {
-      await dispatch(getOneProduct(item.product));
-    };
-    get();
-  }, [item]);
+    const set = new Set();
+    //eslint-disable-next-line
+    allProducts?.data.map((d) => {
+      set.add(d);
+    });
+    const Cat = Array.from(set);
+    setOneP(Cat);
+  }, [allProducts]);
+  // const oneProducts = useSelector((state) => state.allproducts.oneProduct);
+  // console.log(oneProducts);
 
+  // useEffect(() => {
+  //   const get = async () => {
+  //     await dispatch(getOneProduct(item.product));
+  //   };
+  //   get();
+  // }, [item]);
   const [
     // eslint-disable-next-line
     handleAllDeleteCart,
@@ -65,22 +73,19 @@ const CartItem = ({ item }) => {
         </Modal.Footer>
       </Modal>
       <Col xs="12" className="cart-item-body my-2 d-flex px-2">
-        {item.product === oneProducts.id ? (
-          <img
-            width="160px"
-            height="197px"
-            src={oneProducts.imageCover}
-            // src={mobile}
-            alt=""
-          />
-        ) : null}
-        {/* <img
-          width="160px"
-          height="197px"
-          src={ oneProducts.imageCover}
-          // src={mobile}
-          alt=""
-        /> */}
+        {OneP&&OneP.length?OneP.map((it) => (
+          <>
+            {item.product === it.id ? (
+              <img
+                width="160px"
+                height="197px"
+                src={it.imageCover}
+                // src={mobile}
+                alt={''}
+              />
+            ) : null}
+          </>
+        )):null}
         <div className="w-100">
           <Row className="justify-content-between">
             <Col sm="12" className=" d-flex flex-row justify-content-between">
