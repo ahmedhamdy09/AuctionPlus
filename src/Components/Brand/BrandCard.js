@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import { ImgUrl } from "../../Api/baseURL";
 
-const BrandCard = ({ img }) => {
-  // console.log(img);
+const BrandCard = ({ img, id }) => {
   return (
     <Col
       xs="6"
@@ -22,10 +22,12 @@ const BrandCard = ({ img }) => {
           backgroundColor: "none",
         }}
       >
-        <Card.Img
-          style={{ width: "100%", height: "151px", backgroundColor: "none" }}
-          src={img}
-        />
+        <Link to={`/products/brand/${id}`} style={{ textDecoration: "none" }}>
+          <Card.Img
+            style={{ width: "100%", height: "151px", backgroundColor: "none" }}
+            src={img}
+          />
+        </Link>
       </Card>
     </Col>
   );

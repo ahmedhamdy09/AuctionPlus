@@ -37,8 +37,15 @@ import PopUpOtp from "./Page/Auth/ForgetPass/PopUpOtp";
 import PopUpNewPass from "./Page/Auth/ForgetPass/PopUpNewPass";
 import AdminAddCouponsPage from "./Page/Admin/AdminAddCouponsPage";
 import AdminEditCouponPage from "./Page/Admin/AdminEditCouponPage";
+import ProtectedRouteHook from "./HookLogicCode/Auth/ProtectedRouteHook";
+import ProtectedRoute from "./Components/Utility/ProtectedRoute";
+import ProductByCategory from "./Page/Products/ProductByCategory";
+import ProductByBrand from "./Page/Products/ProductByBrand";
 
 function App() {
+  // eslint-disable-next-line
+  const [isUser, isAdmin, userData] = ProtectedRouteHook();
+
   return (
     <div className="font">
       <NavBarLogin />
@@ -52,35 +59,74 @@ function App() {
           <Route path="/products" element={<ShopProductsPage />} />
           <Route path="/products/:id" element={<ProductDetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/order/paymethod" element={<PaymentCheckoutPage />} />
-          <Route path="/admin/allproducts" element={<AdminAllProductPage />} />
-          <Route path="/admin/allorders" element={<AdminAllOrderPage />} />
-          <Route path="/admin/orders/:id" element={<AdminOrderDetailsPage />} />
-          <Route path="/admin/addbrand" element={<AdminAddBrandPage />} />
-          <Route path="/admin/addcategory" element={<AdminAddCategoryPage />} />
+          <Route path="/popupemail" element={<PopUPEmail />} />
+          <Route path="/popupotp" element={<PopUpOtp />} />
+          <Route path="/popupnewpass" element={<PopUpNewPass />} />
+          <Route path="/products/category/:id" element={<ProductByCategory />} />
+          <Route path="/products/brand/:id" element={<ProductByBrand />} />
+
+          
           <Route
-            path="/admin/addsubcategory"
-            element={<AdminSubCategoryPage />}
+            path="/order/paymethod"
+            element={
+              <ProtectedRoute auth={isUser}>
+                <PaymentCheckoutPage />
+              </ProtectedRoute>
+            }
           />
-          <Route path="/admin/addproduct" element={<AdminAddProductPage />} />
-          <Route path="/admin/addcoupons" element={<AdminAddCouponsPage />} />
-          <Route
-            path="/admin/editcoupons/:id"
-            element={<AdminEditCouponPage />}
-          />
-          <Route path="/user/allorders" element={<UserAllOrderPage />} />
-          <Route
-            path="/user/favoriteproducts"
-            element={<UserFavProductsPage />}
-          />
-          <Route path="/user/addresses" element={<UsersAllAdressPage />} />
-          <Route path="/user/add-address" element={<UserAddAdressPage />} />
-          <Route path="/user/edit-address" element={<UserEditAddressPage />} />
-          <Route path="/user/profile" element={<UserProfilePage />} />
-          <Route
-            path="/admin/editproduct/:id"
-            element={<AdminEditProductsPage />}
-          />
+          
+          
+
+          {/* start admin */}
+          <Route element={<ProtectedRoute auth={isAdmin} />}>
+            <Route
+              path="/admin/allproducts"
+              element={<AdminAllProductPage />}
+            />
+            <Route path="/admin/allorders" element={<AdminAllOrderPage />} />
+            <Route
+              path="/admin/orders/:id"
+              element={<AdminOrderDetailsPage />}
+            />
+            <Route path="/admin/addbrand" element={<AdminAddBrandPage />} />
+            <Route
+              path="/admin/addcategory"
+              element={<AdminAddCategoryPage />}
+            />
+            <Route
+              path="/admin/addsubcategory"
+              element={<AdminSubCategoryPage />}
+            />
+            <Route path="/admin/addproduct" element={<AdminAddProductPage />} />
+            <Route path="/admin/addcoupons" element={<AdminAddCouponsPage />} />
+            <Route
+              path="/admin/editcoupons/:id"
+              element={<AdminEditCouponPage />}
+            />
+            <Route
+              path="/admin/editproduct/:id"
+              element={<AdminEditProductsPage />}
+            />
+          </Route>
+          {/* end admin */}
+
+          {/* start user */}
+          <Route element={<ProtectedRoute auth={isUser} />}>
+            <Route path="/user/allorders" element={<UserAllOrderPage />} />
+            <Route
+              path="/user/favoriteproducts"
+              element={<UserFavProductsPage />}
+            />
+            <Route path="/user/addresses" element={<UsersAllAdressPage />} />
+            <Route path="/user/add-address" element={<UserAddAdressPage />} />
+            <Route
+              path="/user/edit-address"
+              element={<UserEditAddressPage />}
+            />
+            <Route path="/user/profile" element={<UserProfilePage />} />
+          </Route>
+          {/* end user */}
+
           {/* starttauction */}
           <Route path="/auctionlive" element={<AuctionLivePage />} />
           <Route path="/auctionproductpage" element={<AuctionProductPage />} />
@@ -90,10 +136,8 @@ function App() {
           <Route path="/uplivethree" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
           {/* end auction */}
+
           <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/popupemail" element={<PopUPEmail />} />
-          <Route path="/popupotp" element={<PopUpOtp />} />
-          <Route path="/popupnewpass" element={<PopUpNewPass />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -9,10 +9,12 @@ import {
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
   GET_ERROR,
+  GET_ALL_PRODUCTS_BY_CATEGORY,
+  GET_ALL_PRODUCTS_BY_BRAND,
 } from "../Type";
 import { useUpdateDataWithImages } from "../../Hooks/useUpdateData";
 // eslint-disable-next-line
-import useGetDataToken from "../../Hooks/UseGetDataToken";
+// import useGetDataToken from "../../Hooks/UseGetDataToken";
 
 //create products with pagination
 export const createProducts = (formatData) => async (dispatch) => {
@@ -159,3 +161,43 @@ export const updateProducts = (_id, data) => async (dispatch) => {
     });
   }
 };
+
+//get all products by category
+export const getAllProductsByCategory =
+  (page, limit, categoryID) => async (dispatch) => {
+    try {
+      const response = await useGetData(
+        `/api/v1/products?limit=${limit}&page=${page}&category=${categoryID}`
+      );
+      dispatch({
+        type: GET_ALL_PRODUCTS_BY_CATEGORY,
+        payload: response,
+        loading: true,
+      });
+    } catch (e) {
+      dispatch({
+        type: GET_ALL_PRODUCTS_BY_CATEGORY,
+        payload: e.response,
+      });
+    }
+  };
+
+//get all products by brand
+export const getAllProductsByBrand =
+  (page, limit, brandID) => async (dispatch) => {
+    try {
+      const response = await useGetData(
+        `/api/v1/products?limit=${limit}&page=${page}&brand=${brandID}`
+      );
+      dispatch({
+        type: GET_ALL_PRODUCTS_BY_BRAND,
+        payload: response,
+        loading: true,
+      });
+    } catch (e) {
+      dispatch({
+        type: GET_ALL_PRODUCTS_BY_BRAND,
+        payload: e.response,
+      });
+    }
+  };

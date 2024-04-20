@@ -12,7 +12,12 @@ const BrandContainer = ({ data, loading }) => {
           data ? (
             data.slice(0, 5).map((item, index) => {
               return (
-                <BrandCard key={index} title={item.name} img={item.image} />
+                <BrandCard
+                  id={item._id}
+                  key={index}
+                  title={item.name}
+                  img={item.image}
+                />
               );
             })
           ) : (

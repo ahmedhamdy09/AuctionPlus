@@ -12,14 +12,16 @@ const ProductDetailsPage = () => {
   // eslint-disable-next-line
   const [item, images, cat, brand, prod] = ViewOneProductsDetailsHook(id);
 
+  try{
   if (prod) var items = prod.slice(0, 4);
-  // console.log(item);
-
+  } catch(e){ }
+  try{
   if (item) {
     var rateAvgerage = item.ratingsAverage;
     // نسيت تغيرها
     var rateQuantity = item.ratingsQuantity;
   }
+} catch(e){ }
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryHeader />

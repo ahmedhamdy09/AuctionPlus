@@ -4,6 +4,7 @@ import {
   CLEAR_ALL_USER_CART_ITEMS,
   DELETE_ONE_CART_ITEMS,
   UPDATE_CART_ITEMS,
+  APPLY_COUPON_TO_CART,
 } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
@@ -90,6 +91,23 @@ export const updateCart = (id, body) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: UPDATE_CART_ITEMS,
+      payload: e.response,
+    });
+  }
+};
+
+// update  Cart items
+export const applyCouponToCart = (body) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useUpdateData(`/api/v1/cart/applyCoupon`, body);
+    dispatch({
+      type: APPLY_COUPON_TO_CART,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: APPLY_COUPON_TO_CART,
       payload: e.response,
     });
   }

@@ -15,6 +15,9 @@ const DeleteCartHook = (item) => {
   const handleAllDeleteCart = async () => {
     setLoading(true);
     await dispatch(clearAllCart());
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 1000);
     setLoading(false);
   };
 
@@ -58,7 +61,9 @@ const DeleteCartHook = (item) => {
   const handleDeleteOneItem = async () => {
     await dispatch(deleteOneCart(item._id));
     setShow(false);
-    // window.location.reload(false);
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 1000);
   };
 
   const handleUpdateCart = async () => {

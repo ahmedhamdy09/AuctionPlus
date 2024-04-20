@@ -6,14 +6,6 @@ import CategoryCard from "../Category/CategoryCard";
 const CategoryContainer = ({ data, loading }) => {
   const colors = ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
 
-  // const colors = [
-  //   "#FFD3E8",
-  //   "#F4DBA5",
-  //   "#55CDFDF",
-  //   "#FF6262",
-  //   "#0034FF",
-  //   "#FFD3E8",
-  // ];
   return (
     <Container>
       <div className="admin-content-text mt-2">All Category</div>
@@ -25,6 +17,7 @@ const CategoryContainer = ({ data, loading }) => {
               return (
                 <CategoryCard
                   key={index}
+                  id={item._id}
                   title={item.name}
                   img={item.image}
                   background={colors[Math.floor(Math.random() * 5) + 1]}

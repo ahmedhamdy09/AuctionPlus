@@ -6,8 +6,8 @@ import GetAllUserCartHook from "../../HookLogicCode/Cart/GetAllUserCartHook";
 
 const CartPage = () => {
   // eslint-disable-next-line
-  const [itemsNum, cartItems,totalPrice] = GetAllUserCartHook();
-// console.log(cartItems);
+  const [itemsNum, cartItems, totalPrice, couponnameRes, totalPriceAfterDiscount] =
+    GetAllUserCartHook();
   return (
     <Container style={{ minHeight: "670px" }}>
       <Row>
@@ -26,7 +26,11 @@ const CartPage = () => {
         </Col>
 
         <Col xs="6" md="3">
-          <CartCheck totalPrice={totalPrice}/>
+          <CartCheck
+            couponnameRes={couponnameRes}
+            totalPriceAfterDiscount={totalPriceAfterDiscount}
+            totalPrice={totalPrice}
+          />
         </Col>
       </Row>
     </Container>

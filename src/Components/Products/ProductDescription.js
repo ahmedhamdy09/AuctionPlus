@@ -30,6 +30,7 @@ const ProductDescription = () => {
         <Col md="8" className="mt-4">
           <div className="cat-text d-inline">Brand :</div>
           <div className="barnd-text d-inline mx-1">{brand.name}</div>
+          <div className="cat-text d-block">Quantity :{item?.quantity}</div>
         </Col>
       </Row>
       <Row>
@@ -62,10 +63,22 @@ const ProductDescription = () => {
       </Row>
       <Row className="mt-4">
         <Col md="12">
-          <div className="product-price d-inline px-3 py-3 border">
-            {/* {item.price} $ */}
-            {item.discountedPrice} $
-          </div>
+          {item?.discountedPrice >= 1 ? (
+            <div className="product-price d-inline px-3 py-3 border">
+              {" "}
+              <span style={{ textDecoration: "line-through" }}>
+                {item?.price}
+              </span>{" "}
+              {item?.discountedPrice}
+            </div>
+          ) : (
+            <div className="product-price d-inline px-3 py-3 border">
+              {item?.price}
+            </div>
+          )}
+
+      
+
           <div
             onClick={addToCartHandle}
             className="product-cart-add px-3 py-3 d-inline mx-3"

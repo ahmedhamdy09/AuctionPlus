@@ -12,23 +12,28 @@ const AllCatogoryPageLogic = () => {
   const dispatch = useDispatch();
   //when first load
   useEffect(() => {
-    dispatch(getAllCategory(6));
+    const get = async () => {
+      await dispatch(getAllCategory(6));
+    };
+    get();
   }, [dispatch]);
   //to get state from redux
   const category = useSelector((state) => state.allCategory.category);
   const loading = useSelector((state) => state.allCategory.loading);
-  console.log(loading);
+  // console.log(loading);
 
   // solve error number of pages use if condition
   //to get page count
   let pageCount = 0;
-  if (category.paginationResult) {
-    pageCount = category.paginationResult.numberOfPages;
-  }
+  try {
+    if (category.paginationResult) {
+      pageCount = category.paginationResult.numberOfPages;
+    }
+  } catch (e) {}
   //when press pagination
   const getPage = (page) => {
     dispatch(getAllCategoryPage(page));
-    console.log(page);
+    // console.log(page);
   };
 
   return [category, loading, pageCount, getPage];

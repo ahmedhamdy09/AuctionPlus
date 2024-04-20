@@ -760,12 +760,14 @@ body {
   bottom: 6px;
   padding: 10px;
 }
+
 /**/
-.salamacard{
+.salamacard {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-.salamacard >div{
+
+.salamacard>div {
   margin: 10px;
 }

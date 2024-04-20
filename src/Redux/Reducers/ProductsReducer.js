@@ -6,6 +6,8 @@ import {
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
   GET_ERROR,
+  GET_ALL_PRODUCTS_BY_CATEGORY,
+  GET_ALL_PRODUCTS_BY_BRAND,
 } from "../Type";
 
 const initail = {
@@ -15,6 +17,8 @@ const initail = {
   productLike: [],
   deleteProduct: [],
   updateProducts: [],
+  getProductByCategory: [],
+  getProductByBrand: [],
   loading: true,
 };
 
@@ -60,6 +64,20 @@ const productsReducer = (state = initail, action) => {
         ...state,
         // update state
         updateProducts: action.payload,
+        loading: false,
+      };
+    case GET_ALL_PRODUCTS_BY_CATEGORY:
+      return {
+        // ...state,
+        // update state
+        getProductByCategory: action.payload,
+        loading: false,
+      };
+    case GET_ALL_PRODUCTS_BY_BRAND:
+      return {
+        // ...state,
+        // update state
+        getProductByBrand: action.payload,
         loading: false,
       };
     case GET_ERROR:

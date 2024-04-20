@@ -7,11 +7,8 @@ import CardProductsContainer from "../../Components/Products/CardProductsContain
 import Pagination from "../../Components/Utility/Pagination";
 import ViewSearchProducts from "../../HookLogicCode/ProductsLogicHook/ViewSearchProducts";
 const ShopProductsPage = () => {
-  // eslint-disable-next-line
   const [items, Paginations, onPress,  getProduct, results] = ViewSearchProducts();
-  // eslint-disable-next-line
   if (Paginations) var pageCount = Paginations;
-  // eslint-disable-next-line
    else pageCount = 0;
  // let pageCount = Paginations || 0;
 

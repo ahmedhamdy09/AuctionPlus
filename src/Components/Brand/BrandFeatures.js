@@ -14,7 +14,7 @@ const BrandFeatures = ({ title, btntitle }) => {
         {loading === false ? (
           brand && brand.data.length >= 0 && brand.data ? (
             brand.data.slice(0, 5).map((item, index) => {
-              return <BrandCard key={index} img={item.image} />;
+              return <BrandCard id={item._id} key={index} img={item.image} />;
             })
           ) : (
             <h2>No Brand Now</h2>

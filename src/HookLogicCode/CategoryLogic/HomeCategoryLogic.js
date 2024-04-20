@@ -9,7 +9,7 @@ const HomeCategoryLogic = () => {
 
   useEffect(
     () => {
-      dispatch(getAllCategory(6));
+      dispatch(getAllCategory(5));
       // dispatch(getAllCategory());
     },
     // eslint-disable-next-line

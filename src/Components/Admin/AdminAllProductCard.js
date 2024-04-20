@@ -15,7 +15,7 @@ const AdminAllProductCard = ({ item }) => {
   const handleDelete = async () => {
     await dispatch(deleteProducts(item._id));
     setShow(false);
-  //  setTimeout(()=>window.location.reload(),3000)
+    //  setTimeout(()=>window.location.reload(),3000)
   };
   return (
     <Col xs="12" sm="6" md="5" lg="4" className="d-flex">
@@ -81,8 +81,17 @@ const AdminAllProductCard = ({ item }) => {
                 </div>
 
                 <div className="d-flex">
-                  <div className="card-price">{item.price}$</div>
-                  {/* <div className="card-currency mx-1">$</div> */}
+                  {item?.discountedPrice >= 1 ? (
+                    <div className="" style={{ color: "black" }}>
+                      {" "}
+                      <span style={{ textDecoration: "line-through" }}>
+                        {item?.price}
+                      </span>{" "}
+                      {item?.discountedPrice} $
+                    </div>
+                  ) : (
+                    item?.price
+                  )}
                 </div>
               </div>
             </Card.Text>

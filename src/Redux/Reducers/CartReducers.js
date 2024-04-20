@@ -4,6 +4,7 @@ import {
   CLEAR_ALL_USER_CART_ITEMS,
   DELETE_ONE_CART_ITEMS,
   UPDATE_CART_ITEMS,
+  APPLY_COUPON_TO_CART,
 } from "../Type";
 
 const initail = {
@@ -12,6 +13,7 @@ const initail = {
   clearAlluserCartItems: [],
   deleteOneCartItems: [],
   updateCartItems: [],
+  applyCouponToCart: [],
 };
 
 const addProductToCart = (state = initail, action) => {
@@ -45,6 +47,12 @@ const addProductToCart = (state = initail, action) => {
         ...state,
         // update state
         updateCartItems: action.payload,
+      };
+    case APPLY_COUPON_TO_CART:
+      return {
+        ...state,
+        // update state
+        applyCouponToCart: action.payload,
       };
     default:
       return state;

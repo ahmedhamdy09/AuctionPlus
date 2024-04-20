@@ -44,7 +44,7 @@ const AddToCart = (prodID, item) => {
             window.location.reload(false);
           }, 1000);
         } else {
-          notify("This Product Not Added to Cart", "error");
+          notify("You are Not Login", "error");
         }
       }
     },

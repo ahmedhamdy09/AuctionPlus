@@ -8,12 +8,11 @@ import ViewHomeProductsHook from "../../HookLogicCode/ProductsLogicHook/ViewHome
 import AuctionLivePage from "../../Components/livesShow/AuctionLivePage";
 const HomePage = () => {
   const [items] = ViewHomeProductsHook();
-  // console.log(items);
   return (
     <div className="font" style={{ minHeight: "670px" }}>
       <Slider />
-      <HomeCategory />
       <AuctionLivePage title="Auction" btntitle="More" />
+      <HomeCategory />
       <CardProductsContainer
         products={items}
         title="Best Seller"
