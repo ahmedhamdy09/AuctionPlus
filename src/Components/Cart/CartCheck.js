@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import DeleteCartHook from "../../HookLogicCode/Cart/DeleteCartHook";
 import { ToastContainer } from "react-toastify";
 import ApplyCouponHook from "../../HookLogicCode/Cart/ApplyCouponHook";
 
-const CartCheck = ({ totalPrice, totalPriceAfterDiscount, couponnameRes }) => {
+const CartCheck = ({
+  totalPrice,
+  totalPriceAfterDiscount,
+  couponnameRes,
+  cartItems,
+}) => {
   const [handleAllDeleteCart] = DeleteCartHook();
-  const [couponName, onChangeCoupon, handleSubmitCoupon] = ApplyCouponHook();
+  const [couponName, onChangeCoupon, handleSubmitCoupon, handleCheckOut] =
+    ApplyCouponHook(cartItems);
 
   useEffect(
     () => {
@@ -18,6 +23,7 @@ const CartCheck = ({ totalPrice, totalPriceAfterDiscount, couponnameRes }) => {
     // eslint-disable-next-line
     [couponnameRes]
   );
+
   return (
     <Row className="my-1 d-flex justify-content-center cart-checkout pt-3">
       <Col xs="12" className="d-flex  flex-column">
@@ -38,20 +44,17 @@ const CartCheck = ({ totalPrice, totalPriceAfterDiscount, couponnameRes }) => {
             : `${totalPrice} $`}
         </div>
         <button
+          onClick={handleCheckOut}
+          className="product-cart-add w-100 px-2"
+        >
+          Complete Your Buy
+        </button>
+        <button
           onClick={handleAllDeleteCart}
           className="product-cart-add w-100 px-2 my-2"
         >
           Delete Your Cart
         </button>
-        <Link
-          to="/order/paymethod"
-          style={{ textDecoration: "none" }}
-          className="product-cart-add  d-inline "
-        >
-          <button className="product-cart-add w-100 px-2">
-            Complete Your Buy
-          </button>
-        </Link>
       </Col>
       <ToastContainer />
     </Row>

@@ -5,7 +5,7 @@ import "./UpplivesShow2.css";
 import arrowLeft from "./images/arrow-left-solid.svg";
 import chRight from "./images/chevron-right-solid.svg";
 // import on from "./images/toggle-on-solid.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UppliveShow2 = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -21,13 +21,14 @@ const UppliveShow2 = () => {
   return (
     <div className="parent">
       <div className="text-back">
-        <img
-          src={arrowLeft}
-          onClick={goPageOption2}
-          alt="backArrow"
-          className="arrow-back"
-        />
-
+        <Link to="/">
+          <img
+            src={arrowLeft}
+            onClick={goPageOption2}
+            alt="backArrow"
+            className="arrow-back"
+          />
+        </Link>
         <p className="text-head">Upcoming live shows</p>
       </div>
 

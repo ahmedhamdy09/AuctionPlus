@@ -19,16 +19,23 @@ const CartItem = ({ item }) => {
   );
   // const product = products.find(ite => ite.id === item.product);
   const [OneP, setOneP] = useState(null);
-  // console.log("🚀 ~ CartItem ~ OneP:", OneP);
-  useEffect(() => {
-    const set = new Set();
-    //eslint-disable-next-line
-    allProducts?.data.map((d) => {
-      set.add(d);
-    });
-    const Cat = Array.from(set);
-    setOneP(Cat);
-  }, [allProducts]);
+
+  useEffect(
+    () => {
+      if (allProducts?.data) {
+        // eslint-disable-next-line
+        const set = new Set();
+        // eslint-disable-next-line
+        allProducts.data.map((d) => {
+          set.add(d);
+        });
+        const Cat = Array.from(set);
+        setOneP(Cat);
+      }
+    },
+    // eslint-disable-next-line
+    [allProducts]
+  );
 
   const [
     // eslint-disable-next-line
@@ -75,7 +82,8 @@ const CartItem = ({ item }) => {
                       className=" d-flex flex-row justify-content-between"
                     >
                       <div className="d-inline pt-2 cat-text">
-                        {/* {products.data.category.name || ""} */}
+                        {" "}
+                        {it.name || ""}
                       </div>
                       <div
                         onClick={handleShow}
@@ -98,24 +106,29 @@ const CartItem = ({ item }) => {
                       sm="12"
                       className=" d-flex flex-row justify-content-start"
                     >
-                      <div className="d-inline pt-2 cat-title">
-                        {/* {products.name || ""} */}
+                      <div
+                        className="d-inline pt-2 cat-title"
+                        style={{ margin: "5px" }}
+                      >
+                        rate:
                       </div>
-                      <div className="d-inline pt-2 cat-rate me-2">
-                        {/* {item.product.ratingsAverage || 0} */}
+                      <div
+                        className="d-inline pt-2 cat-rate me-2"
+                        style={{ margin: "5px" }}
+                      >
+                        {it.ratingsAverage || 0}
                       </div>
                     </Col>
                   </Row>
                   <Row>
                     <Col sm="12" className="mt-1">
-                      <div className="cat-text d-inline">
+                      <div
+                        className="cat-text d-inline"
+                        style={{ margin: "5px" }}
+                      >
                         Category : {it.category?.name}
                       </div>
-                      <div className="barnd-text d-inline mx-1">
-                        {" "}
-                        {/* {item.product.brand || ""} */}
-                        {/* {products.brand || ""} */}
-                      </div>
+                      <div className="barnd-text d-inline mx-1"></div>
                     </Col>
                   </Row>
                   <Row>

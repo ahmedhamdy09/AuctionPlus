@@ -19,18 +19,7 @@ const ViewAddressHook = () => {
     []
   );
   const res = useSelector((state) => state.userAddressReducer.userAddress);
-//   let address = [];
-//   useEffect(
-//     () => {
-//       if (loading === false) {
-//         if (res) {
-//           address = res.data;
-//         }
-//       }
-//     },
-//     // eslint-disable-next-line
-//     [loading]
-//   );
+
   return [res];
 };
 

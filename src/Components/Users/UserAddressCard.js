@@ -1,10 +1,9 @@
 import React from "react";
 import { Row, Col, Modal, Button } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import deleteicon from "../../assets/delete.png";
-// import edit from "../../assets/8666681_edit_icon.svg";
+import edit from "../../assets/8666681_edit_icon.svg";
 import DeleteUserHook from "../../HookLogicCode/User/DeleteUserHook";
-// import { ToastContainer } from "react-toastify";
 
 const UserAddressCard = ({ item }) => {
   const [show, handleClose, handleShow, handleDelete] = DeleteUserHook(
@@ -32,7 +31,7 @@ const UserAddressCard = ({ item }) => {
         </Col>
         <Col xs="6" className="d-flex d-flex justify-content-end">
           <div className="d-flex p-2">
-            {/* <div className="d-flex mx-2">
+            <div className="d-flex mx-2">
               <img
                 alt=""
                 className="ms-1 mt-2"
@@ -43,7 +42,7 @@ const UserAddressCard = ({ item }) => {
               <Link to="/user/edit-address" style={{ textDecoration: "none" }}>
                 <p className="item-delete-edit">Edit</p>
               </Link>
-            </div> */}
+            </div>
             <div onClick={handleShow} className="d-flex ">
               <img
                 alt=""
@@ -96,7 +95,6 @@ const UserAddressCard = ({ item }) => {
           </div>
         </Col>
       </Row>
-      {/* <ToastContainer /> */}
     </div>
   );
 };

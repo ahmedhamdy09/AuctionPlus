@@ -62,20 +62,20 @@ function App() {
           <Route path="/popupemail" element={<PopUPEmail />} />
           <Route path="/popupotp" element={<PopUpOtp />} />
           <Route path="/popupnewpass" element={<PopUpNewPass />} />
-          <Route path="/products/category/:id" element={<ProductByCategory />} />
+          <Route
+            path="/products/category/:id"
+            element={<ProductByCategory />}
+          />
           <Route path="/products/brand/:id" element={<ProductByBrand />} />
 
-          
-          <Route
+          {/* <Route
             path="/order/paymethod"
             element={
               <ProtectedRoute auth={isUser}>
                 <PaymentCheckoutPage />
               </ProtectedRoute>
             }
-          />
-          
-          
+          /> */}
 
           {/* start admin */}
           <Route element={<ProtectedRoute auth={isAdmin} />}>
@@ -124,6 +124,7 @@ function App() {
               element={<UserEditAddressPage />}
             />
             <Route path="/user/profile" element={<UserProfilePage />} />
+            <Route path="/order/paymethod" element={<PaymentCheckoutPage />} />
           </Route>
           {/* end user */}
 

@@ -12,7 +12,7 @@ const AuctionLivePage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const goPageOption1 = () => {
-    navigate("/uplivetwo");
+    navigate("/uplivefour");
   };
 
   const goPageOption2 = () => {

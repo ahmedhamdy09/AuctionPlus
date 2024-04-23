@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import notify from "../../HookLogicCode/useNotifaction";
 import { applyCouponToCart } from "../../Redux/Actions/CartAction";
+import { useNavigate } from "react-router-dom";
 
-const ApplyCouponHook = () => {
+const ApplyCouponHook = (cartItems) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [couponName, setCouponName] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -31,19 +34,27 @@ const ApplyCouponHook = () => {
     () => {
       if (loading === false) {
         if (res && res.status === 200) {
-            notify("Prodcut Will Discount Success", "success");
-            setTimeout(() => {
-              window.location.reload(false);
-            }, 1000);
-          } else {
-            notify("This Coupon is Expired", "error");
+          notify("Prodcut Will Discount Success", "success");
+          setTimeout(() => {
+            window.location.reload(false);
+          }, 1000);
+        } else {
+          notify("This Coupon is Expired", "error");
         }
       }
     },
     // eslint-disable-next-line
     [loading]
   );
-  return [couponName, onChangeCoupon, handleSubmitCoupon];
+
+  const handleCheckOut = () => {
+    if (cartItems.length >= 1) {
+      navigate("/order/paymethod");
+    } else {
+      notify("Please Add Product to Cart First", "warn");
+    }
+  };
+  return [couponName, onChangeCoupon, handleSubmitCoupon, handleCheckOut];
 };
 
 export default ApplyCouponHook;
