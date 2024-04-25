@@ -10,6 +10,7 @@ const GetAllUserCartHook = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalPriceAfterDiscount, setTotalPriceAfterDiscount] = useState(0);
   const [couponnameRes, setCouponName] = useState("");
+  const [cartID, setCartID] = useState("0");
 
   useEffect(
     () => {
@@ -34,6 +35,8 @@ const GetAllUserCartHook = () => {
           setItemsNum(res.numOfCartItems);
           setCartItems(res.data.cartItems);
           setTotalPrice(res.data.totalCartPrice);
+          setCartID(res.data._id);
+
           if (res.data.name) {
             setCouponName(res.data.name);
           } else {
@@ -50,6 +53,7 @@ const GetAllUserCartHook = () => {
           setItemsNum(0);
           setCartItems([]);
           setTotalPrice(0);
+          setCartID("0");
         }
       }
     },
@@ -63,6 +67,7 @@ const GetAllUserCartHook = () => {
     totalPrice,
     couponnameRes,
     totalPriceAfterDiscount,
+    cartID,
   ];
 };
 

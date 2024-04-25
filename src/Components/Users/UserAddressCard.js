@@ -31,18 +31,21 @@ const UserAddressCard = ({ item }) => {
         </Col>
         <Col xs="6" className="d-flex d-flex justify-content-end">
           <div className="d-flex p-2">
-            <div className="d-flex mx-2">
-              <img
-                alt=""
-                className="ms-1 mt-2"
-                src={edit}
-                height="17px"
-                width="15px"
-              />
-              <Link to="/user/edit-address" style={{ textDecoration: "none" }}>
+            <Link
+              to={`/user/edit-address/${item._id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div className="d-flex mx-2">
+                <img
+                  alt=""
+                  className="ms-1 mt-2"
+                  src={edit}
+                  height="17px"
+                  width="15px"
+                />
                 <p className="item-delete-edit">Edit</p>
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div onClick={handleShow} className="d-flex ">
               <img
                 alt=""

@@ -2,9 +2,14 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import ViewAddressHook from "../../HookLogicCode/User/ViewAddressHook";
 import OrderPayCash from "../../HookLogicCode/CheckOutPayment/OrderPayCash";
+import { ToastContainer } from "react-toastify";
 const PaymentMethods = () => {
   const [res] = ViewAddressHook();
- const [handleChooseAddress] = OrderPayCash();
+
+  // eslint-disable-next-line
+  const [handleChooseAddress, addressDetails, createOrderCashClick] =
+    OrderPayCash();
+
   return (
     <div>
       <div className="admin-content-text pt-5">Choose payment method</div>
@@ -72,9 +77,16 @@ const PaymentMethods = () => {
       <Row>
         <Col xs="12" className="d-flex justify-content-end">
           <div className="product-price d-inline border me-2">34000 $</div>
-          <div className="product-cart-add px-3 pt-2 d-inline me-2"> Buy</div>
+          <div
+            onClick={createOrderCashClick}
+            className="product-cart-add px-3 pt-2 d-inline me-2"
+          >
+            {" "}
+            Buy
+          </div>
         </Col>
       </Row>
+      <ToastContainer />
     </div>
   );
 };

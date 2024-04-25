@@ -120,7 +120,7 @@ function App() {
             <Route path="/user/addresses" element={<UsersAllAdressPage />} />
             <Route path="/user/add-address" element={<UserAddAdressPage />} />
             <Route
-              path="/user/edit-address"
+              path="/user/edit-address/:id"
               element={<UserEditAddressPage />}
             />
             <Route path="/user/profile" element={<UserProfilePage />} />

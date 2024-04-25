@@ -2,11 +2,13 @@ import {
   ADD_USER_ADDRESS,
   GET_ALL_USER_ADDRESS,
   DELETE_USER_ADDRESS,
+  GET_ONE_USER_ADDRESS,
+  UPDATE_USER_ADDRESS
 } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
 import useDeleteData from "../../Hooks/useDeleteData";
-//   import { useUpdateData } from "../../Hooks/useUpdateData";
+import { useUpdateData } from "../../Hooks/useUpdateData";
 
 // Add address
 export const addUserAddress = (body) => async (dispatch) => {
@@ -51,6 +53,39 @@ export const deleteUserAddress = (id) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: DELETE_USER_ADDRESS,
+      payload: e.response,
+    });
+  }
+};
+
+// get one  user
+export const getOneUserAddress = (id) => async (dispatch) => {
+  try {
+    const response = await useGetDataToken(`/api/v1/adress/${id}`);
+    dispatch({
+      type: GET_ONE_USER_ADDRESS,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_ONE_USER_ADDRESS,
+      payload: e.response,
+    });
+  }
+};
+
+
+// update Addresses
+export const updateAddress = (id) => async (dispatch) => {
+  try {
+    const response = await useUpdateData(`/api/v1/adress/${id}`);
+    dispatch({
+      type: UPDATE_USER_ADDRESS,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_USER_ADDRESS,
       payload: e.response,
     });
   }

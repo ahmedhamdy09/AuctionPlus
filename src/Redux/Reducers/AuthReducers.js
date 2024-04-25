@@ -5,6 +5,8 @@ import {
   FORGET_PASSWORD,
   VERIFY_OTP,
   RESET_PASSWORD,
+  UPDATE_PROFILE_DATA,
+  UPDATE_PROFILE_PASSWORD,
 } from "../Type";
 
 const initial = {
@@ -14,6 +16,8 @@ const initial = {
   forgetPassword: [],
   verifyOtp: [],
   resetPassword: [],
+  updateProfileData: [],
+  updateProfilePassword: [],
   loading: true,
 };
 const authReducer = (state = initial, action) => {
@@ -50,6 +54,18 @@ const authReducer = (state = initial, action) => {
         resetPassword: action.payload,
         loading: false,
       };
+    case UPDATE_PROFILE_DATA:
+      return {
+        ...state,
+        updateProfileData: action.payload,
+        loading: false,
+      };
+    case UPDATE_PROFILE_PASSWORD:
+      return {
+        ...state,
+        updateProfilePassword: action.payload,
+        loading: false,
+      };
     // case GET_CURRENT_USER:
     //   return {
     //     ...state,
@@ -57,7 +73,6 @@ const authReducer = (state = initial, action) => {
     //     currentLoggedUser: action.payload,
     //     loading: false,
     //   }
-
     default:
       return state;
   }

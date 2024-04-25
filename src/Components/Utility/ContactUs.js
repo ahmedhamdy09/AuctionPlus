@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useRef } from "react";
 import girl from "../../assets/Rectangle 4915.png";
 import "../Utility/UtiltyCss/ContactUS.css";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
+  const form = useRef();
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs
+  //     .sendForm("service_2n4qrl8", "template_k9cdbls", form.current, {
+  //       publicKey: "aLWziOZB-9XhAKKVx",
+  //     })
+  //     .then(
+  //       () => {
+  //         console.log("SUCCESS!");
+  //         e.target.reset();
+  //       },
+  //       (error) => {
+  //         console.log("FAILED...", error.text);
+  //       }
+  //     );
+  // };
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_2n4qrl8", "template_k9cdbls", form.current, {
+        publicKey: "aLWziOZB-9XhAKKVx",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          // Reset the form after successful submission
+          e.target.reset();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
   return (
     <div className="container">
       <div className="contact">
@@ -17,10 +56,9 @@ const ContactUs = () => {
             <p>SuezCanal University</p>
           </div>
           <span className="kercha"></span>
-
         </div>
         <div className="forms">
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="Twins" alt="contactUs">
               <label>
                 Full Name:
@@ -58,6 +96,7 @@ const ContactUs = () => {
                 placeholder="Write a message."
               />
             </label>
+            <input type="submit" value="Send" className="submitBTN" />
           </form>
         </div>
       </div>
@@ -70,4 +109,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-

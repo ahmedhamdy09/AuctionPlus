@@ -5,6 +5,8 @@ import {
   FORGET_PASSWORD,
   VERIFY_OTP,
   RESET_PASSWORD,
+  UPDATE_PROFILE_DATA,
+  UPDATE_PROFILE_PASSWORD,
 } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import { useUpdateData } from "../../Hooks/useUpdateData";
@@ -95,6 +97,41 @@ export const resetPassword = (data) => async (dispatch) => {
     });
   }
 };
+
+// update user data
+export const updateUserProfileData = (body) => async (dispatch) => {
+  try {
+    const response = await useUpdateData(`/api/v1/users/updateMe`, body);
+    dispatch({
+      type: UPDATE_PROFILE_DATA,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_PROFILE_DATA,
+      payload: e.response,
+    });
+  }
+};
+
+// update user data
+export const updateUserProfilePassword = (body) => async (dispatch) => {
+  try {
+    const response = await useUpdateData(`/api/v1/users/changeMyPassword`, body);
+    dispatch({
+      type: UPDATE_PROFILE_PASSWORD,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_PROFILE_PASSWORD,
+      payload: e.response,
+    });
+  }
+};
+
 
 // دي هعملها لما الباك يعمل logged User
 // ملحوظة لسة مخلصتش
