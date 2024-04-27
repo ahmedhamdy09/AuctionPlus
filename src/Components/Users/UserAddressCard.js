@@ -27,7 +27,7 @@ const UserAddressCard = ({ item }) => {
       </Modal>
       <Row className="d-flex justify-content-between">
         <Col xs="6">
-          <div className="p-2">{item.alias}</div>
+          <div className="p-2">{item?.alias}</div>
         </Col>
         <Col xs="6" className="d-flex d-flex justify-content-end">
           <div className="d-flex p-2">
@@ -69,7 +69,7 @@ const UserAddressCard = ({ item }) => {
               fontSize: "14px",
             }}
           >
-            {item.details}
+            {item?.details}
           </div>
         </Col>
       </Row>
@@ -94,7 +94,7 @@ const UserAddressCard = ({ item }) => {
             }}
             className="mx-2"
           >
-            {item.phone}
+            {item?.phone}
           </div>
         </Col>
       </Row>

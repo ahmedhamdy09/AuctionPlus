@@ -19,7 +19,7 @@ const ViewAddressHook = () => {
     []
   );
   const res = useSelector((state) => state.userAddressReducer.userAddress);
-
+console.log(res);
   return [res];
 };
 

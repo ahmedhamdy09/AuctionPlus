@@ -15,9 +15,9 @@ const DeleteCartHook = (item) => {
   const handleAllDeleteCart = async () => {
     setLoading(true);
     await dispatch(clearAllCart());
-    setTimeout(() => {
-      window.location.reload(false);
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.reload(false);
+    // }, 1000);
     setLoading(false);
   };
 
@@ -38,10 +38,11 @@ const DeleteCartHook = (item) => {
   const res = useSelector(
     (state) => state.addProductToCart.clearAlluserCartItems
   );
+  // console.log(res)
   useEffect(
     () => {
       if (loading === false) {
-        if (res === "") {
+        if (res.data === "") {
           notify("All Cart Is Deleted", "success");
           setTimeout(() => {
             window.location.reload(false);

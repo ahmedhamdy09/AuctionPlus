@@ -17,13 +17,8 @@ const UserAllAdress = () => {
       ) : (
         <h3>No Address Now..</h3>
       )}
-      {/* {Array.isArray(res.data) && res.data.length > 0 ? (
-        res.data.map((item, index) => {
-          return <UserAddressCard key={index} item={item} />;
-        })
-      ) : (
-        <h3>No Address Now..</h3>
-      )} */}
+      
+
 
       <Row className="justify-content-center">
         <Col sm="5" className="d-flex justify-content-center">

@@ -36,18 +36,22 @@ const DeleteRateHook = (review) => {
   };
 
   const res = useSelector((state) => state.reviewReducer.deleteReview);
-  // console.log(res);
   useEffect(
     () => {
       if (loading === false) {
         if (res && res === "") {
-          if (res.status && res.status === 200) {
+          if (res.status && res.status === 204) {
             notify("The Comment Is Deleted", "success");
             setTimeout(() => {
               window.location.reload(false);
             }, 1000);
           }
-        } else notify("The Comment Not Deleted", "error");
+        } else {
+          notify("The Comment was Deleted", "success");
+          setTimeout(() => {
+            window.location.reload(false);
+          }, 1000);
+        }
       }
     },
     // eslint-disable-next-line
@@ -58,4 +62,3 @@ const DeleteRateHook = (review) => {
 };
 
 export default DeleteRateHook;
-

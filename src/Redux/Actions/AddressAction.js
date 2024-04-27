@@ -76,9 +76,9 @@ export const getOneUserAddress = (id) => async (dispatch) => {
 
 
 // update Addresses
-export const updateAddress = (id) => async (dispatch) => {
+export const updateAddress = (id,body) => async (dispatch) => {
   try {
-    const response = await useUpdateData(`/api/v1/adress/${id}`);
+    const response = await useUpdateData(`/api/v1/adress/${id}`,body);
     dispatch({
       type: UPDATE_USER_ADDRESS,
       payload: response,

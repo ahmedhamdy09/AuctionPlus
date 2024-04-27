@@ -24,6 +24,7 @@ const userAddressReducer = (state = initail, action) => {
       };
     case GET_ALL_USER_ADDRESS:
       return {
+        ...state,
         // update state
         userAddress: action.payload,
       };

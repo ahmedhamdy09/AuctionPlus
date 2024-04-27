@@ -62,9 +62,9 @@ const EditAddressHook = (id) => {
     setLoadingEdit(true);
     await dispatch(
       updateAddress(id, {
-        alias: alias,
-        details: details,
-        phone: phone,
+        alias,
+        details,
+        phone,
       })
     );
     setLoadingEdit(false);
@@ -73,11 +73,11 @@ const EditAddressHook = (id) => {
   const resEdit = useSelector(
     (state) => state.userAddressReducer.updateUserAddress
   );
-
+console.log(resEdit)
   useEffect(
     () => {
       if (loadingEdit === false) {
-        if (resEdit && resEdit.status === "success") {
+        if (resEdit && resEdit.data.status === "success") {
           notify("Address Updated Success", "success");
           setTimeout(() => {
             navigate("/user/addresses");

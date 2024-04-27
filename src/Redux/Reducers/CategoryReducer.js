@@ -24,11 +24,13 @@ const categoryReducer = (state = initail, action) => {
     case GET_ONE_CATEGORY:
       return {
         // update state
+        ...state,
         oneCategory: action.payload,
         loading: false,
       };
     case CREATE_CATEGORY:
       return {
+        ...state,
         category: action.payload,
         // createcategory: action.payload,
         loading: false,

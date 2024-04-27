@@ -45,10 +45,11 @@ const AddCouponHook = () => {
       if (loading === false) {
         if (res && res.status === 201) {
           notify("Coupon added Success", "success");
+          dispatch(getAllCoupon());
           // setCouponName("");
           // setCouponDate("");
           // setCouponValue("");
-          window.location.reload(false);
+          // window.location.reload(false);
         } else if (res && res.status === 400) {
           notify("This coupon is a duplicate", "error");
         } else if (res && res.status === 403) {

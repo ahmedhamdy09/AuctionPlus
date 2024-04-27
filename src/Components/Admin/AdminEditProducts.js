@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
-import Multiselect from "multiselect-react-dropdown";
+// import Multiselect from "multiselect-react-dropdown";
 import add from "../../assets/add.png";
 import MultiImageInput from "react-multiple-image-input";
 import { CompactPicker } from "react-color";
@@ -24,18 +24,24 @@ const AdminEditProducts = () => {
     quantity,
     showColor,
     colors,
+    // eslint-disable-next-line 
     category,
+    // eslint-disable-next-line 
     categoryID,
     brand,
     brandID,
     images,
     crop,
+    // eslint-disable-next-line 
     options,
     setImages,
+    // eslint-disable-next-line 
     onSelect,
+    // eslint-disable-next-line 
     onRemove,
     handleChangeComplete,
     removeColor,
+    // eslint-disable-next-line 
     onSelectCategory,
     onSelectBrand,
     handleSubmit,
@@ -50,11 +56,11 @@ const AdminEditProducts = () => {
           <Col sm="8">
             <div className="text-form pb-2">Products Image</div>
             <MultiImageInput
-              images={images?images.map(it=>it):[]} 
+              images={images ? images.map((it) => it) : []}
               setImages={setImages}
               cropConfig={{ crop, ruleOfThirds: true }}
               theme={"light"}
-              max={4} 
+              max={4}
               // allowCrop={false}
             />
             <input
@@ -93,7 +99,7 @@ const AdminEditProducts = () => {
               value={quantity}
               onChange={onChangeQuantity}
             />
-            <select
+            {/* <select
               name="category"
               value={categoryID}
               onChange={onSelectCategory}
@@ -120,7 +126,8 @@ const AdminEditProducts = () => {
               onRemove={onRemove}
               displayValue="name"
               style={{ color: "red" }}
-            /> */}
+            /> 
+          
             {Array.isArray(options) && (
             <Multiselect
               className="mt-2 text-end"
@@ -132,6 +139,7 @@ const AdminEditProducts = () => {
               style={{ color: "red" }}
             />
           )}
+           */}
 
             <select
               onChange={onSelectBrand}
@@ -155,7 +163,7 @@ const AdminEditProducts = () => {
               Available colors of the product
             </div>
             <div className="mt-1 d-flex">
-              {colors&&colors.length >= 1
+              {colors && colors.length >= 1
                 ? colors.map((color, index) => {
                     return (
                       <div

@@ -77,8 +77,6 @@ const ProductDescription = () => {
             </div>
           )}
 
-      
-
           <div
             onClick={addToCartHandle}
             className="product-cart-add px-3 py-3 d-inline mx-3"

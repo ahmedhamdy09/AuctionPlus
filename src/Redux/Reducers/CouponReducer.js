@@ -18,7 +18,7 @@ const couponReducer = (state = initail, action) => {
   switch (action.type) {
     case ADD_COUPONS:
       return {
-        ...state,
+        allCoupon:state.allCoupon,
         // update state
         addCoupon: action.payload,
       };
@@ -30,7 +30,7 @@ const couponReducer = (state = initail, action) => {
       };
     case DELETE_COUPONS:
       return {
-        ...state,
+        allCoupon:state.allCoupon,
         // update state
         deleteCoupon: action.payload,
       };

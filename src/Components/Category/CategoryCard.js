@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import { ImgUrl } from "../../Api/baseURL";
 
 const CategoryCard = ({ background, img, title, id }) => {
-  console.log(img);
+  // console.log(img);
   return (
     <Col
       xs="6"

@@ -5,7 +5,7 @@ import { getAllBrand } from "../../Redux/Actions/BrandAction";
 import { getOneSubCategory } from "../../Redux/Actions/SubCategoryAction";
 import {
   getOneProduct,
-  updateProducts,
+  updateProducts, 
 } from "../../Redux/Actions/ProductsActions";
 import notify from "../useNotifaction";
 
@@ -44,7 +44,7 @@ const AdminEditProductsHook = (id) => {
   };
   const onRemove = (selectedList) => {
     // console.log(selectedsubCategoryID);
-    setSelectedSubCategoryID(selectedList);
+    setSelectedSubCategoryID(selectedList);    
   };
 
   // crop images
@@ -65,11 +65,12 @@ const AdminEditProductsHook = (id) => {
   const [priceAfter, setPriceAfter] = useState("price after discount");
   const [quantity, setQuantity] = useState("Quantity available");
   // eslint-disable-next-line
-  const [categoryID, setCategoryID] = useState("");
+  const [categoryID, setCategoryID] = useState(null);
   // eslint-disable-next-line
   const [brandID, setBrandID] = useState("");
   // eslint-disable-next-line
   const [subCategoryID, setSubCategoryID] = useState([]);
+  // eslint-disable-next-line 
   const [selectedsubCategoryID, setSelectedSubCategoryID] = useState([]);
   const [loading, setLoading] = useState(true);
   // to show hide color picker
@@ -149,12 +150,12 @@ const AdminEditProductsHook = (id) => {
   useEffect(
     () => {
       // eslint-disable-next-line
-      if (categoryID != 0) {
-        const runs = async () => {
-          await dispatch(getOneSubCategory(categoryID));
-        };
-        runs();
+      if (categoryID !== null) {
+           dispatch(getOneSubCategory(categoryID));
       }
+
+
+      
       // eslint-disable-next-line
     },
     // eslint-disable-next-line
@@ -199,8 +200,9 @@ const AdminEditProductsHook = (id) => {
   // to save products data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("asdasda")
     if (
-      categoryID === 0 ||
+      // categoryID === 0 ||
       prodName === "" ||
       prodDescritpion === "" ||
       images.length <= 0 ||
@@ -240,7 +242,7 @@ const AdminEditProductsHook = (id) => {
       formData.append("imageCover", imgCover);
       itemImages.map((item) => formData.append("images", item));
     }, 1000);
-    formData.append("category", categoryID);
+    // formData.append("category", categoryID);
     formData.append("brand", brandID);
 
     // colors.map((color) => formData.append("colors", color));
@@ -251,13 +253,15 @@ const AdminEditProductsHook = (id) => {
       return formData.append("colors", color);
     });
 
-    selectedsubCategoryID.map((item) =>
-      formData.append("subcategories", item._id)
-    );
+    // selectedsubCategoryID.map((item) =>
+    //   formData.append("subcategories", item._id)
+    // );
+      // await dispatch(updateProducts(id, formData));
     setTimeout(async () => {
       setLoading(true);
       await dispatch(updateProducts(id, formData));
       setLoading(false);
+      window.location.href="/admin/allproducts"
     }, 1000);
   };
 

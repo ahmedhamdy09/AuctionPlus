@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteCoupon } from "../../Redux/Actions/CouponsAction";
+import { deleteCoupon, getAllCoupon } from "../../Redux/Actions/CouponsAction";
 // import notify from "../../HookLogicCode/useNotifaction";
 
 const CouponCardHook = (coupon) => {
@@ -18,7 +18,8 @@ const CouponCardHook = (coupon) => {
   const handleDelete = async () => {
     await dispatch(deleteCoupon(coupon._id));
     setShow(false);
-    window.location.reload(false);
+  await dispatch(getAllCoupon());
+    // window.location.reload(false);
   };
   return [formatDate, dateString, show, handleClose, handleShow, handleDelete];
 };

@@ -19,7 +19,7 @@ const subCategoryReducer = (state = initail, action) => {
       };
     case GET_SUB_CATEGORY:
       return {
-        // ...state,
+        ...state,
         // update state
         subcategory: action.payload,
         loading: false,
