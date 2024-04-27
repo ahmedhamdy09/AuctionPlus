@@ -39,6 +39,7 @@ const OrderPayCardHook = (addressDetails) => {
   const resCard = useSelector(
     (state) => state.cashOrderReducers.createOrderByCard
   );
+  
   useEffect(
     () => {
       if (loading === false) {

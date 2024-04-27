@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import ProductsCardHook from "../../HookLogicCode/WishList/ProductsCardHook";
 
 const ProductsCard = ({ item, favProducts }) => {
-  console.log(item)
+  console.log(item);
   // eslint-disable-next-line
   const [removeToWishListData, addToWishListData, handleFavourite, favImg] =
     ProductsCardHook(item, favProducts);
@@ -52,7 +52,7 @@ const ProductsCard = ({ item, favProducts }) => {
           <Card.Text>
             <div className="d-flex justify-content-between ">
               <div className="d-flex">
-                {item?.discountedPrice >= 1 ? (
+                {/* {item?.discountedPrice >= 1 ? (
                   <div>
                     {" "}
                     <span style={{ textDecoration: "line-through" }}>
@@ -62,12 +62,13 @@ const ProductsCard = ({ item, favProducts }) => {
                   </div>
                 ) : (
                   item?.price
-                )}
+                )} */}
+                {item?.price}
                 <div className="card-currency mx-1"></div>
               </div>
               <div className="d-flex">
                 <div className="card-rate mx-3">
-                {Number(item.ratingsAverage).toFixed(2) || 0}
+                  {Number(item.ratingsAverage).toFixed(2) || 0}
                 </div>
                 <img
                   className="card-rate"

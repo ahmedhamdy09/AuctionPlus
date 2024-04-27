@@ -5,6 +5,7 @@ import OrderPayCash from "../../HookLogicCode/CheckOutPayment/OrderPayCash";
 import { ToastContainer } from "react-toastify";
 import notify from "../../HookLogicCode/useNotifaction";
 import OrderPayCardHook from "../../HookLogicCode/CheckOutPayment/OrderPayCardHook";
+import GetAllUserCartHook from "../../HookLogicCode/Cart/GetAllUserCartHook";
 const PaymentMethods = () => {
   const [res] = ViewAddressHook();
 
@@ -13,6 +14,8 @@ const PaymentMethods = () => {
     OrderPayCash();
 
   const [handleCreateOrderCard] = OrderPayCardHook(addressDetails);
+
+  const [, , totalPrice, , totalPriceAfterDiscount, ,] = GetAllUserCartHook();
   const [typeMethod, setTypeMethod] = useState("");
   const changeMethod = (e) => {
     setTypeMethod(e.target.value);
@@ -97,7 +100,12 @@ const PaymentMethods = () => {
 
       <Row>
         <Col xs="12" className="d-flex justify-content-end">
-          <div className="product-price d-inline border me-2">34000 $</div>
+          <div className="product-price d-inline border me-2">
+            {totalPriceAfterDiscount >= 1
+              ? `${totalPrice} $ ... after discount ${totalPriceAfterDiscount}`
+              : `${totalPrice} $`}{" "}
+            
+          </div>
           <div
             onClick={handlePay}
             className="product-cart-add px-3 pt-2 d-inline me-2"
