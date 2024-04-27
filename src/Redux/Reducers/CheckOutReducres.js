@@ -1,7 +1,8 @@
-import { CREATE_ORDER_CASH } from "../Type";
+import { CREATE_ORDER_CASH, CREATE_ORDER_BY_CARD } from "../Type";
 
 const initail = {
   createCashOrder: [],
+  createOrderByCard: [],
 };
 
 const cashOrderReducers = (state = initail, action) => {
@@ -12,7 +13,12 @@ const cashOrderReducers = (state = initail, action) => {
         // update state
         createCashOrder: action.payload,
       };
-
+    case CREATE_ORDER_BY_CARD:
+      return {
+        ...state,
+        // update state
+        createOrderByCard: action.payload,
+      };
     default:
       return state;
   }

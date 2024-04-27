@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import ViewAddressHook from "../../HookLogicCode/User/ViewAddressHook";
 import OrderPayCash from "../../HookLogicCode/CheckOutPayment/OrderPayCash";
 import { ToastContainer } from "react-toastify";
+import notify from "../../HookLogicCode/useNotifaction";
+import OrderPayCardHook from "../../HookLogicCode/CheckOutPayment/OrderPayCardHook";
 const PaymentMethods = () => {
   const [res] = ViewAddressHook();
 
   // eslint-disable-next-line
   const [handleChooseAddress, addressDetails, createOrderCashClick] =
     OrderPayCash();
+
+  const [handleCreateOrderCard] = OrderPayCardHook(addressDetails);
+  const [typeMethod, setTypeMethod] = useState("");
+  const changeMethod = (e) => {
+    setTypeMethod(e.target.value);
+    // console.log(e.target.value);
+  };
+
+  const handlePay = () => {
+    if (typeMethod === "Visa") {
+      handleCreateOrderCard();
+    } else if (typeMethod === "Cash") {
+      createOrderCashClick();
+    } else {
+      notify("Please Choose Method Payment", "warn");
+    }
+  };
 
   return (
     <div>
@@ -17,11 +36,12 @@ const PaymentMethods = () => {
         <Row className="d-flex justify-content-between">
           <Col xs="12" className="my-4">
             <input
+              onChange={changeMethod}
               style={{ cursor: "pointer" }}
               name="group"
               id="group1"
               type="radio"
-              value="Visa Payment"
+              value="Visa"
               className="mt-1"
             />
             <label className="mx-2" for="group1" style={{ display: "inline" }}>
@@ -33,11 +53,12 @@ const PaymentMethods = () => {
         <Row className="mt-3">
           <Col xs="12" className="d-flex">
             <input
+              onChange={changeMethod}
               style={{ cursor: "pointer" }}
               name="group"
               id="group2"
               type="radio"
-              value="Paiement when recieving"
+              value="Cash"
               className="mt-1"
             />
             <label
@@ -78,7 +99,7 @@ const PaymentMethods = () => {
         <Col xs="12" className="d-flex justify-content-end">
           <div className="product-price d-inline border me-2">34000 $</div>
           <div
-            onClick={createOrderCashClick}
+            onClick={handlePay}
             className="product-cart-add px-3 pt-2 d-inline me-2"
           >
             {" "}

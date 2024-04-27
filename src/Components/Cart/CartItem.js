@@ -7,6 +7,7 @@ import { getAllProducts } from "../../Redux/Actions/ProductsActions";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
+
   // eslint-disable-next-line
   // const [products, setProducts] = useState([]);
   const allProducts = useSelector((state) => state.allproducts.allProducts);

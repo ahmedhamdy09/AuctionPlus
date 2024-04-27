@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateOrderToDeliver, updateOrderToPaid } from "../../Redux/Actions/OrderAction";
+import {
+  updateOrderToDeliver,
+  updateOrderToPaid,
+} from "../../Redux/Actions/OrderAction";
 import notify from "../useNotifaction";
 
 const ChangeOrderStatusHook = (id) => {
@@ -50,8 +53,9 @@ const ChangeOrderStatusHook = (id) => {
     [loading]
   );
 
-  
-  const resDeliver = useSelector((state) => state.orderReducers.updateOrderToDeliver);
+  const resDeliver = useSelector(
+    (state) => state.orderReducers.updateOrderToDeliver
+  );
   useEffect(
     () => {
       if (loading === false) {
@@ -82,7 +86,13 @@ const ChangeOrderStatusHook = (id) => {
     setDeliver(e.target.value);
   };
 
-  return [formatDate, onChangePaid, changePayOrder, onChangeDeliver,ChangeDeliver];
+  return [
+    formatDate,
+    onChangePaid,
+    changePayOrder,
+    onChangeDeliver,
+    ChangeDeliver,
+  ];
 };
 
 export default ChangeOrderStatusHook;

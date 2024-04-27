@@ -46,7 +46,6 @@ const OrderPayCash = () => {
   const resCreateCashOrders = useSelector(
     (state) => state.cashOrderReducers.createCashOrder
   );
-  console.log(resCreateCashOrders);
   useEffect(
     () => {
       if (loadingCreate === false) {
