@@ -14,15 +14,30 @@ const UppliveShow1 = () => {
   const goPageOption1 = () => {
     navegate("/");
   };
+
+  const goSchedule = () => {
+    navegate("/uplivetwo");
+  };
   return (
     <div className="parentss">
       <div className="containers">
         <div className="text-back">
-          <img onClick={goPageOption1} src={arrowLeft} alt="backArrow" className="arrow-back" />
+          <img
+            onClick={goPageOption1}
+            src={arrowLeft}
+            alt="backArrow"
+            className="arrow-back"
+          />
           <p className="text">Upcoming live shows</p>
         </div>
         <div className="scheduleIcon">
-          <img src={celender} alt="schedule" className="schedule" />
+          <img
+            onClick={goSchedule}
+            src={celender}
+            alt="schedule"
+            className="schedule"
+            style={{ cursor: "pointer" }}
+          />
         </div>
       </div>
 

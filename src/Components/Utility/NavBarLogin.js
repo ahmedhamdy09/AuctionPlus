@@ -116,7 +116,7 @@ const NavBarLogin = () => {
                   style={{ color: "white" }}
                 >
                   <i className="fa-solid fa-cart-shopping"></i>
-                  <span class="position-absolute top-10 start-0 translate-middle badge rounded-pill bg-danger">
+                  <span className="position-absolute top-10 start-0 translate-middle badge rounded-pill bg-danger">
                     {itemsNum || 0}
                   </span>
                 </Nav.Link>

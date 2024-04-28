@@ -6,24 +6,39 @@ import ViewOneProductsDetailsHook from "../../HookLogicCode/ProductsLogicHook/Vi
 import { useParams } from "react-router-dom";
 import AuctionProductsDetails from "../../Components/livesShow/AuctionProductDescription/AuctionProductDetails";
 import AuctionProductsContainer from "../../Components/livesShow/AuctionProductDescription/AuctionProductContainer";
+import SearchCountResult from "../../Components/Utility/SearchCountResult";
+import ViewSearchProducts from "../../HookLogicCode/ProductsLogicHook/ViewSearchProducts";
+import Pagination from "../../Components/Utility/Pagination";
 
 const AuctionProductPage = () => {
-   const { id } = useParams();
+  const { id } = useParams();
   // eslint-disable-next-line
   const [item, images, cat, brand, prod] = ViewOneProductsDetailsHook(id);
+  // eslint-disable-next-line
+  const [items, Paginations, onPress, getProduct, results] =
+    ViewSearchProducts();
+  if (Paginations) var pageCount = Paginations;
+  else pageCount = 0;
+  // let pageCount = Paginations || 0;
 
-  if (prod) var items = prod.slice(0, 4);
+  if (prod) var itemss = prod.slice(0, 4);
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryHeader />
+      <SearchCountResult
+        onClick={getProduct}
+      />
       <Container>
         <AuctionProductsDetails />
         <RateContainer />
-        <AuctionProductsContainer products={items} title="Auction you may like" />
+        <AuctionProductsContainer
+          products={itemss}
+          title="Auction you may like"
+        />
+        <Pagination pageCount={pageCount} onPress={onPress} />
       </Container>
     </div>
   );
 };
 
 export default AuctionProductPage;
-

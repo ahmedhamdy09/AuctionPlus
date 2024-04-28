@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./AuctionLivePage.css";
-// import searchIconsbid from "./images/input-group-append.png";
-// import scannerMer from "./images/Seminar-pana 1.png";
 import fluentLive from "./images/fluent_live-24-filled.png";
 import { Container, Modal } from "react-bootstrap";
 import arror from "./images/feArrowDown1.png";
@@ -10,6 +8,7 @@ const AuctionLivePage = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
+  // eslint-disable-next-line
   const handleShow = () => setShow(true);
   const goPageOption1 = () => {
     navigate("/uplivefour");
@@ -17,6 +16,10 @@ const AuctionLivePage = () => {
 
   const goPageOption2 = () => {
     navigate("/uplivetwo");
+  };
+
+  const sheduleCart = () => {
+    navigate("/upliveone");
   };
 
   return (
@@ -35,7 +38,7 @@ const AuctionLivePage = () => {
             </a>
             <br />
           </div>
-          <button className="viewShow" alt="show" onClick={handleShow}>
+          <button className="viewShow" alt="show" onClick={sheduleCart}>
             View Shows
           </button>
         </div>
@@ -65,12 +68,6 @@ const AuctionLivePage = () => {
             alt="hh"
           />
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer> */}
       </Modal>
     </Container>
   );

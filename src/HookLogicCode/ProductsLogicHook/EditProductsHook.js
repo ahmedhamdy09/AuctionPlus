@@ -5,7 +5,7 @@ import { getAllBrand } from "../../Redux/Actions/BrandAction";
 import { getOneSubCategory } from "../../Redux/Actions/SubCategoryAction";
 import {
   getOneProduct,
-  updateProducts, 
+  updateProducts,
 } from "../../Redux/Actions/ProductsActions";
 import notify from "../useNotifaction";
 
@@ -44,7 +44,7 @@ const AdminEditProductsHook = (id) => {
   };
   const onRemove = (selectedList) => {
     // console.log(selectedsubCategoryID);
-    setSelectedSubCategoryID(selectedList);    
+    setSelectedSubCategoryID(selectedList);
   };
 
   // crop images
@@ -70,14 +70,14 @@ const AdminEditProductsHook = (id) => {
   const [brandID, setBrandID] = useState("");
   // eslint-disable-next-line
   const [subCategoryID, setSubCategoryID] = useState([]);
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const [selectedsubCategoryID, setSelectedSubCategoryID] = useState([]);
   const [loading, setLoading] = useState(true);
   // to show hide color picker
   const [showColor, setShowColor] = useState(false);
   // to store all pick color
   const [colors, setColors] = useState([]);
-// console.log(item)
+  // console.log(item)
   useEffect(() => {
     if (item) {
       setImages(item.images);
@@ -151,11 +151,9 @@ const AdminEditProductsHook = (id) => {
     () => {
       // eslint-disable-next-line
       if (categoryID !== null) {
-           dispatch(getOneSubCategory(categoryID));
+        dispatch(getOneSubCategory(categoryID));
       }
 
-
-      
       // eslint-disable-next-line
     },
     // eslint-disable-next-line
@@ -200,7 +198,7 @@ const AdminEditProductsHook = (id) => {
   // to save products data
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("asdasda")
+    console.log("asdasda");
     if (
       // categoryID === 0 ||
       prodName === "" ||
@@ -256,12 +254,12 @@ const AdminEditProductsHook = (id) => {
     // selectedsubCategoryID.map((item) =>
     //   formData.append("subcategories", item._id)
     // );
-      // await dispatch(updateProducts(id, formData));
+    // await dispatch(updateProducts(id, formData));
     setTimeout(async () => {
       setLoading(true);
       await dispatch(updateProducts(id, formData));
       setLoading(false);
-      window.location.href="/admin/allproducts"
+      window.location.href = "/admin/allproducts";
     }, 1000);
   };
 

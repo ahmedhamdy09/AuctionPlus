@@ -24,24 +24,24 @@ const AdminEditProducts = () => {
     quantity,
     showColor,
     colors,
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     category,
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     categoryID,
     brand,
     brandID,
     images,
     crop,
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     options,
     setImages,
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     onSelect,
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     onRemove,
     handleChangeComplete,
     removeColor,
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     onSelectCategory,
     onSelectBrand,
     handleSubmit,
@@ -56,12 +56,13 @@ const AdminEditProducts = () => {
           <Col sm="8">
             <div className="text-form pb-2">Products Image</div>
             <MultiImageInput
-              images={images ? images.map((it) => it) : []}
+              images={
+                images && Array.isArray(images) ? images.map((it) => it) : []
+              }
               setImages={setImages}
               cropConfig={{ crop, ruleOfThirds: true }}
               theme={"light"}
               max={4}
-              // allowCrop={false}
             />
             <input
               value={prodName}

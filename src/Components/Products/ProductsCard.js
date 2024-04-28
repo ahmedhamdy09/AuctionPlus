@@ -6,7 +6,6 @@ import { ToastContainer } from "react-toastify";
 import ProductsCardHook from "../../HookLogicCode/WishList/ProductsCardHook";
 
 const ProductsCard = ({ item, favProducts }) => {
-  console.log(item);
   // eslint-disable-next-line
   const [removeToWishListData, addToWishListData, handleFavourite, favImg] =
     ProductsCardHook(item, favProducts);

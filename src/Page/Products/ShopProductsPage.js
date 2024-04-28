@@ -7,16 +7,20 @@ import CardProductsContainer from "../../Components/Products/CardProductsContain
 import Pagination from "../../Components/Utility/Pagination";
 import ViewSearchProducts from "../../HookLogicCode/ProductsLogicHook/ViewSearchProducts";
 const ShopProductsPage = () => {
-  const [items, Paginations, onPress,  getProduct, results] = ViewSearchProducts();
+  const [items, Paginations, onPress, getProduct, results] =
+    ViewSearchProducts();
   if (Paginations) var pageCount = Paginations;
-   else pageCount = 0;
- // let pageCount = Paginations || 0;
+  else pageCount = 0;
+  // let pageCount = Paginations || 0;
 
   return (
     <div style={{ minHeight: "670px" }}>
       <CategoryHeader />
       <Container>
-        <SearchCountResult onClick={getProduct} title={`There are ${results} Search Result`} />
+        <SearchCountResult
+          onClick={getProduct}
+          title={`There are ${results} Search Result`}
+        />
         <Row className="d-flex flex-row">
           <Col sm="2" xs="2" md="2" className="d-flex">
             <SideBarFilter />

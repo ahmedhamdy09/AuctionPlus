@@ -68,15 +68,6 @@ function App() {
           />
           <Route path="/products/brand/:id" element={<ProductByBrand />} />
 
-          {/* <Route
-            path="/order/paymethod"
-            element={
-              <ProtectedRoute auth={isUser}>
-                <PaymentCheckoutPage />
-              </ProtectedRoute>
-            }
-          /> */}
-
           {/* start admin */}
           <Route element={<ProtectedRoute auth={isAdmin} />}>
             <Route

@@ -1,6 +1,5 @@
 import React from "react";
 import "./UpplivesShow3.css";
-
 import userImg from "./images/user-regular.svg";
 import star from "./images/star-solid.svg";
 import eye from "./images/eye-regular.svg";
@@ -15,7 +14,6 @@ const UppliveShow3 = () => {
             <div className="userlogo">
               <img src={userImg} alt="user" className="user" />
             </div>
-
             <div className="con1">
               <p className="u_name">Ahmed Hamdy</p>
               <div style={{ display: "flex" }}>

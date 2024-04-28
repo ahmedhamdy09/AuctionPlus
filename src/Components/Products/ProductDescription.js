@@ -14,14 +14,12 @@ const ProductDescription = () => {
   return (
     <div>
       <Row className="mt-2">
-        {/* <div className="cat-text">{cat.name} :</div> */}
         <div className="cat-text">{item.category?.name}</div>
       </Row>
       <Row>
         <Col md="8">
           <div className="cat-title d-inline">
             {item.name}
-            {/* <div className="cat-rate d-inline mx-3">{item.ratingsQuantity}</div> */}
             <div className="cat-rate d-inline mx-3">{item.ratingsAverage}</div>
           </div>
         </Col>
