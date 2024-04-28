@@ -45,6 +45,7 @@ const CreateRooms = (id) => {
     setLoading(false);
   };
 
+  // eslint-disable-next-line
   const resCreateRoom = useSelector(
     (state) => state.roomsReducers.createNewEvents
   );

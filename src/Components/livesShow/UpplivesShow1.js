@@ -8,6 +8,7 @@ import recored from "./images/microphone-solid.svg";
 import bell from "./images/bell-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
 import { Link } from "react-router-dom";
+// import AgoraRTC from 'agora-rtc-sdk';
 
 const UppliveShow1 = () => {
   return (
