@@ -7,38 +7,28 @@ import userImg from "./images/user-regular.svg";
 import recored from "./images/microphone-solid.svg";
 import bell from "./images/bell-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const UppliveShow1 = () => {
-  const navegate = useNavigate();
-  const goPageOption1 = () => {
-    navegate("/");
-  };
-
-  const goSchedule = () => {
-    navegate("/uplivetwo");
-  };
   return (
     <div className="parentss">
       <div className="containers">
-        <div className="text-back">
-          <img
-            onClick={goPageOption1}
-            src={arrowLeft}
-            alt="backArrow"
-            className="arrow-back"
-          />
-          <p className="text">Upcoming live shows</p>
-        </div>
-        <div className="scheduleIcon">
-          <img
-            onClick={goSchedule}
-            src={celender}
-            alt="schedule"
-            className="schedule"
-            style={{ cursor: "pointer" }}
-          />
-        </div>
+        <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+          <div className="text-back">
+            <img src={arrowLeft} alt="backArrow" className="arrow-back" />
+            <p className="text">Upcoming live shows</p>
+          </div>
+        </Link>
+        <Link to={"/uplivetwo"}>
+          <div className="scheduleIcon">
+            <img
+              src={celender}
+              alt="schedule"
+              className="schedule"
+              style={{ cursor: "pointer" }}
+            />
+          </div>
+        </Link>
       </div>
 
       <div className="sec">
@@ -65,9 +55,11 @@ const UppliveShow1 = () => {
           </p>
 
           <div className="buttonss">
-            <button type="button" className="btn btn-info">
-              Join Now
-            </button>
+            <Link to={"/uplivethree"}>
+              <button type="button" className="btn btn-info">
+                Join Now
+              </button>
+            </Link>
 
             <button type="button" className="btn btn-secondary remind-btn">
               <img src={bell} alt="reminder Me" />

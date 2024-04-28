@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-// import { Col, Row, Container } from "react-bootstrap";
 import "./UpplivesShow4.css";
 import chRight from "./images/chevron-right-solid.svg";
-// import on from "./images/toggle-on-solid.svg";
 import clock from "./images/clock-solid.svg";
-// import { useNavigate } from "react-router-dom";
 
 const UppliveShow4 = () => {
-  // const navegate = useNavigate();
-  // const goPageOption1 = () => {
-  //   navegate("/");
-  // };
+ 
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChange = () => {
@@ -41,7 +35,6 @@ const UppliveShow4 = () => {
       <div className="chat-section">
         <div className="contentA">
           <p className="text-chat">Text chat</p>
-          {/* <img src={on} alt="on" /> */}
           <label className="switchOnOff">
             <input
               type="checkbox"
