@@ -1,5 +1,4 @@
 import React from "react";
-// import { Col, Row, Container } from "react-bootstrap";
 import "./UpplivesShow1.css";
 import arrowLeft from "./images/arrow-left-solid.svg";
 import celender from "./images/calendar-plus-regular.svg";
@@ -8,7 +7,6 @@ import recored from "./images/microphone-solid.svg";
 import bell from "./images/bell-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
 import { Link } from "react-router-dom";
-// import AgoraRTC from 'agora-rtc-sdk';
 
 const UppliveShow1 = () => {
   return (
@@ -31,7 +29,7 @@ const UppliveShow1 = () => {
           </div>
         </Link>
       </div>
-
+      <div id="local_stream"></div>
       <div className="sec">
         <div className="p-3 text-dark-emphasis bg-secondary-subtle border border-dark-subtle rounded-3 con">
           <div className="con1">
