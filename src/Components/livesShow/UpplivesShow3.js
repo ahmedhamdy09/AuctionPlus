@@ -53,7 +53,6 @@ const UppliveShow3 = () => {
             className="form-control"
           />
         </div>
-
         <div className="share_icon">
           <span className="share_txt">Share</span>
           <img src={share} alt="share" class="shareIcon" />

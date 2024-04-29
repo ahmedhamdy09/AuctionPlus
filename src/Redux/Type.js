@@ -110,3 +110,7 @@ export const CREATE_ORDER_BY_CARD = "CREATE_ORDER_BY_CARD";
 
 // auction
 export const CREATE_NEW_EVENTS = "CREATE_NEW_EVENTS";
+
+export const GET_ALL_EVENTS = "GET_ALL_EVENTS";
+
+export const GET_LOGGED_USER = "GET_LOGGED_USER";

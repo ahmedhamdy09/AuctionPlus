@@ -1,4 +1,4 @@
-import Footer from "./Components/Utility/Footer";
+// import Footer from "./Components/Utility/Footer";
 import NavBarLogin from "./Components/Utility/NavBarLogin";
 import HomePage from "./Page/Home/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -131,7 +131,7 @@ function App() {
 
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

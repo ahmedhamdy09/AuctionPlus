@@ -4,6 +4,8 @@ import arrowLeft from "./images/arrow-left-solid.svg";
 import chRight from "./images/chevron-right-solid.svg";
 import { Link } from "react-router-dom";
 import CreateRooms from "../../HookLogicCode/Rooms/CreateRooms";
+import GetLoggedUserHook from "../../HookLogicCode/Rooms/GetLoggedUser";
+import AllCatogoryPageLogic from "../../HookLogicCode/CategoryLogic/AllCatogoryPageLogic";
 
 const UppliveShow2 = (id) => {
   const [
@@ -19,10 +21,18 @@ const UppliveShow2 = (id) => {
     onChangeDateLiveBroadCast,
     handleSubmit,
   ] = CreateRooms(id);
+
+  // eslint-disable-next-line
+  const [resLoggedUser] = GetLoggedUserHook();
+
+  // eslint-disable-next-line
+  const [category, loading, pageCount, getPage] = AllCatogoryPageLogic();
+
   const [isChecked, setIsChecked] = useState(false);
   const handleChange = () => {
     setIsChecked((prevIsChecked) => !prevIsChecked);
   };
+
   return (
     <div className="parent">
       <div className="text-back">

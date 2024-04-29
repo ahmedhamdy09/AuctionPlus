@@ -1,4 +1,9 @@
-import { GET_ALL_ORDERS, GET_ONE_ORDER, UPDATE_ORDER_TO_PAY ,UPDATE_ORDER_TO_DELIVER} from "../Type";
+import {
+  GET_ALL_ORDERS,
+  GET_ONE_ORDER,
+  UPDATE_ORDER_TO_PAY,
+  UPDATE_ORDER_TO_DELIVER,
+} from "../Type";
 // import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
 // import useDeleteData from "../../Hooks/useDeleteData";

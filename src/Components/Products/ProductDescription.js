@@ -61,7 +61,7 @@ const ProductDescription = () => {
       </Row>
       <Row className="mt-4">
         <Col md="12">
-          {item?.discountedPrice >= 1 ? (
+          {/* {item?.discountedPrice >= 1 ? (
             <div className="product-price d-inline px-3 py-3 border">
               {" "}
               <span style={{ textDecoration: "line-through" }}>
@@ -73,8 +73,10 @@ const ProductDescription = () => {
             <div className="product-price d-inline px-3 py-3 border">
               {item?.price}
             </div>
-          )}
-
+          )} */}
+          <div className="product-price d-inline px-3 py-3 border">
+            {item?.price}
+          </div>
           <div
             onClick={addToCartHandle}
             className="product-cart-add px-3 py-3 d-inline mx-3"

@@ -7,7 +7,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div>
+    <div style={{ margin: "25px" }}>
       <div className="content">
         <div className="d1">
           <h3>Get In Touch</h3>

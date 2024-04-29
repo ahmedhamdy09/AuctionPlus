@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createNewEvents } from "../../Redux/Actions/RoomsAction";
 // import { useNavigate } from "react-router-dom";
 
+
 const CreateRooms = (id) => {
   const dispatch = useDispatch();
   //   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const CreateRooms = (id) => {
     setDateLiveBroadCast(e.target.value);
   };
 
+  
   const handleSubmit = async () => {
     setLoading(true);
     await dispatch(
@@ -53,7 +55,7 @@ const CreateRooms = (id) => {
   useEffect(
     () => {
       if (loading === false) {
-        // console.log(resCreateRoom);
+        console.log(resCreateRoom);
         // setTimeout(() => {
         //   navigate("/upliveone");
         // }, 1500);

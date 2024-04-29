@@ -49,10 +49,12 @@ p {
     height: 44px;
 
 }
-.searchBid{
+
+.searchBid {
     height: 44px;
 
 }
+
 #bids {
     border: 1px solid #ddd;
     padding: 4px;

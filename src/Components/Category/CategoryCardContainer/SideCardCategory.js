@@ -10,6 +10,7 @@ const SideCardCategory = () => {
         <p className="p-2">Top Ten Products of the Week</p>
         <p className="p-3">Explore Items</p>
       </div>
+      
 
       <div className="card-2st">
         <p className="p-1">Ends Today</p>

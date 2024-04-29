@@ -7,8 +7,16 @@ import recored from "./images/microphone-solid.svg";
 import bell from "./images/bell-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
 import { Link } from "react-router-dom";
+import GetAllRooms from "../../HookLogicCode/Rooms/GetAllRooms";
+import UserGetAllOrderHook from "../../HookLogicCode/User/UserGetAllOrderHook";
 
 const UppliveShow1 = () => {
+  // eslint-disable-next-line
+  const [res] = GetAllRooms();
+  console.log(res);
+  // eslint-disable-next-line
+  const [userName, result, paginate, orderData] = UserGetAllOrderHook();
+
   return (
     <div className="parentss">
       <div className="containers">
@@ -37,7 +45,7 @@ const UppliveShow1 = () => {
               <img src={userImg} alt="user" class="user-img" />
             </div>
             <div className="info">
-              <p>Eslam Nasr</p>
+              <p>{userName}</p>
               <span>Host</span>
             </div>
           </div>
@@ -50,7 +58,7 @@ const UppliveShow1 = () => {
           <p className="p1">LOREAM TEXT</p>
           <p className="p2">Tomorrow, 12:00 AM</p>
           <p className="p3">
-            Waiting room~ <span>Eslam Nasr, acn ,</span>
+            Waiting room~ <span>{userName}</span>
           </p>
 
           <div className="buttonss">

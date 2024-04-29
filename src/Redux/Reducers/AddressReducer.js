@@ -4,6 +4,7 @@ import {
   DELETE_USER_ADDRESS,
   GET_ONE_USER_ADDRESS,
   UPDATE_USER_ADDRESS,
+  GET_LOGGED_USER,
 } from "../Type";
 
 const initail = {
@@ -12,6 +13,7 @@ const initail = {
   deleteUserAddress: [],
   oneUserAddress: [],
   updateUserAddress: [],
+  getLoggedUser: [],
 };
 
 const userAddressReducer = (state = initail, action) => {
@@ -45,6 +47,12 @@ const userAddressReducer = (state = initail, action) => {
         ...state,
         // update state
         updateUserAddress: action.payload,
+      };
+    case GET_LOGGED_USER:
+      return {
+        ...state,
+        // update state
+        getLoggedUser: action.payload,
       };
     default:
       return state;
