@@ -12,6 +12,7 @@ import addProductToCart from "./CartReducers";
 import cashOrderReducers from "./CheckOutReducres";
 import orderReducers from "./OrderReducers";
 import roomsReducers from "./RoomsReducrs";
+import auctionProductsReducer from "./AuctionReducers";
 export default combineReducers({
   allCategory: categoryReducer,
   allBrand: BrandReducer,
@@ -24,6 +25,7 @@ export default combineReducers({
   userAddressReducer: userAddressReducer,
   addProductToCart: addProductToCart,
   cashOrderReducers: cashOrderReducers,
-  orderReducers:orderReducers,
-  roomsReducers:roomsReducers,
+  orderReducers: orderReducers,
+  roomsReducers: roomsReducers,
+  auctionProductsReducer: auctionProductsReducer,
 });

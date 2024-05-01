@@ -3,23 +3,17 @@ import "./AuctionLivePage.css";
 import fluentLive from "./images/fluent_live-24-filled.png";
 import { Container, Modal } from "react-bootstrap";
 import arror from "./images/feArrowDown1.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const AuctionLivePage = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
-  // eslint-disable-next-line
-  const handleShow = () => setShow(true);
   const goPageOption1 = () => {
     navigate("/uplivefour");
   };
 
   const goPageOption2 = () => {
     navigate("/uplivetwo");
-  };
-
-  const sheduleCart = () => {
-    navigate("/upliveone");
   };
 
   return (
@@ -33,14 +27,16 @@ const AuctionLivePage = () => {
         <div className="chh3">
           <div className="contAuction">
             <h3>There are no live shows at the moment</h3>
-            <a href="/stream" alt="live" className="livesMeet">
+            <Link to="/stream" className="livesMeet">
               Start live streaming now
-            </a>
+            </Link>
             <br />
           </div>
-          <button className="viewShow" alt="show" onClick={sheduleCart}>
-            View Shows
-          </button>
+          <Link to={"/upliveone"}>
+            <button className="viewShow" alt="show">
+              View Shows
+            </button>
+          </Link>
         </div>
         <hr className="divider" />
       </div>

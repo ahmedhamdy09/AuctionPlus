@@ -26,9 +26,9 @@ const UserSideBar = () => {
             Profile personly
           </div>
         </Link>
-        <Link to="/admin/addproduct" style={{ textDecoration: "none" }}>
+        <Link to="/user/addproduct" style={{ textDecoration: "none" }}>
           <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-            Add Product
+            Add Auction
           </div>
         </Link>
       </div>

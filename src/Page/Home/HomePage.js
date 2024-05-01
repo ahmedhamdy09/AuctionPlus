@@ -20,12 +20,7 @@ const HomePage = () => {
         pathText="/products"
       />
       <DiscountSection />
-      {/* <CardProductsContainer
-        products={items}
-        title="Best Products"
-        btntitle="More"
-        pathText="/products"
-      /> */}
+
       <BrandFeatures title="All Famous Brand" btntitle="More" />
     </div>
   );

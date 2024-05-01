@@ -26,7 +26,6 @@ import UserProfilePage from "./Page/Users/UserProfilePage";
 import AdminEditProductsPage from "./Page/Admin/AdminEditProductsPage";
 import ContactUs from "./Components/Utility/ContactUs";
 import AuctionLivePage from "./Components/livesShow/AuctionLivePage";
-import AuctionProductPage from "./Page/Products/AuctionProductsPage";
 import Stream from "./Components/livesShow/AuctionProductDescription/Stream";
 import UppliveShow1 from "./Components/livesShow/UpplivesShow1";
 import UppliveShow2 from "./Components/livesShow/UpplivesShow2";
@@ -41,6 +40,7 @@ import ProtectedRouteHook from "./HookLogicCode/Auth/ProtectedRouteHook";
 import ProtectedRoute from "./Components/Utility/ProtectedRoute";
 import ProductByCategory from "./Page/Products/ProductByCategory";
 import ProductByBrand from "./Page/Products/ProductByBrand";
+import UserAddProductPage from "./Page/Users/UserAddProducts";
 
 function App() {
   // eslint-disable-next-line
@@ -116,12 +116,12 @@ function App() {
             />
             <Route path="/user/profile" element={<UserProfilePage />} />
             <Route path="/order/paymethod" element={<PaymentCheckoutPage />} />
+            <Route path="/user/addproduct" element={<UserAddProductPage />} />
           </Route>
           {/* end user */}
 
           {/* starttauction */}
           <Route path="/auctionlive" element={<AuctionLivePage />} />
-          <Route path="/auctionproductpage" element={<AuctionProductPage />} />
           <Route path="/stream" element={<Stream />} />
           <Route path="/upliveone" element={<UppliveShow1 />} />
           <Route path="/uplivetwo" element={<UppliveShow2 />} />
