@@ -13,7 +13,6 @@ import UserGetAllOrderHook from "../../HookLogicCode/User/UserGetAllOrderHook";
 const UppliveShow1 = () => {
   // eslint-disable-next-line
   const [res] = GetAllRooms();
-  console.log(res);
   // eslint-disable-next-line
   const [userName, result, paginate, orderData] = UserGetAllOrderHook();
 

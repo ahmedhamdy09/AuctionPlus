@@ -4,7 +4,6 @@ import chRight from "./images/chevron-right-solid.svg";
 import clock from "./images/clock-solid.svg";
 
 const UppliveShow4 = () => {
- 
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChange = () => {
