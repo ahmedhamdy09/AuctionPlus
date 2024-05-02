@@ -13,7 +13,7 @@ const CardProductsContainer = ({ title, btntitle, pathText, products }) => {
       ) : null}
       {/* <Row className="my-2 d-flex justify-content-between"> */}
       <div className="salamacard">
-        {products 
+        {products
           ? products.map((item, index) => (
               <ProductsCard favProducts={favProducts} key={index} item={item} />
             ))

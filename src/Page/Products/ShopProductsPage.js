@@ -11,7 +11,6 @@ const ShopProductsPage = () => {
     ViewSearchProducts();
   if (Paginations) var pageCount = Paginations;
   else pageCount = 0;
-  // let pageCount = Paginations || 0;
 
   return (
     <div style={{ minHeight: "670px" }}>

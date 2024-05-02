@@ -51,17 +51,6 @@ const ProductsCard = ({ item, favProducts }) => {
           <Card.Text>
             <div className="d-flex justify-content-between ">
               <div className="d-flex">
-                {/* {item?.discountedPrice >= 1 ? (
-                  <div>
-                    {" "}
-                    <span style={{ textDecoration: "line-through" }}>
-                      {item?.price}
-                    </span>{" "}
-                    {item?.discountedPrice}
-                  </div>
-                ) : (
-                  item?.price
-                )} */}
                 {item?.price}
                 <div className="card-currency mx-1"></div>
               </div>
