@@ -19,6 +19,7 @@ const HomePage = () => {
         btntitle="More"
         pathText="/products"
       />
+
       <DiscountSection />
       <BrandFeatures title="All Famous Brand" btntitle="More" />
     </div>
