@@ -33,6 +33,8 @@ const UppliveShow2 = (id) => {
     setIsChecked((prevIsChecked) => !prevIsChecked);
   };
 
+
+
   return (
     <div className="parent">
       <div className="text-back">

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./UpplivesShow3.css";
 import userImg from "./images/user-regular.svg";
 import star from "./images/star-solid.svg";
 import eye from "./images/eye-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
+import { VideoRoom } from "./VideoTest/VideoRoom";
 
 const UppliveShow3 = () => {
+  const [joined, setJoined] = useState(false);
+
   return (
     <>
       <div className="parent">
@@ -32,16 +35,16 @@ const UppliveShow3 = () => {
               </div>
             </div>
           </div>
-          <div class="content2">
+          <div className="content2">
             <img src={eye} alt="seen" className="eye" />
             <span className="n_10">10</span>{" "}
             <span className="leave_txt">Leave</span>
           </div>
         </div>
 
-        <div class="main_comp">
-          <p class="p1">Wait for the host to start th show</p>
-          <p class="p2">Tomorrow, 12:00 AM</p>
+        <div className="main_comp">
+          <p className="p1">Wait for the host to start th show</p>
+          <p className="p2">Tomorrow, 12:00 AM</p>
         </div>
       </div>
 
@@ -57,6 +60,17 @@ const UppliveShow3 = () => {
           <span className="share_txt">Share</span>
           <img src={share} alt="share" class="shareIcon" />
         </div>
+        {!joined && (
+          <button
+            type="button"
+            className="btn btn-info live-btn"
+            onClick={() => setJoined(true)}
+          >
+            Join Now
+          </button>
+        )}
+
+        {joined && <VideoRoom className="video-container" />}
       </div>
     </>
   );

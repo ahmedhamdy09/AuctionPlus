@@ -41,6 +41,9 @@ import ProtectedRoute from "./Components/Utility/ProtectedRoute";
 import ProductByCategory from "./Page/Products/ProductByCategory";
 import ProductByBrand from "./Page/Products/ProductByBrand";
 import UserAddProductPage from "./Page/Users/UserAddProducts";
+import Video from "./Components/livesShow/VideoTest/Video";
+// import Loppy from "./Components/livesShow/VideoConference/Loppy";
+// import VideoConference from "./Components/livesShow/VideoConference/VideoConfernce";
 
 function App() {
   // eslint-disable-next-line
@@ -127,6 +130,11 @@ function App() {
           <Route path="/uplivetwo" element={<UppliveShow2 />} />
           <Route path="/uplivethree" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
+          <Route path="/videoMeet" element={<Video />} />
+
+          {/* <Route path="/loppy" element={<Loppy />} /> */}
+          {/* <Route path="/videoConfernce" element={<VideoConference />} /> */}
+
           {/* end auction */}
 
           <Route path="/contactus" element={<ContactUs />} />
