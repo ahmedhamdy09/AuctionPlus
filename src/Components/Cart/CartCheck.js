@@ -10,6 +10,7 @@ const CartCheck = ({
   couponnameRes,
   cartItems,
 }) => {
+  console.log(cartItems)
   const [handleAllDeleteCart] = DeleteCartHook();
   const [couponName, onChangeCoupon, handleSubmitCoupon, handleCheckOut] =
     ApplyCouponHook(cartItems);

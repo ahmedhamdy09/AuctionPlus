@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./UpplivesShow1.css";
 import arrowLeft from "./images/arrow-left-solid.svg";
 import celender from "./images/calendar-plus-regular.svg";
@@ -6,15 +6,18 @@ import userImg from "./images/user-regular.svg";
 import recored from "./images/microphone-solid.svg";
 import bell from "./images/bell-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GetAllRooms from "../../HookLogicCode/Rooms/GetAllRooms";
 import UserGetAllOrderHook from "../../HookLogicCode/User/UserGetAllOrderHook";
 
 const UppliveShow1 = () => {
+  const navigate = useNavigate();
   // eslint-disable-next-line
   const [res] = GetAllRooms();
   // eslint-disable-next-line
   const [userName, result, paginate, orderData] = UserGetAllOrderHook();
+
+  const [joined, setJoined] = useState(false);
 
   return (
     <div className="parentss">
@@ -61,11 +64,22 @@ const UppliveShow1 = () => {
           </p>
 
           <div className="buttonss">
-            <Link to={"/uplivethree"}>
-              <button type="button" className="btn btn-info">
-                Join Now
-              </button>
-            </Link>
+            {/* <Link to={"/uplivethree"}> */}
+              {!joined && (
+                <button
+                  type="button"
+                  className="btn btn-info live-btn"
+                  onClick={() => {
+                    setJoined(true);
+                    setTimeout(() => {
+                      navigate("/uplivethree");
+                    }, 1500); // تأخير بمقدار ثانيتين (2000 ميلي ثانية)
+                  }}
+                >
+                  Join Now
+                </button>
+              )}
+            {/* </Link> */}
 
             <button type="button" className="btn btn-secondary remind-btn">
               <img src={bell} alt="reminder Me" />

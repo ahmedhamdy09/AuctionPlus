@@ -7,7 +7,7 @@ import { getAllProducts } from "../../Redux/Actions/ProductsActions";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
-
+console.log(item)
   // eslint-disable-next-line
   // const [products, setProducts] = useState([]);
   const allProducts = useSelector((state) => state.allproducts.allProducts);
@@ -20,7 +20,6 @@ const CartItem = ({ item }) => {
   );
   // const product = products.find(ite => ite.id === item.product);
   const [OneP, setOneP] = useState(null);
-
   useEffect(
     () => {
       if (allProducts?.data) {
@@ -66,16 +65,18 @@ const CartItem = ({ item }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-      {OneP && OneP.length
+      {OneP && OneP.length>=1
         ? OneP.map((it) =>
-            it.product && item.product === it.id ? (
+            item.product === it.id ? (
               <Col xs="12" className="cart-item-body my-2 d-flex px-2">
+
                 <img
                   width="160px"
                   height="190px"
                   src={it.imageCover}
                   alt={""}
                 />
+                
                 <div className="w-100">
                   <Row className="justify-content-between">
                     <Col

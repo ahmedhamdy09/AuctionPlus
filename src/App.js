@@ -43,7 +43,6 @@ import ProductByBrand from "./Page/Products/ProductByBrand";
 import UserAddProductPage from "./Page/Users/UserAddProducts";
 import Video from "./Components/livesShow/VideoTest/Video";
 // import Loppy from "./Components/livesShow/VideoConference/Loppy";
-// import VideoConference from "./Components/livesShow/VideoConference/VideoConfernce";
 
 function App() {
   // eslint-disable-next-line
@@ -62,6 +61,7 @@ function App() {
           <Route path="/products" element={<ShopProductsPage />} />
           <Route path="/products/:id" element={<ProductDetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
+          {/* <Route path="/videosalama" element={<Roomvideo  />} />  */}
           <Route path="/popupemail" element={<PopUPEmail />} />
           <Route path="/popupotp" element={<PopUpOtp />} />
           <Route path="/popupnewpass" element={<PopUpNewPass />} />
@@ -131,10 +131,9 @@ function App() {
           <Route path="/uplivethree" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
           <Route path="/videoMeet" element={<Video />} />
+          {/* <Route path="/loppyroom" element={<LoppyRoom />} /> */}
 
-          {/* <Route path="/loppy" element={<Loppy />} /> */}
-          {/* <Route path="/videoConfernce" element={<VideoConference />} /> */}
-
+       
           {/* end auction */}
 
           <Route path="/contactus" element={<ContactUs />} />

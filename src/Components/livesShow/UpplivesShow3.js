@@ -7,7 +7,19 @@ import share from "./images/arrow-up-from-bracket-solid.svg";
 import { VideoRoom } from "./VideoTest/VideoRoom";
 
 const UppliveShow3 = () => {
-  const [joined, setJoined] = useState(false);
+  // const [joined, setJoined] = useState(false);
+  const [isPublished, setIsPublished] = useState(false);
+
+  // const startBroadcast = () => {
+  //   // Start the broadcast
+  //   // setJoined(true);
+  //   setIsPublished(true);
+  // };
+
+  const stopBroadcast = () => {
+    // Stop the broadcast
+    setIsPublished(false);
+  };
 
   return (
     <>
@@ -47,7 +59,7 @@ const UppliveShow3 = () => {
           <p className="p2">Tomorrow, 12:00 AM</p>
         </div>
       </div>
-
+      {<VideoRoom className="video-container" />}
       <div className="foot">
         <div className="comment">
           <input
@@ -59,8 +71,17 @@ const UppliveShow3 = () => {
         <div className="share_icon">
           <span className="share_txt">Share</span>
           <img src={share} alt="share" class="shareIcon" />
+          {isPublished && (
+            <button
+              type="button"
+              className="btn btn-danger live-btn"
+              onClick={stopBroadcast}
+            >
+              Stop Broadcast
+            </button>
+          )}
         </div>
-        {!joined && (
+        {/* {!joined && (
           <button
             type="button"
             className="btn btn-info live-btn"
@@ -68,9 +89,7 @@ const UppliveShow3 = () => {
           >
             Join Now
           </button>
-        )}
-
-        {joined && <VideoRoom className="video-container" />}
+        )} */}
       </div>
     </>
   );

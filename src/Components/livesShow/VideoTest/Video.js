@@ -13,8 +13,8 @@ const Video = ({ user }) => {
 
   return (
     <div>
-      Uid: {user.uid}
-      <div ref={ref} style={{ width: "500px", height: "500px"}}></div>
+      {/* Uid: {user.uid} */}
+      <div ref={ref} style={{ width: "800px", height: "500px" }}></div>
     </div>
   );
 };

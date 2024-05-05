@@ -778,3 +778,13 @@ body {
 .salamacard>div {
   margin: 10px;
 }
+
+.vii {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50% !important;
+  width: 100%;
+  top: 23%;
+  transform: translate(-50%, 8px) !important;
+}

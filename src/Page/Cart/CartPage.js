@@ -13,7 +13,6 @@ const CartPage = () => {
     couponnameRes,
     totalPriceAfterDiscount,
   ] = GetAllUserCartHook();
-
   return (
     <Container style={{ minHeight: "670px" }}>
       <Row>

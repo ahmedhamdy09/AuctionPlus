@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import Video from "./Video";
 
-const APP_ID = "d2dff06fc6224112ab9f6048f67f7593";
+const APP_ID = "944f1437c3ea4e15a371a428937454d7";
 const TOKEN =
-  "007eJxTYHhSm3Mvl2OB+/09C+oONl989nlXCvPtLw13Su8YfJWbcKpOgSHFKCUtzcAsLdnMyMjE0NAoMckyzczAxCLNzDzN3NTS+IGXSVpDICPDMVM5BkYoBPFZGRIzclNTGBgAmZIizA==";
+  "007eJxTYLhfcfvhQbarX/eXh9ddY765qjo3j8eDk99OcMKB5unFBloKDJYmJmmGJsbmycapiSaphqaJxuaGiSZGFpbG5iamJinm/WFmaQ2BjAzWvgIsjAwQCOKzMiRm5KamMDAAADiCHWQ=";
 const CHANNEL = "ahmed";
 
 const client = AgoraRTC.createClient({
@@ -34,28 +34,29 @@ export const VideoRoom = () => {
     );
   };
 
-  useEffect(() => {
-    client.on("user-published", handleUserJoined);
-    client.on("user-left", handleUserLeft);
+  useEffect(
+    () => {
+      client.on("user-published", handleUserJoined);
+      client.on("user-left", handleUserLeft);
 
-    client
-      .join(APP_ID, CHANNEL, TOKEN, null)
-      .then((uid) =>
-        Promise.all([AgoraRTC.createMicrophoneAndCameraTracks(), uid])
-      )
-      .then(([tracks, uid]) => {
-        const [audioTrack, videoTrack] = tracks;
-        setLocalTracks(tracks);
-        setUsers((previousUsers) => [
-          ...previousUsers,
-          {
-            uid,
-            videoTrack,
-            audioTrack,
-          },
-        ]);
-        client.publish(tracks);
-      });
+      client
+        .join(APP_ID, CHANNEL, TOKEN, null)
+        .then((uid) =>
+          Promise.all([AgoraRTC.createMicrophoneAndCameraTracks(), uid])
+        )
+        .then(([tracks, uid]) => {
+          const [audioTrack, videoTrack] = tracks;
+          setLocalTracks(tracks);
+          setUsers((previousUsers) => [
+            ...previousUsers,
+            {
+              uid,
+              videoTrack,
+              audioTrack,
+            },
+          ]);
+          client.publish(tracks);
+        });
 
       return () => {
         for (let localTrack of localTracks) {
@@ -66,13 +67,13 @@ export const VideoRoom = () => {
         client.off("user-left", handleUserLeft);
         client.unpublish(localTracks).then(() => client.leave());
       };
-      
-  }, 
-  // eslint-disable-next-line
-  []);
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div className="vii" style={{ display: "flex", justifyContent: "center" }}>
       <div
         style={{
           display: "grid",
