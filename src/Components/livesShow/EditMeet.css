@@ -1,0 +1,41 @@
+.container-auciton {
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    margin: 5px auto;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.leave {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 45px;
+}
+
+.auciton-img {
+   width: 450px;
+   padding: 4px;
+   margin: 5px;
+}
+
+
+  
+
+  
+.right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px 15px;
+}
