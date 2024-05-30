@@ -18,21 +18,17 @@
 .leave {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -170px;
     width: 80px;
     height: 45px;
 }
 
 .auciton-img {
-   width: 450px;
-   padding: 4px;
-   margin: 5px;
+    width: 450px;
+    padding: 4px;
+    margin: 5px;
 }
 
-
-  
-
-  
 .right-side {
     display: flex;
     flex-direction: column;

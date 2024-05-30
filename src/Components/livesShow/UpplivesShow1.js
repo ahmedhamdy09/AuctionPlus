@@ -64,7 +64,11 @@ const UppliveShow1 = () => {
           </p>
 
           <div className="buttonss">
-            {/* <Link to={"/uplivethree"}> */}
+            <Link
+              to={
+                "https://ada6251557bb7a455bb6-ahmedhamdy09s-projects.vercel.app/create"
+              }
+            >
               {!joined && (
                 <button
                   type="button"
@@ -73,14 +77,13 @@ const UppliveShow1 = () => {
                     setJoined(true);
                     setTimeout(() => {
                       navigate("/uplivethree");
-                    }, 1500); // تأخير بمقدار ثانيتين (2000 ميلي ثانية)
+                    }, 1500);
                   }}
                 >
                   Join Now
                 </button>
               )}
-            {/* </Link> */}
-
+            </Link>
             <button type="button" className="btn btn-secondary remind-btn">
               <img src={bell} alt="reminder Me" />
               let Me Know
