@@ -85,6 +85,7 @@
 //   );
 // };
 
+
 // export default UppliveShow3;
 import React from "react";
 import auctionPana from "../../assets/Auction-pana 1.png";
