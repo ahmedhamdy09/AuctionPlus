@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./UpplivesShow1.css";
 import arrowLeft from "./images/arrow-left-solid.svg";
 import celender from "./images/calendar-plus-regular.svg";
@@ -17,8 +17,9 @@ const UppliveShow1 = () => {
   // eslint-disable-next-line
   const [userName, result, paginate, orderData] = UserGetAllOrderHook();
 
-  const [joined, setJoined] = useState(false);
+  // const [joined, setJoined] = useState(false);
 
+  
   return (
     <div className="parentss">
       <div className="containers">
@@ -64,7 +65,7 @@ const UppliveShow1 = () => {
           </p>
 
           <div className="buttonss">
-            <Link
+            {/* <Link
               to={
                 "https://ada6251557bb7a455bb6-ahmedhamdy09s-projects.vercel.app/create"
               }
@@ -83,7 +84,21 @@ const UppliveShow1 = () => {
                   Join Now
                 </button>
               )}
-            </Link>
+            </Link> */}
+            {/* {!joined && ( */}
+            <button
+              type="button"
+              className="btn btn-info live-btn"
+              onClick={() => {
+                // setJoined(true);
+                setTimeout(() => {
+                  navigate("/uplivethree");
+                }, 1500);
+              }}
+            >
+              Join Now
+            </button>
+            {/* )} */}
             <button type="button" className="btn btn-secondary remind-btn">
               <img src={bell} alt="reminder Me" />
               let Me Know
