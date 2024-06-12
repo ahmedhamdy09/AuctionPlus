@@ -7,7 +7,7 @@ import { getAllProducts } from "../../Redux/Actions/ProductsActions";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
-console.log(item)
+  // console.log(item)
   // eslint-disable-next-line
   // const [products, setProducts] = useState([]);
   const allProducts = useSelector((state) => state.allproducts.allProducts);
@@ -65,18 +65,17 @@ console.log(item)
           </Button>
         </Modal.Footer>
       </Modal>
-      {OneP && OneP.length>=1
+      {OneP && OneP.length >= 1
         ? OneP.map((it) =>
             item.product === it.id ? (
               <Col xs="12" className="cart-item-body my-2 d-flex px-2">
-
                 <img
                   width="160px"
                   height="190px"
                   src={it.imageCover}
                   alt={""}
                 />
-                
+
                 <div className="w-100">
                   <Row className="justify-content-between">
                     <Col
