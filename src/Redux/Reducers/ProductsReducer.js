@@ -8,6 +8,7 @@ import {
   GET_ERROR,
   GET_ALL_PRODUCTS_BY_CATEGORY,
   GET_ALL_PRODUCTS_BY_BRAND,
+  GET_ALL_PROD,
 } from "../Type";
 
 const initail = {
@@ -19,6 +20,7 @@ const initail = {
   updateProducts: [],
   getProductByCategory: [],
   getProductByBrand: [],
+  getallproductroom:[],
   loading: true,
 };
 
@@ -38,6 +40,13 @@ const productsReducer = (state = initail, action) => {
         allProducts: action.payload,
         loading: false,
       };
+      case GET_ALL_PROD:
+        return {
+          ...state,
+          // update state
+          getallproductroom: action.payload,
+          loading: false,
+        };
     case GET_PRODUCT_DETAILS:
       return {
         ...state,

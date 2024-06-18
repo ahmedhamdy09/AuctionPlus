@@ -22,8 +22,6 @@ body {
   height: 80vh;
 }
 
-
-
 .sub-title {
   color: #272727;
   font-family: Almarai;
@@ -204,8 +202,6 @@ body {
   cursor: pointer;
 }
 
-
-
 /* foter */
 .footer-background {
   background-color: #ffffff;
@@ -254,7 +250,6 @@ body {
   width: 170px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 
 .card-filter-item {
   font-size: 12px;
@@ -353,7 +348,7 @@ body {
   height: 45px;
   border-radius: 9px;
   border: none;
-  background-color: #77D1F3;
+  background-color: #77d1f3;
   color: #000;
   font-family: "Almarai";
   font-size: 16px;
@@ -370,7 +365,6 @@ body {
   height: 470px;
   border-radius: 29px;
 }
-
 
 /* end gallary */
 /* end products page */
@@ -600,7 +594,7 @@ body {
   height: 46px;
   width: 150px;
   border-radius: 10px;
-  background-color: #77D1F3;
+  background-color: #77d1f3;
   font-weight: bold;
   font-size: 15px;
   margin: 8px;
@@ -706,7 +700,7 @@ body {
   width: 100%;
   color: black;
   border-radius: 10px;
-  background-color: #77D1F3;
+  background-color: #77d1f3;
   font-weight: bold;
   font-size: 15px;
 }
@@ -775,7 +769,7 @@ body {
   flex-wrap: wrap;
 }
 
-.salamacard>div {
+.salamacard > div {
   margin: 10px;
 }
 
@@ -787,4 +781,20 @@ body {
   width: 100%;
   top: 23%;
   transform: translate(-50%, 8px) !important;
+}
+.arrow {
+  width: 100%;
+}
+.arrow > div {
+  width: 100% !important;
+}
+.searchWrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 48px !imprtant;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  width: 685px;
 }

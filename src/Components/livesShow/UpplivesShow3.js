@@ -4,7 +4,8 @@ import userImg from "./images/user-regular.svg";
 import star from "./images/star-solid.svg";
 import eye from "./images/eye-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
-import { VideoRoom } from "./VideoTest/VideoRoom";
+import { VideoRoom } from "../../HookLogicCode/Rooms/Agoraroom/videoRoom";
+// import { VideoRoom } from "./VideoTest/VideoRoom";
 
 const UppliveShow3 = () => {
   // const [joined, setJoined] = useState(false);
@@ -58,7 +59,8 @@ const UppliveShow3 = () => {
           <p className="p2">Tomorrow, 12:00 AM</p>
         </div>
       </div>
-      {<VideoRoom className="video-container" />}
+      <VideoRoom/>
+      {/* {<VideoRoom className="video-container" />} */}
       <div className="foot">
         <div className="comment">
           <input

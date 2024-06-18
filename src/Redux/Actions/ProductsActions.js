@@ -11,6 +11,7 @@ import {
   GET_ERROR,
   GET_ALL_PRODUCTS_BY_CATEGORY,
   GET_ALL_PRODUCTS_BY_BRAND,
+  GET_ALL_PROD,
 } from "../Type";
 import { useUpdateDataWithImages } from "../../Hooks/useUpdateData";
 // eslint-disable-next-line
@@ -48,6 +49,23 @@ export const getAllProducts = (limit) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: GET_ERROR,
+      payload: "ERROR" + e,
+    });
+  }
+};
+export const getAllProductsRoom = () => async (dispatch) => {
+  try {
+    const response = await useGetData(`/api/v1/products`);
+    console.log("dddddddddddddddddddddddddddd");
+
+    dispatch({
+      type: GET_ALL_PROD,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_ALL_PROD,
       payload: "ERROR" + e,
     });
   }

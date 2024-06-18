@@ -7,9 +7,11 @@ import {
   RESET_PASSWORD,
   UPDATE_PROFILE_DATA,
   UPDATE_PROFILE_PASSWORD,
+  GET_LOGGED_USER,
 } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import { useUpdateData } from "../../Hooks/useUpdateData";
+import useGetDataToken from "../../Hooks/UseGetDataToken";
 
 // import useGetDataToken from "../../Hooks/UseGetDataToken.js";
 
@@ -118,7 +120,10 @@ export const updateUserProfileData = (body) => async (dispatch) => {
 // update user data
 export const updateUserProfilePassword = (body) => async (dispatch) => {
   try {
-    const response = await useUpdateData(`/api/v1/users/changeMyPassword`, body);
+    const response = await useUpdateData(
+      `/api/v1/users/changeMyPassword`,
+      body
+    );
     dispatch({
       type: UPDATE_PROFILE_PASSWORD,
       payload: response,
@@ -131,7 +136,21 @@ export const updateUserProfilePassword = (body) => async (dispatch) => {
     });
   }
 };
-
+export const getAllUser = () => async (dispatch) => {
+  try {
+    const response = await useGetDataToken("/api/v1/users");
+    dispatch({
+      type: GET_LOGGED_USER,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_LOGGED_USER,
+      payload: e.response,
+    });
+  }
+};
 
 // دي هعملها لما الباك يعمل logged User
 // ملحوظة لسة مخلصتش

@@ -42,6 +42,7 @@ import ProductByCategory from "./Page/Products/ProductByCategory";
 import ProductByBrand from "./Page/Products/ProductByBrand";
 import UserAddProductPage from "./Page/Users/UserAddProducts";
 import Video from "./Components/livesShow/VideoTest/Video";
+import MainAgora from "./HookLogicCode/Rooms/Agoraroom/mainAgora";
 // import Loppy from "./Components/livesShow/VideoConference/Loppy";
 
 function App() {
@@ -127,13 +128,14 @@ function App() {
           <Route path="/auctionlive" element={<AuctionLivePage />} />
           <Route path="/stream" element={<Stream />} />
           <Route path="/upliveone" element={<UppliveShow1 />} />
+          <Route path="/MainAgora" element={<MainAgora />} />
+
           <Route path="/uplivetwo" element={<UppliveShow2 />} />
           <Route path="/uplivethree" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
           <Route path="/videoMeet" element={<Video />} />
           {/* <Route path="/loppyroom" element={<LoppyRoom />} /> */}
 
-       
           {/* end auction */}
 
           <Route path="/contactus" element={<ContactUs />} />

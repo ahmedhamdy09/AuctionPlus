@@ -1,8 +1,10 @@
-import { CREATE_NEW_EVENTS,GET_ALL_EVENTS } from "../Type";
+import { CREATE_NEW_EVENTS, GET_ALL_EVENTS, GENERATEAGORA, GENERATEAGORACHAT } from "../Type";
 
 const initail = {
   createNewEvents: [],
   getAllEvents: [],
+  generateAgoratoken: [],
+  generateAgoratokenChat: [],
 };
 
 const roomsReducers = (state = initail, action) => {
@@ -11,14 +13,25 @@ const roomsReducers = (state = initail, action) => {
       return {
         ...state,
         // update state
+
         createNewEvents: action.payload,
       };
-      case GET_ALL_EVENTS:
+    case GET_ALL_EVENTS:
+      return {
+        ...state,
+        // update state
+        getAllEvents: action.payload,
+      };
+      case GENERATEAGORACHAT:
         return {
-         ...state,
           // update state
-          getAllEvents: action.payload,
+          generateAgoratokenChat: action.payload,
         };
+    case GENERATEAGORA:
+      return {
+        // update state
+        generateAgoratoken: action.payload,
+      };
     default:
       return state;
   }

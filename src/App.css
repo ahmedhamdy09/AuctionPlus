@@ -37,3 +37,19 @@
     transform: rotate(360deg);
   }
 }
+.arrow {
+  width: 100%;
+}
+.arrow > div {
+  width: 100% !important;
+}
+.searchWrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 48px !imprtant;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  width: 685px;
+}

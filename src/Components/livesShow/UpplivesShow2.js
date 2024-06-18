@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import CreateRooms from "../../HookLogicCode/Rooms/CreateRooms";
 import GetLoggedUserHook from "../../HookLogicCode/Rooms/GetLoggedUser";
 import AllCatogoryPageLogic from "../../HookLogicCode/CategoryLogic/AllCatogoryPageLogic";
+import Multiselect from "multiselect-react-dropdown";
+import { ToastContainer } from "react-toastify";
 
-const UppliveShow2 = (id) => {
+const UppliveShow2 = () => {
   const [
     addressEvent,
     addUsers,
@@ -20,20 +22,24 @@ const UppliveShow2 = (id) => {
     onChangeChannelSelection,
     onChangeDateLiveBroadCast,
     handleSubmit,
-  ] = CreateRooms(id);
+    onRemoveUser,
+    onSelectUser,
+    resLoggedUser,
+    AllProducts,
+    onSelectProduct,
+    onRemoveProduct,
+    isChecked,
+    setIsChecked,
+    handleChange,
+    setDescription,
+    Description
+  ] = CreateRooms();
 
   // eslint-disable-next-line
-  const [resLoggedUser] = GetLoggedUserHook();
+  // const [resLoggedUser] = GetLoggedUserHook();
 
   // eslint-disable-next-line
   const [category, loading, pageCount, getPage] = AllCatogoryPageLogic();
-
-  const [isChecked, setIsChecked] = useState(false);
-  const handleChange = () => {
-    setIsChecked((prevIsChecked) => !prevIsChecked);
-  };
-
-
 
   return (
     <div className="parent">
@@ -52,30 +58,39 @@ const UppliveShow2 = (id) => {
           id="exampleFormControlInput1"
           placeholder="the address"
         />
+              <input
+          value={Description}
+          onChange={(e)=>setDescription(e.target.value)}
+          type="text"
+          className="form-control input1"
+          id="exampleFormControlInput1"
+          placeholder="the address"
+        />
         <div className="arrow ">
-          <input
-            value={addUsers}
-            onChange={onChangeAddUsers}
-            type="text"
-            className="form-control"
-            id="exampleFormControlInput2"
-            placeholder="Add users (1)"
+          <Multiselect
+            options={resLoggedUser && resLoggedUser.data} // Options to display in the dropdown
+            selectedValues={resLoggedUser && resLoggedUser.data?._id} // Preselected value to persist in dropdown
+            onSelect={onSelectUser} // Function will trigger on select event
+            onRemove={onRemoveUser} // Function will trigger on remove event
+            displayValue="name" // Property name to display in the dropdown options
           />
-          <img src={chRight} alt="arrow" />
-        </div>
-        <div className="arrow">
-          <input
-            value={productName}
-            onChange={onChangeProductName}
-            type="text"
-            className="form-control"
-            id="exampleFormControlInput3"
-            placeholder="product name"
-          />
+
           <img src={chRight} alt="arrow" />
         </div>
 
         <div className="arrow">
+          <Multiselect
+            options={AllProducts && AllProducts.data} // Options to display in the dropdown
+            selectedValues={AllProducts && AllProducts.data?._id} // Preselected value to persist in dropdown
+            onSelect={onSelectProduct} // Function will trigger on select event
+            onRemove={onRemoveProduct} // Function will trigger on remove event
+            displayValue="name" // Property name to display in the dropdown options
+          />
+
+          <img src={chRight} alt="arrow" />
+        </div>
+
+        {/* <div className="arrow">
           <input
             value={channelSelection}
             onChange={onChangeChannelSelection}
@@ -85,12 +100,12 @@ const UppliveShow2 = (id) => {
             placeholder="channel selection"
           />
           <img src={chRight} alt="arrow" />
-        </div>
+        </div> */}
         <div className="arrow">
           <input
             value={DateLiveBroadCast}
             onChange={onChangeDateLiveBroadCast}
-            type="text"
+            type="datetime-local"
             className="form-control"
             id="exampleFormControlInput5"
             placeholder="When do you want to start live broadcasting?"
@@ -117,11 +132,11 @@ const UppliveShow2 = (id) => {
         <button
           onClick={handleSubmit}
           type="button"
-          className="btn btn-info save-btn"
-        >
+          className="btn btn-info save-btn">
           Save
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   RESET_PASSWORD,
   UPDATE_PROFILE_DATA,
   UPDATE_PROFILE_PASSWORD,
+  GET_LOGGED_USER
 } from "../Type";
 
 const initial = {
@@ -18,6 +19,7 @@ const initial = {
   resetPassword: [],
   updateProfileData: [],
   updateProfilePassword: [],
+  loggedUser:[],
   loading: true,
 };
 const authReducer = (state = initial, action) => {
@@ -36,6 +38,13 @@ const authReducer = (state = initial, action) => {
         loginUser: action.payload,
         loading: false,
       };
+      case GET_LOGGED_USER:
+        return {
+          ...state,
+          // update state
+          loggedUser: action.payload,
+          loading: false,
+        };
     case FORGET_PASSWORD:
       return {
         ...state,
