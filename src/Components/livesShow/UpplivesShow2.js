@@ -56,7 +56,7 @@ const UppliveShow2 = () => {
           type="text"
           className="form-control input1"
           id="exampleFormControlInput1"
-          placeholder="the address"
+          placeholder="Description"
         />
               <input
           value={Description}
@@ -73,6 +73,7 @@ const UppliveShow2 = () => {
             onSelect={onSelectUser} // Function will trigger on select event
             onRemove={onRemoveUser} // Function will trigger on remove event
             displayValue="name" // Property name to display in the dropdown options
+            placeholder="select users"
           />
 
           <img src={chRight} alt="arrow" />
@@ -85,6 +86,7 @@ const UppliveShow2 = () => {
             onSelect={onSelectProduct} // Function will trigger on select event
             onRemove={onRemoveProduct} // Function will trigger on remove event
             displayValue="name" // Property name to display in the dropdown options
+              placeholder="select products"
           />
 
           <img src={chRight} alt="arrow" />

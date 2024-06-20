@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AuctionLivePage.css";
 import fluentLive from "./images/fluent_live-24-filled.png";
 import { Container, Modal } from "react-bootstrap";
 import arror from "./images/feArrowDown1.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllActiveEvents } from "../../Redux/Actions/RoomsAction";
 const AuctionLivePage = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+  const dispatch=useDispatch()
   const handleClose = () => setShow(false);
   const goPageOption1 = () => {
     navigate("/uplivefour");
@@ -15,6 +18,13 @@ const AuctionLivePage = () => {
   const goPageOption2 = () => {
     navigate("/uplivetwo");
   };
+  const res = useSelector(
+    (state) => state.roomsReducers.getActiveRoom
+  );
+  useEffect(()=>{
+    dispatch(getAllActiveEvents())
+  },[])
+  console.log("🚀 ~ AuctionLivePage ~ res:", res)
 
   return (
     <Container>

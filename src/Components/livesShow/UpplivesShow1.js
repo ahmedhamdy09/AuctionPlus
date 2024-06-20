@@ -45,21 +45,38 @@ const UppliveShow1 = () => {
       {res &&
         res.map((item) => (
           <div className="sec">
-            <div className="p-3 text-dark-emphasis bg-secondary-subtle border border-dark-subtle rounded-3 con">
-              <div className="con1">
-                <div className="img">
-                  <img src={userImg} alt="user" class="user-img" />
-                </div>
-                <div className="info">
-                  <p>{userName}</p>
-                  <span>Host</span>
-                </div>
-              </div>
-              <div className="micro">
-                <img src={recored} className="recored-icon" alt="recored" />
-              </div>
-            </div>
+            <Link
+              to={`/upliveDetails/${item._id}`}
+              style={{ textDecoration: "none", color: "black" }}>
+              <div className="p-3 text-dark-emphasis bg-secondary-subtle border border-dark-subtle rounded-3 con">
+                {item.hostIds.map((ho) => (
+                  <div className="con1">
+                    <div className="img">
+                      <img src={userImg} alt="user" class="user-img" />
+                    </div>
+                    <div className="info">
+                      <p>{ho.name}</p>
+                      <span>Host</span>
+                    </div>
+                  </div>
+                ))}
+                {item.userIds.map((us) => (
+                  <div className="con1">
+                    <div className="img">
+                      <img src={userImg} alt="user" class="user-img" />
+                    </div>
+                    <div className="info">
+                      <p>{us.name}</p>
+                      <span>user</span>
+                    </div>
+                  </div>
+                ))}
 
+                <div className="micro">
+                  <img src={recored} className="recored-icon" alt="recored" />
+                </div>
+              </div>
+            </Link>
             <div className="para3">
               <p className="p1">{item.title}</p>
               <p className="p2">{new Date(item.eventDate).toLocaleString()}</p>
@@ -92,7 +109,7 @@ const UppliveShow1 = () => {
                 <button
                   type="button"
                   className="btn btn-info live-btn"
-                  onClick={() => handleJoin(item.title)}>
+                  onClick={() => handleJoin(item.title, item.allowchat)}>
                   Join Now
                 </button>
                 {/* )} */}

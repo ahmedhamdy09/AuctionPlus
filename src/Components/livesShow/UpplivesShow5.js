@@ -1,28 +1,25 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import "./UpplivesShow5.css";
 import {
   generateAgoraToken,
   generateAgoraTokenChat,
-  getAllEvents,
+  getOneEvent,
 } from "../../Redux/Actions/RoomsAction";
-import notify from "../useNotifaction";
-import { useNavigate } from "react-router-dom";
-
-const GetAllRooms = () => {
+import CardProductsContainer from "../../Components/Products/CardProductsContainer";
+import notify from "../../HookLogicCode/useNotifaction";
+const UpplivesShow5 = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  // eslint-disable-next-line
+  const { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  useEffect(
-    () => {
-      setLoading(true);
-      dispatch(getAllEvents());
-      setLoading(false);
-    },
-    // eslint-disable-next-line
-    []
-  );
+  useEffect(() => {
+    dispatch(getOneEvent(id));
+  }, [id]);
+  const res = useSelector((state) => state.roomsReducers.OneEvent);
+  console.log("🚀 ~ AuctionLivePage ~ res:", res);
   const handleJoin = async (channal, chat) => {
     setLoading(true);
     localStorage.setItem("generateName", channal);
@@ -48,10 +45,6 @@ const GetAllRooms = () => {
   const generateTokenChat = useSelector(
     (state) => state.roomsReducers.generateAgoratokenChat
   );
-  console.log("🚀 ~ GetAllRooms ~ generateToken:", generateToken);
-
-  const res = useSelector((state) => state.roomsReducers.getAllEvents);
-
   useEffect(
     () => {
       if (loading === false) {
@@ -110,7 +103,45 @@ const GetAllRooms = () => {
     // eslint-disable-next-line
     [loading]
   );
-  return [res, handleJoin];
+  return (
+    <div className="details">
+      <h3 className=" m-10">Title : {res?.title}</h3>
+      <h3 className=" m-10">
+        Date&Time : {new Date(res?.eventDate).toLocaleString()}
+      </h3>
+      <button
+        type="button"
+        className="btn btn-info live-btn"
+        onClick={() => handleJoin(res?.title,res?.allowchat)}>
+        Join Now
+      </button>
+      <div className="main-pr-us">
+        <div className="hostuser">
+          {res?.hostIds?.map((user) => (
+            <div className="userr">
+              <>
+                <h4 style={{ color: "#2a95bd " }}>Hosts</h4>
+                <h4>{user.name}</h4>
+                <h4>{user.email}</h4>
+              </>
+            </div>
+          ))}
+          {res?.userIds?.map((user) => (
+            <div className="userr">
+              <>
+                <h4 style={{ color: "#2a95bd " }}>Users</h4>
+                <h4>{user.name}</h4>
+                <h4>{user.email}</h4>
+              </>
+            </div>
+          ))}
+        </div>
+        <div className="product-hu">
+          <CardProductsContainer products={res?.productIds} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default GetAllRooms;
+export default UpplivesShow5;

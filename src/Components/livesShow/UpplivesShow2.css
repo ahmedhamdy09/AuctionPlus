@@ -162,3 +162,20 @@
   .onOffinputs:checked + .sliderSpans:before {
     transform: translateX(26px);
   }
+
+  .multiSelectContainer {
+    position: relative;
+    background-color: #fff !important;
+    text-align: left;
+    width: 96%;
+    margin-bottom: 20px;
+}
+.searchWrapper {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    min-height: 22px;
+    padding: 5px;
+    background-color: #fff !important ;
+    position: relative;
+}

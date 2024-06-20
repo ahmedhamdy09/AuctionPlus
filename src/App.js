@@ -43,6 +43,7 @@ import ProductByBrand from "./Page/Products/ProductByBrand";
 import UserAddProductPage from "./Page/Users/UserAddProducts";
 import Video from "./Components/livesShow/VideoTest/Video";
 import MainAgora from "./HookLogicCode/Rooms/Agoraroom/mainAgora";
+import UpplivesShow5 from "./Components/livesShow/UpplivesShow5";
 // import Loppy from "./Components/livesShow/VideoConference/Loppy";
 
 function App() {
@@ -130,6 +131,7 @@ function App() {
           <Route path="/upliveone" element={<UppliveShow1 />} />
           <Route path="/MainAgora" element={<MainAgora />} />
 
+          <Route path="/upliveDetails/:id" element={<UpplivesShow5 />} />
           <Route path="/uplivetwo" element={<UppliveShow2 />} />
           <Route path="/uplivethree" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
