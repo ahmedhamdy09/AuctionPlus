@@ -15,9 +15,9 @@ const initail = {
   getActiveRoom: [],
   generateAgoratoken: [],
   generateAgoratokenChat: [],
-  OneEvent:[],
-  Leave:[],
-  UpdateRoom:[],
+  OneEvent: [],
+  Leave: [],
+  UpdateRoom: [],
 };
 
 const roomsReducers = (state = initail, action) => {
@@ -38,6 +38,7 @@ const roomsReducers = (state = initail, action) => {
     case GENERATEAGORACHAT:
       return {
         // update state
+        ...state,
         generateAgoratokenChat: action.payload,
       };
     case GENERATEAGORA:
@@ -51,24 +52,24 @@ const roomsReducers = (state = initail, action) => {
         // update state
         getActiveRoom: action.payload,
       };
-      case ONEEVENT:
-        return {
-          // update state
-          ...state,
-          OneEvent: action.payload,
-        };
-        case LEAVE:
-          return {
-            // update state
-            // ...state,
-            Leave: action.payload,
-          };
-          case UPDATEROOM:
-            return {
-              // update state
-              // ...state,
-              UpdateRoom: action.payload,
-            };
+    case ONEEVENT:
+      return {
+        // update state
+        ...state,
+        OneEvent: action.payload,
+      };
+    case LEAVE:
+      return {
+        // update state
+        // ...state,
+        Leave: action.payload,
+      };
+    case UPDATEROOM:
+      return {
+        // update state
+        // ...state,
+        UpdateRoom: action.payload,
+      };
     default:
       return state;
   }

@@ -104,21 +104,20 @@ const CreateRooms = () => {
         channel: addressEvent,
       })
     );
-    if (generateToken) {
-      await dispatch(
-        createNewEvents(temp._id, {
-          title: addressEvent,
-          eventDate: convertToTimestamp(DateLiveBroadCast),
-          productIds: productName?.selectedIds,
-          userIds: addUsers?.selectedIds,
-          hostIds: [temp._id],
-          allowchat: isChecked,
-          description: Description,
-          token: generateToken.data?.token,
-        })
-      );
-    }
-
+    if (generateToken&&generateToken.data&&generateToken.data.token) {
+        await dispatch(
+          createNewEvents(temp._id, {
+            title: addressEvent,
+            eventDate: convertToTimestamp(DateLiveBroadCast),
+            productIds: productName?.selectedIds,
+            userIds: addUsers?.selectedIds,
+            hostIds: [temp._id],
+            allowchat: isChecked,
+            description: Description,
+            token: generateToken.data?.token,
+          })
+        );
+      }
     setLoading(false);
   };
 
@@ -135,7 +134,7 @@ const CreateRooms = () => {
         if (resCreateRoom) {
           if (resCreateRoom.status === 200 || resCreateRoom.status === 201) {
             notify("event created successfully", "success");
-          window.location.href="/upliveone";
+            window.location.href = "/upliveone";
           } else if (
             resCreateRoom.status !== 200 ||
             resCreateRoom.status !== 201
