@@ -42,11 +42,11 @@ const UserGetAllOrderHook = () => {
   useEffect(
     () => {
       if (loading === false) {
-        if (res.results) setResult(res.results);
+        if (res) setResult(res?.results);
 
-        if (res.paginationResult) setPaginate(res.paginationResult);
+        if (res) setPaginate(res?.paginationResult);
 
-        if (res.data) setOrderData(res.data);
+        if (res) setOrderData(res?.data);
         // console.log(res);
       }
     },

@@ -70,7 +70,7 @@ const NavBarLogin = () => {
                 Home
               </Nav.Link>
               <Nav.Link
-                href="/stream"
+              href="/upliveone"
                 className="nav-text d-flex  justify-content-center mt-2"
               >
                 Auctions

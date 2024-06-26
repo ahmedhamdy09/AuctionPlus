@@ -4,7 +4,7 @@ const baseURL = axios.create({
   baseURL: "https://graduation-api-qq1p.onrender.com",
 });
 export default baseURL;
-
+export const LiveUrl="http://localhost:3000"
 // export const ImgUrl = "http://62.77.154.115:8000";
 
 // ==>> http://62.77.154.115:8000/

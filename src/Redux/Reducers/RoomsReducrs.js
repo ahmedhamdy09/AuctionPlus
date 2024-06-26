@@ -5,6 +5,8 @@ import {
   GENERATEAGORACHAT,
   GETACTIVEROOM,
   ONEEVENT,
+  LEAVE,
+  UPDATEROOM,
 } from "../Type";
 
 const initail = {
@@ -13,7 +15,9 @@ const initail = {
   getActiveRoom: [],
   generateAgoratoken: [],
   generateAgoratokenChat: [],
-  OneEvent:[]
+  OneEvent:[],
+  Leave:[],
+  UpdateRoom:[],
 };
 
 const roomsReducers = (state = initail, action) => {
@@ -38,6 +42,7 @@ const roomsReducers = (state = initail, action) => {
       };
     case GENERATEAGORA:
       return {
+        ...state,
         // update state
         generateAgoratoken: action.payload,
       };
@@ -52,6 +57,18 @@ const roomsReducers = (state = initail, action) => {
           ...state,
           OneEvent: action.payload,
         };
+        case LEAVE:
+          return {
+            // update state
+            // ...state,
+            Leave: action.payload,
+          };
+          case UPDATEROOM:
+            return {
+              // update state
+              // ...state,
+              UpdateRoom: action.payload,
+            };
     default:
       return state;
   }

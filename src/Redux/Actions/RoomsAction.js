@@ -1,6 +1,8 @@
-import { CREATE_NEW_EVENTS, GENERATEAGORA, GENERATEAGORACHAT, GETACTIVEROOM, GET_ALL_EVENTS, ONEEVENT } from "../Type";
+import { CREATE_NEW_EVENTS, GENERATEAGORA, GENERATEAGORACHAT, GETACTIVEROOM, GET_ALL_EVENTS, LEAVE, ONEEVENT, UPDATEROOM } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
+import useDeleteData from "../../Hooks/useDeleteData";
+import { useUpdateData } from "../../Hooks/useUpdateData";
 // import useDeleteData from "../../Hooks/useDeleteData";
 // import { useUpdateData } from "../../Hooks/useUpdateData";
 
@@ -96,6 +98,38 @@ export const getOneEvent = (id) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: ONEEVENT,
+      payload: e.response,
+    });
+  }
+};
+
+export const leaveFromEvent = (id) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useDeleteData(`/api/v1/rooms/${id}`);
+    dispatch({
+      type: LEAVE,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: LEAVE,
+      payload: e.response,
+    });
+  }
+};
+
+export const updateRoomAction = (id,body) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useUpdateData(`/api/v1/rooms/${id}`,body);
+    dispatch({
+      type: UPDATEROOM,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATEROOM,
       payload: e.response,
     });
   }

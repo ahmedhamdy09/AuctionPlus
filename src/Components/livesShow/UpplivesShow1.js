@@ -9,17 +9,29 @@ import share from "./images/arrow-up-from-bracket-solid.svg";
 import { Link, useNavigate } from "react-router-dom";
 import GetAllRooms from "../../HookLogicCode/Rooms/GetAllRooms";
 import UserGetAllOrderHook from "../../HookLogicCode/User/UserGetAllOrderHook";
+import baseURL, { LiveUrl } from "../../Api/baseURL";
 
 const UppliveShow1 = () => {
   const navigate = useNavigate();
   // eslint-disable-next-line
-  const [res, handleJoin] = GetAllRooms();
+  const [res, handleJoinHost, handleJoinUser] = GetAllRooms();
   console.log("🚀 ~ UppliveShow1 ~ res:", res);
   // eslint-disable-next-line
   const [userName, result, paginate, orderData] = UserGetAllOrderHook();
-
+  const temp = JSON.parse(localStorage.getItem("user"));
+  console.log("🚀 ~ CreateRooms ~ temp:", temp);
   // const [joined, setJoined] = useState(false);
-
+  const copyUrlToClipboard = (id) => {
+    const url = `${LiveUrl}/uplivethree/${id}`; // Get the current URL
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        alert("URL copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
   return (
     <div className="parentss">
       <div className="containers">
@@ -78,7 +90,9 @@ const UppliveShow1 = () => {
               </div>
             </Link>
             <div className="para3">
-              <p className="p1">{item.title}</p>
+              <p className="p1" style={{ color: "#333" }}>
+                {item.title}
+              </p>
               <p className="p2">{new Date(item.eventDate).toLocaleString()}</p>
               <p className="p3">
                 Waiting room~ <span>{userName}</span>
@@ -106,20 +120,31 @@ const UppliveShow1 = () => {
               )}
             </Link> */}
                 {/* {!joined && ( */}
-                <button
-                  type="button"
-                  className="btn btn-info live-btn"
-                  onClick={() => handleJoin(item.title, item.allowchat)}>
-                  Join Now
-                </button>
+                {res && res.ownerId && res.ownerId._id === temp._id ? (
+                  <button
+                    type="button"
+                    className="btn btn-info live-btn"
+                    onClick={() => handleJoinHost(res?._id)}>
+                    Join Now
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="btn btn-info live-btn"
+                    onClick={() => handleJoinUser(res?._id)}>
+                    Join Now
+                  </button>
+                )}
                 {/* )} */}
-                <button type="button" className="btn btn-secondary remind-btn">
+                {/* <button type="button" className="btn btn-secondary remind-btn">
                   <img src={bell} alt="reminder Me" />
                   let Me Know
-                </button>
+                </button> */}
 
                 <button type="button" className="btn btn-light invite-btn">
-                  <span>Invite Friends</span>
+                  <span onClick={() => copyUrlToClipboard(res?._id)}>
+                    Invite Friends
+                  </span>
                   <img src={share} alt="share" />
                 </button>
               </div>

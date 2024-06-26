@@ -56,7 +56,7 @@ const UppliveShow2 = () => {
           type="text"
           className="form-control input1"
           id="exampleFormControlInput1"
-          placeholder="Description"
+           placeholder="the address"
         />
               <input
           value={Description}
@@ -64,7 +64,7 @@ const UppliveShow2 = () => {
           type="text"
           className="form-control input1"
           id="exampleFormControlInput1"
-          placeholder="the address"
+            placeholder="Description"
         />
         <div className="arrow ">
           <Multiselect

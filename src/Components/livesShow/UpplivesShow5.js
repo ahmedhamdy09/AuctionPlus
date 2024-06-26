@@ -6,11 +6,14 @@ import {
   generateAgoraToken,
   generateAgoraTokenChat,
   getOneEvent,
+  updateRoomAction,
 } from "../../Redux/Actions/RoomsAction";
 import CardProductsContainer from "../../Components/Products/CardProductsContainer";
 import notify from "../../HookLogicCode/useNotifaction";
 const UpplivesShow5 = () => {
   const dispatch = useDispatch();
+  const temp = JSON.parse(localStorage.getItem("user"));
+  console.log("🚀 ~ CreateRooms ~ temp:", temp);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -20,24 +23,55 @@ const UpplivesShow5 = () => {
   }, [id]);
   const res = useSelector((state) => state.roomsReducers.OneEvent);
   console.log("🚀 ~ AuctionLivePage ~ res:", res);
-  const handleJoin = async (channal, chat) => {
+  const handleJoinHost = async (id) => {
     setLoading(true);
-    localStorage.setItem("generateName", channal);
-    if (chat === true) {
-      await dispatch(
-        generateAgoraTokenChat({
-          channel: channal,
-        })
-      );
-      setLoading(false);
-    } else if (chat === false) {
-      await dispatch(
-        generateAgoraToken({
-          channel: channal,
-        })
-      );
-      setLoading(false);
-    }
+    // localStorage.setItem("generateName", channal);
+    // localStorage.setItem("generateToken", Token);
+    await dispatch(updateRoomAction(id, { event: true }));
+    setTimeout(() => {
+      navigate(`/uplivethree/${id}`);
+    }, 2000);
+
+    // if (chat === true) {
+    //   // await dispatch(
+    //   //   generateAgoraTokenChat({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // } else if (chat === false) {
+    //   // await dispatch(
+    //   //   generateAgoraToken({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // }
+  };
+
+  const handleJoinUser = async (id) => {
+    setLoading(true);
+    // localStorage.setItem("generateName", channal);
+    // localStorage.setItem("generateToken", Token);
+    setTimeout(() => {
+      navigate(`/uplivethree/${id}`);
+    }, 2000);
+
+    // if (chat === true) {
+    //   // await dispatch(
+    //   //   generateAgoraTokenChat({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // } else if (chat === false) {
+    //   // await dispatch(
+    //   //   generateAgoraToken({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // }
   };
   const generateToken = useSelector(
     (state) => state.roomsReducers.generateAgoratoken
@@ -109,12 +143,22 @@ const UpplivesShow5 = () => {
       <h3 className=" m-10">
         Date&Time : {new Date(res?.eventDate).toLocaleString()}
       </h3>
-      <button
-        type="button"
-        className="btn btn-info live-btn"
-        onClick={() => handleJoin(res?.title,res?.allowchat)}>
-        Join Now
-      </button>
+      {res && res.ownerId&&res.ownerId._id === temp._id ? (
+        <button
+          type="button"
+          className="btn btn-info live-btn"
+          onClick={() => handleJoinHost(res?._id)}>
+          Join Now
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-info live-btn"
+          onClick={() => handleJoinUser(res?._id)}>
+          Join Now
+        </button>
+      )}
+
       <div className="main-pr-us">
         <div className="hostuser">
           {res?.hostIds?.map((user) => (

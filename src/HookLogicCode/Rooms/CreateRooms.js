@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createNewEvents } from "../../Redux/Actions/RoomsAction";
+import {
+  createNewEvents,
+  generateAgoraToken,
+} from "../../Redux/Actions/RoomsAction";
 import { getAllUser } from "../../Redux/Actions/AuthAction";
 import { getAllProductsRoom } from "../../Redux/Actions/ProductsActions";
 import { json, useNavigate } from "react-router-dom";
@@ -21,7 +24,7 @@ const CreateRooms = () => {
   console.log("🚀 ~ CreateRooms ~ productName:", productName.selectedIds);
   const [channelSelection, setChannelSelection] = useState("");
   const [DateLiveBroadCast, setDateLiveBroadCast] = useState("");
-    const [Description, setDescription] = useState("");
+  const [Description, setDescription] = useState("");
 
   console.log("🚀 ~ CreateRooms ~ DateLiveBroadCast:", DateLiveBroadCast);
   const [loading, setLoading] = useState(true);
@@ -89,19 +92,33 @@ const CreateRooms = () => {
     const dateObject = new Date(DateLiveBroadCast);
     return dateObject.getTime();
   }
+  const generateToken = useSelector(
+    (state) => state.roomsReducers.generateAgoratoken
+  );
+  console.log("🚀 ~ CreateRooms ~ generateToken:", generateToken);
+
   const handleSubmit = async () => {
     setLoading(true);
     await dispatch(
-      createNewEvents(temp._id, {
-        title: addressEvent,
-        eventDate: convertToTimestamp(DateLiveBroadCast),
-        productIds: productName?.selectedIds,
-        userIds: addUsers?.selectedIds,
-        hostIds: [temp._id],
-        allowchat: isChecked,
-        description:Description
+      generateAgoraToken({
+        channel: addressEvent,
       })
     );
+    if (generateToken) {
+      await dispatch(
+        createNewEvents(temp._id, {
+          title: addressEvent,
+          eventDate: convertToTimestamp(DateLiveBroadCast),
+          productIds: productName?.selectedIds,
+          userIds: addUsers?.selectedIds,
+          hostIds: [temp._id],
+          allowchat: isChecked,
+          description: Description,
+          token: generateToken.data?.token,
+        })
+      );
+    }
+
     setLoading(false);
   };
 
@@ -117,19 +134,13 @@ const CreateRooms = () => {
         setTimeout(() => setLoading(true), 1500);
         if (resCreateRoom) {
           if (resCreateRoom.status === 200 || resCreateRoom.status === 201) {
-            if (resCreateRoom.data) {
-              notify("event created successfully", "success");
-              navigate("/upliveone");
-            }
+            notify("event created successfully", "success");
+          window.location.href="/upliveone";
           } else if (
             resCreateRoom.status !== 200 ||
             resCreateRoom.status !== 201
           ) {
-            if (resCreateRoom.data) {
-              notify("Error Pleae Try Again", "warn");
-            } else {
-              notify("Error Pleae Try Again", "warn");
-            }
+            notify("Error Pleae Try Again", "warn");
           }
         }
       }
@@ -160,7 +171,7 @@ const CreateRooms = () => {
     setIsChecked,
     handleChange,
     setDescription,
-    Description
+    Description,
   ];
 };
 

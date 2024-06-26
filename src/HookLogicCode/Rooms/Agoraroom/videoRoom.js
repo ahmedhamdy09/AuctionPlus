@@ -1,29 +1,35 @@
 import React, { useEffect, useState } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { VideoPlayer } from "./videoPlayer";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { getOneEvent } from "../../../Redux/Actions/RoomsAction";
 
-const APP_ID = "e00db2c3bc1e43aba35fd8d891859ccf";
-const TOKEN = localStorage.getItem("generateToken").toString();
-const CHANNEL = localStorage.getItem("generateName").toString();
+const APP_ID = "eaa1810d9a4a477d97053548a5ef7819";
 
-const client = AgoraRTC.createClient({
-  mode: "rtc",
-  codec: "vp8",
-});
+export const VideoRoom = ({ res }) => {
+  console.log("🚀 ~ VideoRoom ~ res:", res)
 
-export const VideoRoom = () => {
+  const TOKEN = res?.token;
+  const CHANNEL = res?.title;
+
+  const client = AgoraRTC.createClient({
+    mode: "rtc",
+    codec: "vp8",
+  });
   const [users, setUsers] = useState([]);
+  console.log("🚀 ~ VideoRoom ~ users:", users)
   const [localTracks, setLocalTracks] = useState([]);
 
   const handleUserJoined = async (user, mediaType) => {
     await client.subscribe(user, mediaType);
 
-    if (mediaType === "video") {
+    if (mediaType === "video") {    
       setUsers((previousUsers) => [...previousUsers, user]);
     }
 
     if (mediaType === "audio") {
-      // user.audioTrack.play()
+      // user.audioTrack.play() && user.
     }
   };
 

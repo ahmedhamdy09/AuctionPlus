@@ -4,6 +4,8 @@ import {
   generateAgoraToken,
   generateAgoraTokenChat,
   getAllEvents,
+  getOneEvent,
+  updateRoomAction,
 } from "../../Redux/Actions/RoomsAction";
 import notify from "../useNotifaction";
 import { useNavigate } from "react-router-dom";
@@ -23,25 +25,57 @@ const GetAllRooms = () => {
     // eslint-disable-next-line
     []
   );
-  const handleJoin = async (channal, chat) => {
+  const handleJoinHost = async (id) => {
     setLoading(true);
-    localStorage.setItem("generateName", channal);
-    if (chat === true) {
-      await dispatch(
-        generateAgoraTokenChat({
-          channel: channal,
-        })
-      );
-      setLoading(false);
-    } else if (chat === false) {
-      await dispatch(
-        generateAgoraToken({
-          channel: channal,
-        })
-      );
-      setLoading(false);
-    }
+    // localStorage.setItem("generateName", channal);
+    // localStorage.setItem("generateToken", Token);
+    await dispatch(updateRoomAction(id, { event: true }));
+    setTimeout(() => {
+      navigate(`/uplivethree/${id}`);
+    }, 2000);
+
+    // if (chat === true) {
+    //   // await dispatch(
+    //   //   generateAgoraTokenChat({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // } else if (chat === false) {
+    //   // await dispatch(
+    //   //   generateAgoraToken({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // }
   };
+
+  const handleJoinUser = async (id) => {
+    setLoading(true);
+    // localStorage.setItem("generateName", channal);
+    // localStorage.setItem("generateToken", Token);
+    setTimeout(() => {
+      navigate(`/uplivethree/${id}`);
+    }, 2000);
+
+    // if (chat === true) {
+    //   // await dispatch(
+    //   //   generateAgoraTokenChat({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // } else if (chat === false) {
+    //   // await dispatch(
+    //   //   generateAgoraToken({
+    //   //     channel: channal,
+    //   //   })
+    //   // );
+    //   setLoading(false);
+    // }
+  };
+
   const generateToken = useSelector(
     (state) => state.roomsReducers.generateAgoratoken
   );
@@ -110,7 +144,7 @@ const GetAllRooms = () => {
     // eslint-disable-next-line
     [loading]
   );
-  return [res, handleJoin];
+  return [res, handleJoinHost, handleJoinUser];
 };
 
 export default GetAllRooms;
