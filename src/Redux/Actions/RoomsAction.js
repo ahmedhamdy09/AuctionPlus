@@ -1,4 +1,4 @@
-import { CREATE_NEW_EVENTS, GENERATEAGORA, GENERATEAGORACHAT, GETACTIVEROOM, GET_ALL_EVENTS, LEAVE, ONEEVENT, UPDATEROOM } from "../Type";
+import { CREATE_NEW_EVENTS, GENERATEAGORA, GENERATEAGORACHAT, GETACTIVEROOM, GET_ALL_EVENTS, LEAVE, ONEEVENT, RTMTOKEN, UPDATEROOM } from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
 import useDeleteData from "../../Hooks/useDeleteData";
@@ -55,17 +55,17 @@ export const generateAgoraToken = (body) => async (dispatch) => {
     });
   }
 };
-export const generateAgoraTokenChat = (body) => async (dispatch) => {
+export const generateAgoraTokenChat = (id) => async (dispatch) => {
   try {
     // use insert data because is post
-    const response = await useInsertData(`/api/v1/rooms/agora/rooom/generatetoken`,body);
+    const response = await useGetDataToken(`/api/v1/rooms/agora/rooom/rtmtoken/${id}`);
     dispatch({
-      type: GENERATEAGORACHAT,
+      type: RTMTOKEN,
       payload: response,
     });
   } catch (e) {
     dispatch({
-      type: GENERATEAGORACHAT,
+      type: RTMTOKEN,
       payload: e.response,
     });
   }

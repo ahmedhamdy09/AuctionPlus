@@ -8,23 +8,27 @@ import { getOneEvent } from "../../../Redux/Actions/RoomsAction";
 const APP_ID = "eaa1810d9a4a477d97053548a5ef7819";
 
 export const VideoRoom = ({ res }) => {
-  console.log("🚀 ~ VideoRoom ~ res:", res)
+  console.log("🚀 ~ VideoRoom ~ res:", res);
 
-  const TOKEN = res?.token;
-  const CHANNEL = res?.title;
+  // const TOKEN = res?.token;
+  // const CHANNEL = res?.title;
 
+  const TOKEN =
+    "006eaa1810d9a4a477d97053548a5ef7819IAAUejMXM3O0hJLxsQPG8orhTgj7Qkhpx7V66tshj9sbzG14fsIAAAAAEACrTBHc1HiCZgEA6APMcYJm";
+  const CHANNEL = "tessdchannel";
   const client = AgoraRTC.createClient({
     mode: "rtc",
     codec: "vp8",
+  
   });
   const [users, setUsers] = useState([]);
-  console.log("🚀 ~ VideoRoom ~ users:", users)
+  console.log("🚀 ~ VideoRoom ~ users:", users);
   const [localTracks, setLocalTracks] = useState([]);
 
   const handleUserJoined = async (user, mediaType) => {
     await client.subscribe(user, mediaType);
 
-    if (mediaType === "video") {    
+    if (mediaType === "video") {
       setUsers((previousUsers) => [...previousUsers, user]);
     }
 
@@ -76,6 +80,7 @@ export const VideoRoom = ({ res }) => {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <div
+      className="videost" 
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, 200px)",

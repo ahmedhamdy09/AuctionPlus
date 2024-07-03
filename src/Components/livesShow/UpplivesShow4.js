@@ -7,6 +7,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import {
   createNewEvents,
   generateAgoraToken,
+  generateAgoraTokenChat,
   getOneEvent,
   updateRoomAction,
 } from "../../Redux/Actions/RoomsAction";
@@ -86,6 +87,9 @@ const UppliveShow4 = () => {
     //   setLoading(false);
     // }
   };
+  const generateTokenChat = useSelector(
+    (state) => state.roomsReducers.rtmtoken
+  );
   const handleSubmit = async () => {
     setLoading(true);
     await dispatch(
@@ -93,6 +97,9 @@ const UppliveShow4 = () => {
         channel: addressEvent,
       })
     );
+    if (isChecked) {
+      await dispatch(generateAgoraTokenChat(temp._id));
+    }
     if (generateToken !== null || generateToken !== undefined) {
       await dispatch(
         createNewEvents(temp._id, {
@@ -102,6 +109,7 @@ const UppliveShow4 = () => {
           hostIds: [temp._id],
           allowchat: isChecked,
           token: generateToken.data?.token,
+          RtmToken: generateTokenChat?.token,
         })
       );
     }

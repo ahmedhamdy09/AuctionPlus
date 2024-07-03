@@ -798,3 +798,7 @@ body {
   align-items: center;
   width: 685px;
 }
+.videost > div {
+  width: 478px !important;
+  height: 382px !important;
+}

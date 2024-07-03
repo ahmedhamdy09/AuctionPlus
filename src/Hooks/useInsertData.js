@@ -15,6 +15,7 @@ const useInsertData = async (url, params) => {
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
     },
   };
   const res = await baseURL.post(url, params, config);

@@ -7,6 +7,7 @@ import {
   ONEEVENT,
   LEAVE,
   UPDATEROOM,
+  RTMTOKEN,
 } from "../Type";
 
 const initail = {
@@ -18,13 +19,14 @@ const initail = {
   OneEvent: [],
   Leave: [],
   UpdateRoom: [],
+  rtmtoken:[],
 };
 
 const roomsReducers = (state = initail, action) => {
   switch (action.type) {
     case CREATE_NEW_EVENTS:
       return {
-        ...state,
+       
         // update state
 
         createNewEvents: action.payload,
@@ -46,7 +48,14 @@ const roomsReducers = (state = initail, action) => {
         ...state,
         // update state
         generateAgoratoken: action.payload,
+        
       };
+      case RTMTOKEN:
+        return {
+          ...state,
+          // update state
+          rtmtoken: action.payload,
+        };
     case GETACTIVEROOM:
       return {
         // update state

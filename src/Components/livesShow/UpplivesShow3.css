@@ -3,212 +3,223 @@
 } */
 /* --contain all page--- */
 .parent {
-    margin-left: 40px;
-    margin-top: 20px;
-    width: 95%;
-    position: relative;
-    padding: 15px;
+  margin-left: 40px;
+  margin-top: 20px;
+  width: 95%;
+  position: relative;
+  padding: 15px;
 }
 
 /* --div contain user image-- */
 .userlogo {
-    width: 104px;
-    height: 104px;
-    background-color: #d5d5d6;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 104px;
+  height: 104px;
+  background-color: #d5d5d6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
 
 /* --user img-- */
 .user {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 .main {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .content1 {
-    display: flex;
-    z-index: 9;
+  display: flex;
+  z-index: 9;
 }
 
 .content2 {
-    display: flex;
-    z-index: 9;
+  display: flex;
+  z-index: 9;
 }
 
 .con1 {
-    /* margin-top: 28px; */
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
+  /* margin-top: 28px; */
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
 }
 
 /* --user name -- */
 .u_name {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 48px;
-    letter-spacing: 0em;
-    text-align: initial;
-    margin: 5px
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: initial;
+  margin: 5px;
 }
 
 /* --rateing number-- */
 .r_num {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 48px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #F8C308;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #f8c308;
 }
 
 .star {
-    width: 13px;
-    margin-top: -10px;
-    margin-left: 3px;
-    margin-right: 30px;
+  width: 13px;
+  margin-top: -10px;
+  margin-left: 3px;
+  margin-right: 30px;
 }
 
 /* --following btn-- */
 .btn-info {
-    width: 136px;
-    height: 40px;
-    letter-spacing: 1px;
-    font-weight: 600;
+  width: 136px;
+  height: 40px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 /* --number of followers-- */
 .num {
-    font-weight: 600;
-    font-size: 29px;
-    line-height: 36px;
+  font-weight: 600;
+  font-size: 29px;
+  line-height: 36px;
 }
 
 .follow {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 30px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 /* --seen icon-- */
 .eye {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 10px
+  width: 44px;
+  height: 44px;
+  margin-bottom: 10px;
 }
 
 .n_10 {
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 42px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin-top: 5px;
-    margin-right: 3px;
-    margin-left: 3px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 5px;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 
 .leave_txt {
-    color: #F44236;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 54px;
-    letter-spacing: 0em;
-    text-align: left;
+  color: #f44236;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 /* --component in center of body-- */
 .main_comp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 9;
-    margin-top: 10em;
-    color: #fff !important;
-    bottom: -20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 9;
+  margin-top: 10em;
+  color: #fff !important;
+  bottom: -20px;
 }
 
 .p1 {
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 54px;
-    color: #fff;
-    letter-spacing: 0em;
-    text-align: left;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 54px;
+  color: #fff;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .p2 {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 36px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #2C87A9;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2c87a9;
 }
 
 /* --footer-- */
 .foot {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 /* --comment input-- */
 .comment {
-    width: 70%;
+  width: 70%;
 }
 
 .share_txt {
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 48px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #2C87A9;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2c87a9;
 }
 
 .shareIcon {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 15px;
-    margin-left: 3px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-left: 3px;
 }
 
 /**video*/
 video {
-    width: 100% !important;
-    height: 100% !important;
-    position: absolute;
-    top: 0px;
-    object-fit: contain;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0px;
+  object-fit: contain;
 }
 
 /* UpplivesShow3.css */
 
 .parent {
-    position: relative;
+  position: relative;
 }
 
 .foot {
-    position: relative;
+  position: relative;
 }
 
 .video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.tage .modal-title {
+  background-color: #272727 !important;
+  padding: 8px;
+  border-radius: 17px;
+}
+.choose{
+    font-weight: 900;
+    font-size: 22px;
+    display: flex;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    top: 21px;
+    right: 15px;
 }

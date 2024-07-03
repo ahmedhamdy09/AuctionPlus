@@ -121,6 +121,7 @@ export const GETACTIVEROOM = "GETACTIVEROOM";
 export const ONEEVENT = "ONEEVENT";
 export const LEAVE = "LEAVE";
 export const UPDATEROOM = "UPDATEROOM";
+export const RTMTOKEN = "RTMTOKEN";
 
 export const CREATE_PRODUCTS_AUCTION = "CREATE_PRODUCTS_AUCTION";
 

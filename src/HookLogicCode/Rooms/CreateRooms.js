@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   createNewEvents,
   generateAgoraToken,
+  generateAgoraTokenChat,
 } from "../../Redux/Actions/RoomsAction";
 import { getAllUser } from "../../Redux/Actions/AuthAction";
 import { getAllProductsRoom } from "../../Redux/Actions/ProductsActions";
@@ -96,6 +97,10 @@ const CreateRooms = () => {
     (state) => state.roomsReducers.generateAgoratoken
   );
   console.log("🚀 ~ CreateRooms ~ generateToken:", generateToken);
+  const generateTokenChat = useSelector(
+    (state) => state.roomsReducers.rtmtoken
+  );
+  console.log("🚀 ~ CreateRooms ~ generateTokenChat:", generateTokenChat);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -104,20 +109,24 @@ const CreateRooms = () => {
         channel: addressEvent,
       })
     );
-    if (generateToken&&generateToken.data&&generateToken.data.token) {
-        await dispatch(
-          createNewEvents(temp._id, {
-            title: addressEvent,
-            eventDate: convertToTimestamp(DateLiveBroadCast),
-            productIds: productName?.selectedIds,
-            userIds: addUsers?.selectedIds,
-            hostIds: [temp._id],
-            allowchat: isChecked,
-            description: Description,
-            token: generateToken.data?.token,
-          })
-        );
-      }
+    if (isChecked) {
+      await dispatch(generateAgoraTokenChat(temp._id));
+    }
+    if (generateToken && generateToken.data && generateToken.data.token) {
+      await  dispatch(
+        createNewEvents(temp._id, {
+          title: addressEvent,
+          eventDate: convertToTimestamp(DateLiveBroadCast),
+          productIds: productName?.selectedIds,
+          userIds: addUsers?.selectedIds,
+          hostIds: [temp._id],
+          allowchat: isChecked,
+          description: Description,
+          token: generateToken.data?.token,
+          RtmToken: generateTokenChat?.token,
+        })
+      );
+    }
     setLoading(false);
   };
 
