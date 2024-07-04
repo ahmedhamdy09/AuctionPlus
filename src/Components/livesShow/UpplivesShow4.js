@@ -100,7 +100,7 @@ const UppliveShow4 = () => {
     if (isChecked) {
       await dispatch(generateAgoraTokenChat(temp._id));
     }
-    if (generateToken !== null || generateToken !== undefined) {
+    if (generateToken && generateToken.data && generateToken.data.token) {
       await dispatch(
         createNewEvents(temp._id, {
           title: addressEvent,

@@ -123,7 +123,10 @@ export const LEAVE = "LEAVE";
 export const UPDATEROOM = "UPDATEROOM";
 export const RTMTOKEN = "RTMTOKEN";
 
+export const CREATE_AUC = "CREATE_AUC";
+export const UPDATE_AUC = "UPDATE_AUC";
+export const DELETE_AUC = "DELETE_AUC";
+export const GETALL_AUC = "GETALL_AUC";
+export const ACTIVEACTION = "ACTIVEACTION";
+
 export const CREATE_PRODUCTS_AUCTION = "CREATE_PRODUCTS_AUCTION";
-
-
-

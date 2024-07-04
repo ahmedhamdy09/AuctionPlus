@@ -9,7 +9,7 @@ export const VideoPlayer = ({ user }) => {
 
   return (
     <div className="videost">
-      Uid: {user.uid}
+      {/* Uid: {user.uid} */}
       <div ref={ref} style={{ width: "200px", height: "200px" }}></div>
     </div>
   );

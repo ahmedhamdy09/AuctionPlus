@@ -96,8 +96,8 @@ const AuctionLivePage = () => {
                     <div className="userr">
                       <>
                         {/* <h4 style={{ color: "#2a95bd " }}>Hosts</h4> */}
-                        <h4>{user.title}</h4>
-                        {user.ownerId._id === temp._id ? (
+                        <h4>{user?.title}</h4>
+                        {user?.ownerId?._id === temp?._id ? (
                           <button
                             type="button"
                             className="btn btn-info live-btn"
@@ -117,19 +117,23 @@ const AuctionLivePage = () => {
                     </div>
                   ))
                   .slice(0, 5)}
-                  
+
               {res && res.rooms && (
                 <Link to={"/uplivefive"}>
                   <div className="userr">More</div>
                 </Link>
               )}
-
             </div>
             <br />
           </div>
           <Link to={"/upliveone"}>
             <button className="viewShow" alt="show">
               View Shows
+            </button>
+          </Link>
+          <Link to={"/uplivefour"}>
+            <button style={{ margin: "15px" }} className="viewShow" alt="show">
+              Start Now
             </button>
           </Link>
         </div>

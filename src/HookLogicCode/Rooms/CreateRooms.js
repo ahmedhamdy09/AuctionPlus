@@ -113,7 +113,7 @@ const CreateRooms = () => {
       await dispatch(generateAgoraTokenChat(temp._id));
     }
     if (generateToken && generateToken.data && generateToken.data.token) {
-      await  dispatch(
+      await dispatch(
         createNewEvents(temp._id, {
           title: addressEvent,
           eventDate: convertToTimestamp(DateLiveBroadCast),

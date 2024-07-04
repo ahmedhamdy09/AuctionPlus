@@ -8,7 +8,13 @@ import cart from "../../assets/cart.png";
 import { VideoRoom } from "../../HookLogicCode/Rooms/Agoraroom/videoRoom";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getOneEvent, leaveFromEvent } from "../../Redux/Actions/RoomsAction";
+import {
+  createAuction,
+  getActionAuction,
+  getOneEvent,
+  leaveFromEvent,
+  updateAuction,
+} from "../../Redux/Actions/RoomsAction";
 import { LiveUrl } from "../../Api/baseURL";
 import { Button, Modal } from "react-bootstrap";
 import Chat from "../../HookLogicCode/Rooms/Agoraroom/chatroom";
@@ -18,10 +24,12 @@ const UppliveShow3 = () => {
   // const [joined, setJoined] = useState(false);
   const [showName, setshowName] = useState(false);
   const [showChoose, setshowChoose] = useState(false);
+  const [showMainMazad, setshowMainMazad] = useState(false);
 
   const temp = JSON.parse(localStorage.getItem("user"));
   console.log("🚀 ~ CreateRooms ~ temp:", temp);
   const { id } = useParams();
+  console.log("🚀 ~ UppliveShow3 ~ id:", id);
   const [isPublished, setIsPublished] = useState(false);
   const dispatch = useDispatch();
   const userData = JSON.parse(localStorage.getItem("user"));
@@ -29,8 +37,18 @@ const UppliveShow3 = () => {
   const handleCloseName = () => setshowName(false);
   const handleShowName = () => setshowName(true);
 
+  const handleCloseMainMazad = () => setshowMainMazad(false);
+  const handleShowMainMazad = () => setshowMainMazad(true);
+  const [ProductItem, setProductItem] = useState(null);
+  const [Pricebid, setPricebid] = useState("");
+  const [TimeBid, setTimeBid] = useState(null);
+  const [UpdateBid, setUpdateBid] = useState(null);
+
   const handleCloseChoose = () => setshowChoose(false);
-  const handleShowChoose = () => setshowChoose(true);
+  const handleShowChoose = (item) => {
+    setshowChoose(true);
+    setProductItem(item);
+  };
 
   const copyUrlToClipboard = (id) => {
     const url = `${LiveUrl}/uplivethree/${id}`; // Get the current URL
@@ -75,7 +93,42 @@ const UppliveShow3 = () => {
     await dispatch(leaveFromEvent(id));
     window.location.href = "/";
   };
+  const createaucc = useSelector((state) => state.roomsReducers.createAcu);
+  console.log("🚀 ~ UppliveShow3 ~ createaucc:", createaucc);
 
+  const getonewaucion = useSelector((state) => state.roomsReducers.getOneAuc);
+  console.log("🚀 ~ UppliveShow3 ~ getonewaucion:", getonewaucion);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(getActionAuction(id));
+    }, 10000); // 10000 milliseconds = 10 seconds
+
+    return () => clearTimeout(timer);
+  }, [dispatch, id]);
+
+  const handleSubmit = async () => {
+    await dispatch(
+      createAuction({
+        product: ProductItem._id,
+        tokshow: res._id,
+        baseprice: Pricebid,
+      })
+    );
+    handleCloseChoose();
+    handleCloseMainMazad();
+    handleCloseName();
+  };
+  const handleUpdate = async () => {
+    await dispatch(
+      id,
+      updateAuction({
+        started: true,
+        startedTime: getonewaucion?.startedTime,
+        higestbid: UpdateBid,
+      })
+    );
+    await dispatch(getActionAuction(id));
+  };
   return (
     <>
       <div className="parent">
@@ -84,8 +137,25 @@ const UppliveShow3 = () => {
             <div className="userlogo">
               <img src={userImg} alt="user" className="user" />
             </div>
+
             <div className="con1">
               <p className="u_name">{userData?.name}</p>
+              <div className="">
+                Product Name: {getonewaucion?.product?.name}
+                <br />
+                Product Price Now: {getonewaucion?.baseprice}
+                <br />
+                {res?.ownerId?._id === temp._id ? null : (
+                  <>
+                    <input
+                      type="number"
+                      value={UpdateBid}
+                      onChange={(e) => setUpdateBid(e.target.value)}
+                    />
+                    <button onCanPlay={handleUpdate}>Update Auction </button>
+                  </>
+                )}
+              </div>
               {/* <div style={{ display: "flex" }}>
                 <span className="r_num">0.0</span>
                 <span>
@@ -103,9 +173,12 @@ const UppliveShow3 = () => {
             </div>
           </div>
           <div className="content2">
-            <img src={eye} alt="seen" className="eye" />
-            <span className="n_10">545</span>{" "}
-            <span className="leave_txt" onClick={LeaveRoom}>
+            {/* <img src={eye} alt="seen" className="eye" />
+            <span className="n_10">545</span>{" "} */}
+            <span
+              style={{ cursor: "pointer" }}
+              className="leave_txt"
+              onClick={LeaveRoom}>
               Leave
             </span>
           </div>
@@ -134,7 +207,8 @@ const UppliveShow3 = () => {
           //   />
           // </div>
           <>
-          <Chat res={res}/></>
+            <Chat res={res} />
+          </>
         ) : null}
         <div className="share_icon">
           <span
@@ -148,17 +222,19 @@ const UppliveShow3 = () => {
             class="shareIcon"
             onClick={() => copyUrlToClipboard(res?._id)}
           />
-          <img
-            src={cart}
-            style={{
-              backgroundColor: "#333",
-              padding: "4px",
-              borderRadius: "6px",
-            }}
-            alt="share"
-            class="shareIcon"
-            onClick={handleShowName}
-          />
+          {res?.ownerId?._id === temp._id ? (
+            <img
+              src={cart}
+              style={{
+                backgroundColor: "#333",
+                padding: "4px",
+                borderRadius: "6px",
+              }}
+              alt="share"
+              class="shareIcon"
+              onClick={handleShowName}
+            />
+          ) : null}
 
           {isPublished && (
             <button
@@ -188,7 +264,9 @@ const UppliveShow3 = () => {
                   className="tage">
                   <h6>{productId.name}</h6>
                   <h6>{productId.price}</h6>
-                  <i className="fa-solid fa-plus choose"onClick={handleShowChoose}></i>
+                  <i
+                    className="fa-solid fa-plus choose"
+                    onClick={() => handleShowChoose(productId)}></i>
                 </div>
                 <hr />
               </>
@@ -219,19 +297,23 @@ const UppliveShow3 = () => {
         <Modal.Body>
           {/* <input className="managsearch" type="text" placeholder="أبحث" /> */}
           <div style={{ width: "100%" }} className="maintag">
-          
-              <>
-                <div
-                  style={{ width: "100%", position: "relative" }}
-                  className="tage">
-                    <button className="btn-login w-100" >Start Auction</button>
-                    <hr/>
-                    <button className="btn-login  w-100 " >Return To Store</button>
-
-
-                </div>
-              </>
-       
+            <>
+              <div
+                style={{ width: "100%", position: "relative" }}
+                className="tage">
+                <button
+                  className="btn-login w-100"
+                  onClick={handleShowMainMazad}>
+                  Start Auction
+                </button>
+                <hr />
+                <button
+                  className="btn-login  w-100 "
+                  onClick={handleCloseChoose}>
+                  Return To Store
+                </button>
+              </div>
+            </>
           </div>
         </Modal.Body>
 
@@ -240,6 +322,59 @@ const UppliveShow3 = () => {
             variant="secondary"
             className="close"
             onClick={handleCloseChoose}>
+            Cancel
+          </Button>
+          {/* <Button variant="primary" className="edit">
+            إختيار
+          </Button> */}
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        show={showMainMazad}
+        onHide={handleCloseMainMazad}
+        backdrop="static"
+        keyboard={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Auction Settings</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* <input className="managsearch" type="text" placeholder="أبحث" /> */}
+          <div style={{ width: "100%" }} className="maintag">
+            <>
+              <div
+                style={{ width: "100%", position: "relative" }}
+                className="tage">
+                <h6>Product Name : {ProductItem?.name}</h6>
+                <h6>Product Quantity : {ProductItem?.quantity}</h6>
+
+                <input
+                  className="inn"
+                  type="text"
+                  value={Pricebid}
+                  onChange={(e) => setPricebid(e.target.value)}
+                  placeholder="Initial Bid"
+                />
+                <br />
+                <input
+                  className="inn"
+                  type="number"
+                  value={TimeBid}
+                  onChange={(e) => setTimeBid(e.target.value)}
+                  placeholder="The Time"
+                />
+                <button className="btn-login  w-100 " onClick={handleSubmit}>
+                  Start Auction
+                </button>
+              </div>
+            </>
+          </div>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            className="close"
+            onClick={handleCloseMainMazad}>
             Cancel
           </Button>
           {/* <Button variant="primary" className="edit">

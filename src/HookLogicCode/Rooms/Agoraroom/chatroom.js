@@ -2,25 +2,25 @@ import { v4 as uuidv4 } from "uuid";
 import React, { useEffect, useRef, useState } from "react";
 import AgoraRTM from "agora-rtm-sdk";
 const APP_ID = "eaa1810d9a4a477d97053548a5ef7819";
- 
-let client =  AgoraRTM.createInstance(APP_ID);
+
+let client = AgoraRTM.createInstance(APP_ID);
 let uid = uuidv4();
 
 export default function Chat({ res }) {
+  console.log("🚀 ~ Chat ~ res:", res);
   const messagesRef = useRef();
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const [channel, setChannel] = useState(null);
-  //   const CHANNEL = res?.title;
-  const CHANNEL = "tessdchannel";
-   
+  const CHANNEL = res?.title;
+
   const appendMessage = (message) => {
     setMessages((messages) => [...messages, message]);
   };
 
   useEffect(() => {
     const connect = async () => {
-      await client.login({ uid, token: null });
+      await client.login({ uid, token: res?.RtmToken });
       const channel = await client.createChannel(CHANNEL);
       await channel.join();
       channel.on("ChannelMessage", (message, peerId) => {
@@ -77,7 +77,6 @@ export default function Chat({ res }) {
             ))}
           </div>
         </div>
-
         <form onSubmit={sendMessage}>
           <input value={text} onChange={(e) => setText(e.target.value)} />
           <button>+</button>

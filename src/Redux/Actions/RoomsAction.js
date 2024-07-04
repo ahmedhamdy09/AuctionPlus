@@ -1,4 +1,19 @@
-import { CREATE_NEW_EVENTS, GENERATEAGORA, GENERATEAGORACHAT, GETACTIVEROOM, GET_ALL_EVENTS, LEAVE, ONEEVENT, RTMTOKEN, UPDATEROOM } from "../Type";
+import {
+  CREATE_NEW_EVENTS,
+  GENERATEAGORA,
+  GENERATEAGORACHAT,
+  CREATE_AUC,
+  UPDATE_AUC,
+  DELETE_AUC,
+  GETALL_AUC,
+  GETACTIVEROOM,
+  GET_ALL_EVENTS,
+  LEAVE,
+  ONEEVENT,
+  RTMTOKEN,
+  UPDATEROOM,
+  ACTIVEACTION,
+} from "../Type";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useGetDataToken from "../../Hooks/UseGetDataToken";
 import useDeleteData from "../../Hooks/useDeleteData";
@@ -43,7 +58,10 @@ export const getAllEvents = () => async (dispatch) => {
 export const generateAgoraToken = (body) => async (dispatch) => {
   try {
     // use insert data because is post
-    const response = await useInsertData(`/api/v1/rooms/agora/rooom/generatetoken`,body);
+    const response = await useInsertData(
+      `/api/v1/rooms/agora/rooom/generatetoken`,
+      body
+    );
     dispatch({
       type: GENERATEAGORA,
       payload: response,
@@ -58,7 +76,9 @@ export const generateAgoraToken = (body) => async (dispatch) => {
 export const generateAgoraTokenChat = (id) => async (dispatch) => {
   try {
     // use insert data because is post
-    const response = await useGetDataToken(`/api/v1/rooms/agora/rooom/rtmtoken/${id}`);
+    const response = await useGetDataToken(
+      `/api/v1/rooms/agora/rooom/rtmtoken/${id}`
+    );
     dispatch({
       type: RTMTOKEN,
       payload: response,
@@ -119,10 +139,10 @@ export const leaveFromEvent = (id) => async (dispatch) => {
   }
 };
 
-export const updateRoomAction = (id,body) => async (dispatch) => {
+export const updateRoomAction = (id, body) => async (dispatch) => {
   try {
     // use insert data because is post
-    const response = await useUpdateData(`/api/v1/rooms/${id}`,body);
+    const response = await useUpdateData(`/api/v1/rooms/${id}`, body);
     dispatch({
       type: UPDATEROOM,
       payload: response,
@@ -130,6 +150,83 @@ export const updateRoomAction = (id,body) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: UPDATEROOM,
+      payload: e.response,
+    });
+  }
+};
+export const createAuction = (body) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useInsertData(`/api/v1/auctions`, body);
+    dispatch({
+      type: CREATE_AUC,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: CREATE_AUC,
+      payload: e.response,
+    });
+  }
+};
+export const deleteAuction = (id) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useDeleteData(`/api/v1/auctions/${id}`);
+    dispatch({
+      type: DELETE_AUC,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: DELETE_AUC,
+      payload: e.response,
+    });
+  }
+};
+
+export const updateAuction = (id, body) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useUpdateData(`/api/v1/auctions/${id}`, body);
+    dispatch({
+      type: UPDATE_AUC,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_AUC,
+      payload: e.response,
+    });
+  }
+};
+export const getallAuction = () => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useGetDataToken(`/api/v1/auctions`);
+    dispatch({
+      type: GETALL_AUC,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: GETALL_AUC,
+      payload: e.response,
+    });
+  }
+};
+
+export const getActionAuction = (id) => async (dispatch) => {
+  try {
+    // use insert data because is post
+    const response = await useGetDataToken(`/api/v1/auctions/${id}`);
+    dispatch({
+      type: ACTIVEACTION,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: ACTIVEACTION,
       payload: e.response,
     });
   }

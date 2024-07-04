@@ -22,6 +22,7 @@ const UppliveShow1 = () => {
   console.log("🚀 ~ CreateRooms ~ temp:", temp);
   // const [joined, setJoined] = useState(false);
   const copyUrlToClipboard = (id) => {
+    console.log("🚀 ~ copyUrlToClipboard ~ id:", id);
     const url = `${LiveUrl}/uplivethree/${id}`; // Get the current URL
     navigator.clipboard
       .writeText(url)
@@ -123,18 +124,18 @@ const UppliveShow1 = () => {
               )}
             </Link> */}
                   {/* {!joined && ( */}
-                  {res && res.ownerId && res.ownerId._id === temp._id ? (
+                  {item.ownerId._id === temp._id ? (
                     <button
                       type="button"
                       className="btn btn-info live-btn"
-                      onClick={() => handleJoinHost(res?._id)}>
+                      onClick={() => handleJoinHost(item._id)}>
                       Join Now
                     </button>
                   ) : (
                     <button
                       type="button"
                       className="btn btn-info live-btn"
-                      onClick={() => handleJoinUser(res?._id)}>
+                      onClick={() => handleJoinUser(item._id)}>
                       Join Now
                     </button>
                   )}
@@ -145,7 +146,7 @@ const UppliveShow1 = () => {
                 </button> */}
 
                   <button type="button" className="btn btn-light invite-btn">
-                    <span onClick={() => copyUrlToClipboard(res?._id)}>
+                    <span onClick={() => copyUrlToClipboard(item._id)}>
                       Invite Friends
                     </span>
                     <img src={share} alt="share" />

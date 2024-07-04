@@ -8,6 +8,11 @@ import {
   LEAVE,
   UPDATEROOM,
   RTMTOKEN,
+  CREATE_AUC,
+  UPDATE_AUC,
+  DELETE_AUC,
+  GETALL_AUC,
+  ACTIVEACTION
 } from "../Type";
 
 const initail = {
@@ -19,14 +24,20 @@ const initail = {
   OneEvent: [],
   Leave: [],
   UpdateRoom: [],
-  rtmtoken:[],
+  rtmtoken: [],
+  createAcu: [],
+  deleteAuc: [],
+  getallAuc: [],
+  updateAuc: [],
+  getOneAuc: [],
+
+  
 };
 
 const roomsReducers = (state = initail, action) => {
   switch (action.type) {
     case CREATE_NEW_EVENTS:
       return {
-       
         // update state
 
         createNewEvents: action.payload,
@@ -48,14 +59,13 @@ const roomsReducers = (state = initail, action) => {
         ...state,
         // update state
         generateAgoratoken: action.payload,
-        
       };
-      case RTMTOKEN:
-        return {
-          ...state,
-          // update state
-          rtmtoken: action.payload,
-        };
+    case RTMTOKEN:
+      return {
+        ...state,
+        // update state
+        rtmtoken: action.payload,
+      };
     case GETACTIVEROOM:
       return {
         // update state
@@ -79,6 +89,36 @@ const roomsReducers = (state = initail, action) => {
         // ...state,
         UpdateRoom: action.payload,
       };
+    case CREATE_AUC:
+      return {
+        // update state
+        // ...state,
+        createAcu: action.payload,
+      };
+    case UPDATE_AUC:
+      return {
+        // update state
+        getallAuc:state.getallAuc,
+        updateAuc: action.payload,
+      };
+    case DELETE_AUC:
+      return {
+        // update state
+        // ...state,
+        deleteAuc: action.payload,
+      };
+    case GETALL_AUC:
+      return {
+        // update state
+        ...state,
+        getallAuc: action.payload,
+      };
+      case ACTIVEACTION:
+        return {
+          // update state
+          ...state,
+          getOneAuc: action.payload,
+        };
     default:
       return state;
   }
