@@ -67,7 +67,7 @@ const CartItem = ({ item }) => {
       </Modal>
       {OneP && OneP.length >= 1
         ? OneP.map((it) =>
-            item.product === it.id ? (
+            item?.product === it.id ? (
               <Col xs="12" className="cart-item-body my-2 d-flex px-2">
                 <img
                   width="160px"

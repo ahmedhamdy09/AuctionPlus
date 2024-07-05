@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import UsersAllOrderCard from "./UsersAllOrderCard";
 
 const UsersOrderItems = ({ orderItem }) => {
+  console.log("🚀 ~ UsersOrderItems ~ orderItem:", orderItem)
   // console.log(orderItem);
 
   const formatDate = (dateString) => {
@@ -17,7 +18,7 @@ const UsersOrderItems = ({ orderItem }) => {
           Date: {formatDate(orderItem.createdAt)}
         </div>
       </Row>
-      {orderItem&&orderItem.cartItems.length>0
+      {orderItem&&orderItem.cartItems&&orderItem.cartItems.length>0
         ? orderItem.cartItems.map((item, index) => {
             return <UsersAllOrderCard key={index} item={item} />;
           })
