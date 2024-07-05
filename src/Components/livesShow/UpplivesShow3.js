@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createAuction,
-  getActionAuction,
+  getActiveAuction,
   getOneEvent,
   leaveFromEvent,
   updateAuction,
@@ -100,11 +100,11 @@ const UppliveShow3 = () => {
   console.log("🚀 ~ UppliveShow3 ~ getonewaucion:", getonewaucion);
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch(getActionAuction(id));
+      dispatch(getActiveAuction(id));
     }, 10000); // 10000 milliseconds = 10 seconds
 
     return () => clearTimeout(timer);
-  }, [dispatch, id]);
+  }, [id]);
 
   const handleSubmit = async () => {
     await dispatch(
@@ -127,7 +127,8 @@ const UppliveShow3 = () => {
         higestbid: UpdateBid,
       })
     );
-    await dispatch(getActionAuction(id));
+    await dispatch(getActiveAuction(id));
+    window.location.reload()
   };
   return (
     <>
@@ -140,22 +141,7 @@ const UppliveShow3 = () => {
 
             <div className="con1">
               <p className="u_name">{userData?.name}</p>
-              <div className="">
-                Product Name: {getonewaucion?.product?.name}
-                <br />
-                Product Price Now: {getonewaucion?.baseprice}
-                <br />
-                {res?.ownerId?._id === temp._id ? null : (
-                  <>
-                    <input
-                      type="number"
-                      value={UpdateBid}
-                      onChange={(e) => setUpdateBid(e.target.value)}
-                    />
-                    <button onCanPlay={handleUpdate}>Update Auction </button>
-                  </>
-                )}
-              </div>
+
               {/* <div style={{ display: "flex" }}>
                 <span className="r_num">0.0</span>
                 <span>
@@ -172,6 +158,33 @@ const UppliveShow3 = () => {
               </div> */}
             </div>
           </div>
+          {getonewaucion ? (
+            <div style={{textAlign:'initial'}} className="userr">
+              Product Name:{" "}
+              <span style={{ color: "red" }}>
+                {getonewaucion?.product?.name}
+              </span>
+              <br />
+              Product Price Now:{" "}
+              <span style={{ color: "red" }}>{getonewaucion?.baseprice}</span>
+              <br />
+              {res?.ownerId?._id === temp._id ? null : (
+                <>
+                  <input
+                  className="w-100"
+                    type="number"
+                    value={UpdateBid}
+                    onChange={(e) => setUpdateBid(e.target.value)}
+                  />
+                  <button
+                    className="btn btn-info live-btn mt-2 mb-2 w-100"
+                    onCanPlay={handleUpdate}>
+                    Update Auction{" "}
+                  </button>
+                </>
+              )}
+            </div>
+          ) : null}
           <div className="content2">
             {/* <img src={eye} alt="seen" className="eye" />
             <span className="n_10">545</span>{" "} */}
@@ -206,9 +219,7 @@ const UppliveShow3 = () => {
           //     className="form-control"
           //   />
           // </div>
-          <>
-            <Chat res={res} />
-          </>
+          <>{/* <Chat res={res} /> */}</>
         ) : null}
         <div className="share_icon">
           <span

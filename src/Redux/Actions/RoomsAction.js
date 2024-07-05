@@ -216,7 +216,7 @@ export const getallAuction = () => async (dispatch) => {
   }
 };
 
-export const getActionAuction = (id) => async (dispatch) => {
+export const getActiveAuction = (id) => async (dispatch) => {
   try {
     // use insert data because is post
     const response = await useGetDataToken(`/api/v1/auctions/${id}`);
