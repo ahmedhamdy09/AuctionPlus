@@ -81,6 +81,16 @@ const UppliveShow3 = () => {
     await dispatch(leaveFromEvent(id));
     window.location.href = "/";
   };
+  useEffect(() => {
+    // if(res?.ownerId?._id === temp._id){
+    const timer = setTimeout(() => {
+      if (res?.ownerId?._id === temp._id) return;
+      LeaveRoom();
+    }, 1800000);
+    window.location.href = "/Congrats";
+    return () => clearTimeout(timer);
+    //  }
+  }, []);
   // const startBroadcast = () => {
   //   // Start the broadcast
   //   // setJoined(true);
@@ -98,6 +108,9 @@ const UppliveShow3 = () => {
 
   const getonewaucion = useSelector((state) => state.roomsReducers.getOneAuc);
   console.log("🚀 ~ UppliveShow3 ~ getonewaucion:", getonewaucion);
+  const Updateone = useSelector((state) => state.roomsReducers.updateAuc);
+  console.log("🚀 ~ UppliveShow3 ~ Updateone:", Updateone);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(getActiveAuction(id));
@@ -112,23 +125,26 @@ const UppliveShow3 = () => {
         product: ProductItem._id,
         tokshow: res._id,
         baseprice: Pricebid,
+        higestbid: Pricebid,
       })
     );
     handleCloseChoose();
     handleCloseMainMazad();
     handleCloseName();
+    setUpdateBid("");
+
+    window.location.reload();
   };
   const handleUpdate = async () => {
     await dispatch(
-      id,
-      updateAuction({
+      updateAuction(getonewaucion?._id, {
         started: true,
         startedTime: getonewaucion?.startedTime,
         higestbid: UpdateBid,
       })
     );
+    setUpdateBid("");
     await dispatch(getActiveAuction(id));
-    window.location.reload()
   };
   return (
     <>
@@ -159,26 +175,26 @@ const UppliveShow3 = () => {
             </div>
           </div>
           {getonewaucion ? (
-            <div style={{textAlign:'initial'}} className="userr">
+            <div style={{ textAlign: "initial" }} className="userr">
               Product Name:{" "}
               <span style={{ color: "red" }}>
                 {getonewaucion?.product?.name}
               </span>
               <br />
               Product Price Now:{" "}
-              <span style={{ color: "red" }}>{getonewaucion?.baseprice}</span>
+              <span style={{ color: "red" }}>{getonewaucion?.higestbid}</span>
               <br />
               {res?.ownerId?._id === temp._id ? null : (
                 <>
                   <input
-                  className="w-100"
+                    className="w-100"
                     type="number"
                     value={UpdateBid}
                     onChange={(e) => setUpdateBid(e.target.value)}
                   />
                   <button
                     className="btn btn-info live-btn mt-2 mb-2 w-100"
-                    onCanPlay={handleUpdate}>
+                    onClick={handleUpdate}>
                     Update Auction{" "}
                   </button>
                 </>

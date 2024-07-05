@@ -45,6 +45,7 @@ import Video from "./Components/livesShow/VideoTest/Video";
 import MainAgora from "./HookLogicCode/Rooms/Agoraroom/mainAgora";
 import UpplivesShow5 from "./Components/livesShow/UpplivesShow5";
 import UpplivesShow6 from "./Components/livesShow/UpplivesShow6";
+import Congrats from "./Components/livesShow/congrats";
 // import Loppy from "./Components/livesShow/VideoConference/Loppy";
 
 function App() {
@@ -137,6 +138,8 @@ function App() {
           <Route path="/uplivefive" element={<UpplivesShow6 />} />
           <Route path="/uplivethree/:id" element={<UppliveShow3 />} />
           <Route path="/uplivefour" element={<UppliveShow4 />} />
+          <Route path="/Congrats" element={<Congrats />} />
+
           <Route path="/videoMeet" element={<Video />} />
           {/* <Route path="/loppyroom" element={<LoppyRoom />} /> */}
 
