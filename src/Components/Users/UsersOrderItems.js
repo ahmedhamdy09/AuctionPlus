@@ -17,7 +17,7 @@ const UsersOrderItems = ({ orderItem }) => {
           Date: {formatDate(orderItem.createdAt)}
         </div>
       </Row>
-      {orderItem.cartItems
+      {orderItem&&orderItem.cartItems.length>0
         ? orderItem.cartItems.map((item, index) => {
             return <UsersAllOrderCard key={index} item={item} />;
           })

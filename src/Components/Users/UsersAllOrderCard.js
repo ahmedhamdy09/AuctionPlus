@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import mobile from "../../assets/mobile.png";
 const UsersAllOrderCard = ({ item }) => {
+  console.log("🚀 ~ UsersAllOrderCard ~ item:", item)
   // console.log(item);
   return (
     <div>
@@ -24,7 +25,7 @@ const UsersAllOrderCard = ({ item }) => {
         </Col>
         <Col xs="8" md="6">
           <div className="d-inline pt-2 cat-title">
-            {item.product && item.product.category ? item.product.category : ""}
+            {item.product && item.product.category ? item.product.category.name : ""}
           </div>
           <div
             className="color ms-2"
