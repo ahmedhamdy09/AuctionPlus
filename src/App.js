@@ -51,6 +51,7 @@ import Congrats from "./Components/livesShow/congrats";
 function App() {
   // eslint-disable-next-line
   const [isUser, isAdmin, userData] = ProtectedRouteHook();
+  // eslint-disable-next-line
 
   return (
     <div className="font">
