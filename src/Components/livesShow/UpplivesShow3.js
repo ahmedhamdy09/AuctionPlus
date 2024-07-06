@@ -83,21 +83,16 @@ const UppliveShow3 = () => {
     window.location.href = "/";
   };
   useEffect(() => {
-    // if(res?.ownerId?._id === temp._id){
-    const timer = setTimeout(() => {
-      if (res?.ownerId?._id === temp._id) return;
-      LeaveRoom();
-    }, 1800000);
-    window.location.href = "/Congrats";
-    return () => clearTimeout(timer);
-    //  }
-  }, []);
-  // const startBroadcast = () => {
-  //   // Start the broadcast
-  //   // setJoined(true);
-  //   setIsPublished(true);
-  // };
+    //  if (res?.ownerId?._id === temp._id) return;
 
+    const timer = setTimeout(() => {
+      LeaveRoom();
+      window.location.href = "/Congrats";
+    }, 1800000); // 30 minutes in milliseconds
+
+    // Cleanup the timer when the component unmounts or dependencies change
+    return () => clearTimeout(timer);
+  }, [res, temp]);
   const stopBroadcast = async () => {
     // Stop the broadcast
     setIsPublished(false);
