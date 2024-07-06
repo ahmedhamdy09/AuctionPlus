@@ -92,7 +92,7 @@ const AdminAddProducts = () => {
           >
             <option value="0">Main Category</option>
 
-            {category.data
+            {category && category.data
               ? category.data.map((item, index) => {
                   return (
                     <option key={index} value={item._id}>

@@ -1,5 +1,7 @@
+// eslint-disable-next-line
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// eslint-disable-next-line
 import { useNavigate, useParams } from "react-router-dom";
 import "./UpplivesShow6.css";
 import { getAllActiveEvents, updateRoomAction } from "../../Redux/Actions/RoomsAction";

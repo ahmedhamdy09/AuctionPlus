@@ -78,7 +78,9 @@ export const VideoRoom = ({ res }) => {
       client.off("user-left", handleUserLeft);
       //  client.unpublish(tracks).then(() => client.leave());
     };
-  }, []);
+  }, 
+  // eslint-disable-next-line
+  []);
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>

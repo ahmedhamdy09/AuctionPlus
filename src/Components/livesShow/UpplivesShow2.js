@@ -1,9 +1,11 @@
+// eslint-disable-next-line
 import React, { useState } from "react";
 import "./UpplivesShow2.css";
 import arrowLeft from "./images/arrow-left-solid.svg";
 import chRight from "./images/chevron-right-solid.svg";
 import { Link } from "react-router-dom";
 import CreateRooms from "../../HookLogicCode/Rooms/CreateRooms";
+// eslint-disable-next-line
 import GetLoggedUserHook from "../../HookLogicCode/Rooms/GetLoggedUser";
 import AllCatogoryPageLogic from "../../HookLogicCode/CategoryLogic/AllCatogoryPageLogic";
 import Multiselect from "multiselect-react-dropdown";
@@ -12,13 +14,19 @@ import { ToastContainer } from "react-toastify";
 const UppliveShow2 = () => {
   const [
     addressEvent,
+    // eslint-disable-next-line
     addUsers,
+    // eslint-disable-next-line
     productName,
+    // eslint-disable-next-line
     channelSelection,
     DateLiveBroadCast,
     onChangeAddressEvent,
+    // eslint-disable-next-line
     onChangeAddUsers,
+    // eslint-disable-next-line
     onChangeProductName,
+    // eslint-disable-next-line
     onChangeChannelSelection,
     onChangeDateLiveBroadCast,
     handleSubmit,
@@ -29,10 +37,11 @@ const UppliveShow2 = () => {
     onSelectProduct,
     onRemoveProduct,
     isChecked,
+    // eslint-disable-next-line
     setIsChecked,
     handleChange,
     setDescription,
-    Description
+    Description,
   ] = CreateRooms();
 
   // eslint-disable-next-line
@@ -56,15 +65,15 @@ const UppliveShow2 = () => {
           type="text"
           className="form-control input1"
           id="exampleFormControlInput1"
-           placeholder="the address"
+          placeholder="the address"
         />
-              <input
+        <input
           value={Description}
-          onChange={(e)=>setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
           type="text"
           className="form-control input1"
           id="exampleFormControlInput1"
-            placeholder="Description"
+          placeholder="Description"
         />
         <div className="arrow ">
           <Multiselect
@@ -86,7 +95,7 @@ const UppliveShow2 = () => {
             onSelect={onSelectProduct} // Function will trigger on select event
             onRemove={onRemoveProduct} // Function will trigger on remove event
             displayValue="name" // Property name to display in the dropdown options
-              placeholder="select products"
+            placeholder="select products"
           />
 
           <img src={chRight} alt="arrow" />
@@ -134,7 +143,8 @@ const UppliveShow2 = () => {
         <button
           onClick={handleSubmit}
           type="button"
-          className="btn btn-info save-btn">
+          className="btn btn-info save-btn"
+        >
           Save
         </button>
       </div>

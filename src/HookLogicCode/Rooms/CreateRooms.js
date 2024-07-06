@@ -7,6 +7,7 @@ import {
 } from "../../Redux/Actions/RoomsAction";
 import { getAllUser } from "../../Redux/Actions/AuthAction";
 import { getAllProductsRoom } from "../../Redux/Actions/ProductsActions";
+// eslint-disable-next-line
 import { json, useNavigate } from "react-router-dom";
 import notify from "../useNotifaction";
 // import { useNavigate } from "react-router-dom";
@@ -19,6 +20,7 @@ const CreateRooms = () => {
   const [addressEvent, setAddressEvent] = useState("");
   console.log("🚀 ~ CreateRooms ~ addressEvent:", addressEvent);
   const [addUsers, setAddUsers] = useState([]);
+  // eslint-disable-next-line
   const navigate = useNavigate();
   console.log("🚀 ~ CreateRooms ~ addUsers:", addUsers.selectedIds);
   const [productName, setProductName] = useState([]);

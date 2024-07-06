@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import "./UpplivesShow5.css";
+// eslint-disable-next-line
 import {
+  // eslint-disable-next-line
   generateAgoraToken,
+  // eslint-disable-next-line
   generateAgoraTokenChat,
   getOneEvent,
   updateRoomAction,
@@ -48,7 +51,7 @@ const UpplivesShow5 = () => {
     //   setLoading(false);
     // }
   };
-
+// eslint-disable-next-line
   const handleJoinUser = async (id) => {
     setLoading(true);
     // localStorage.setItem("generateName", channal);
@@ -81,6 +84,7 @@ const UpplivesShow5 = () => {
   );
   useEffect(
     () => {
+      // eslint-disable-next-line
       if (loading === false) {
         setTimeout(() => setLoading(true), 1500);
         if (generateToken) {

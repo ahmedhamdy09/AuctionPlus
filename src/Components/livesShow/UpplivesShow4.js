@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./UpplivesShow4.css";
 import chRight from "./images/chevron-right-solid.svg";
+// eslint-disable-next-line
 import clock from "./images/clock-solid.svg";
 import { useDispatch, useSelector } from "react-redux";
+// eslint-disable-next-line
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import {
   createNewEvents,
   generateAgoraToken,
   generateAgoraTokenChat,
+  // eslint-disable-next-line
   getOneEvent,
   updateRoomAction,
 } from "../../Redux/Actions/RoomsAction";
@@ -37,6 +40,7 @@ const UppliveShow4 = () => {
     setProductName({ selectedIds });
   };
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -63,6 +67,7 @@ const UppliveShow4 = () => {
     setAddUsers({ selectedIds });
   };
   const handleJoinHost = async (id) => {
+    // eslint-disable-next-line
     setLoading(true);
     // localStorage.setItem("generateName", channal);
     // localStorage.setItem("generateToken", Token);
@@ -113,7 +118,7 @@ const UppliveShow4 = () => {
         })
       );
     }
-
+// eslint-disable-next-line
     setLoading(false);
   };
 

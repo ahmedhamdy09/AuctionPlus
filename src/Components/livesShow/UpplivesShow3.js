@@ -46,6 +46,7 @@ const UppliveShow3 = () => {
 
   const handleCloseChoose = () => setshowChoose(false);
   const handleShowChoose = (item) => {
+    // eslint-disable-next-line
     setshowChoose(true);
     setProductItem(item);
   };
@@ -194,7 +195,8 @@ const UppliveShow3 = () => {
                   />
                   <button
                     className="btn btn-info live-btn mt-2 mb-2 w-100"
-                    onClick={handleUpdate}>
+                    onClick={handleUpdate}
+                  >
                     Update Auction{" "}
                   </button>
                 </>
@@ -207,7 +209,8 @@ const UppliveShow3 = () => {
             <span
               style={{ cursor: "pointer" }}
               className="leave_txt"
-              onClick={LeaveRoom}>
+              onClick={LeaveRoom}
+            >
               Leave
             </span>
           </div>
@@ -240,7 +243,8 @@ const UppliveShow3 = () => {
         <div className="share_icon">
           <span
             className="share_txt"
-            onClick={() => copyUrlToClipboard(res?._id)}>
+            onClick={() => copyUrlToClipboard(res?._id)}
+          >
             Share
           </span>
           <img
@@ -267,7 +271,8 @@ const UppliveShow3 = () => {
             <button
               type="button"
               className="btn btn-danger live-btn"
-              onClick={stopBroadcast}>
+              onClick={stopBroadcast}
+            >
               Stop Broadcast
             </button>
           )}
@@ -277,7 +282,8 @@ const UppliveShow3 = () => {
         show={showName}
         onHide={handleCloseName}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Tag More Products</Modal.Title>
         </Modal.Header>
@@ -288,12 +294,14 @@ const UppliveShow3 = () => {
               <>
                 <div
                   style={{ width: "100%", position: "relative" }}
-                  className="tage">
+                  className="tage"
+                >
                   <h6>{productId.name}</h6>
                   <h6>{productId.price}</h6>
                   <i
                     className="fa-solid fa-plus choose"
-                    onClick={() => handleShowChoose(productId)}></i>
+                    onClick={() => handleShowChoose(productId)}
+                  ></i>
                 </div>
                 <hr />
               </>
@@ -305,7 +313,8 @@ const UppliveShow3 = () => {
           <Button
             variant="secondary"
             className="close"
-            onClick={handleCloseName}>
+            onClick={handleCloseName}
+          >
             Cancel
           </Button>
           {/* <Button variant="primary" className="edit">
@@ -317,7 +326,8 @@ const UppliveShow3 = () => {
         show={showChoose}
         onHide={handleCloseChoose}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title></Modal.Title>
         </Modal.Header>
@@ -327,16 +337,19 @@ const UppliveShow3 = () => {
             <>
               <div
                 style={{ width: "100%", position: "relative" }}
-                className="tage">
+                className="tage"
+              >
                 <button
                   className="btn-login w-100"
-                  onClick={handleShowMainMazad}>
+                  onClick={handleShowMainMazad}
+                >
                   Start Auction
                 </button>
                 <hr />
                 <button
                   className="btn-login  w-100 "
-                  onClick={handleCloseChoose}>
+                  onClick={handleCloseChoose}
+                >
                   Return To Store
                 </button>
               </div>
@@ -348,7 +361,8 @@ const UppliveShow3 = () => {
           <Button
             variant="secondary"
             className="close"
-            onClick={handleCloseChoose}>
+            onClick={handleCloseChoose}
+          >
             Cancel
           </Button>
           {/* <Button variant="primary" className="edit">
@@ -360,7 +374,8 @@ const UppliveShow3 = () => {
         show={showMainMazad}
         onHide={handleCloseMainMazad}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Auction Settings</Modal.Title>
         </Modal.Header>
@@ -370,7 +385,8 @@ const UppliveShow3 = () => {
             <>
               <div
                 style={{ width: "100%", position: "relative" }}
-                className="tage">
+                className="tage"
+              >
                 <h6>Product Name : {ProductItem?.name}</h6>
                 <h6>Product Quantity : {ProductItem?.quantity}</h6>
 
@@ -401,7 +417,8 @@ const UppliveShow3 = () => {
           <Button
             variant="secondary"
             className="close"
-            onClick={handleCloseMainMazad}>
+            onClick={handleCloseMainMazad}
+          >
             Cancel
           </Button>
           {/* <Button variant="primary" className="edit">

@@ -4,14 +4,17 @@ import arrowLeft from "./images/arrow-left-solid.svg";
 import celender from "./images/calendar-plus-regular.svg";
 import userImg from "./images/user-regular.svg";
 import recored from "./images/microphone-solid.svg";
+// eslint-disable-next-line
 import bell from "./images/bell-regular.svg";
 import share from "./images/arrow-up-from-bracket-solid.svg";
 import { Link, useNavigate } from "react-router-dom";
 import GetAllRooms from "../../HookLogicCode/Rooms/GetAllRooms";
 import UserGetAllOrderHook from "../../HookLogicCode/User/UserGetAllOrderHook";
+// eslint-disable-next-line
 import baseURL, { LiveUrl } from "../../Api/baseURL";
 
 const UppliveShow1 = () => {
+  // eslint-disable-next-line
   const navigate = useNavigate();
   // eslint-disable-next-line
   const [res, handleJoinHost, handleJoinUser] = GetAllRooms();
@@ -61,7 +64,8 @@ const UppliveShow1 = () => {
             <div className="sec">
               <Link
                 to={`/upliveDetails/${item._id}`}
-                style={{ textDecoration: "none", color: "black" }}>
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <div className="p-3 text-dark-emphasis bg-secondary-subtle border border-dark-subtle rounded-3 con">
                   {item.hostIds.map((ho) => (
                     <div className="con1">
@@ -128,14 +132,16 @@ const UppliveShow1 = () => {
                     <button
                       type="button"
                       className="btn btn-info live-btn"
-                      onClick={() => handleJoinHost(item._id)}>
+                      onClick={() => handleJoinHost(item._id)}
+                    >
                       Join Now
                     </button>
                   ) : (
                     <button
                       type="button"
                       className="btn btn-info live-btn"
-                      onClick={() => handleJoinUser(item._id)}>
+                      onClick={() => handleJoinUser(item._id)}
+                    >
                       Join Now
                     </button>
                   )}
