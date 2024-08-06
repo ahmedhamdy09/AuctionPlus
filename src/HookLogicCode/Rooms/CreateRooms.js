@@ -111,6 +111,20 @@ const CreateRooms = () => {
         channel: addressEvent,
       })
     );
+    if (generateToken && generateToken.data && generateToken.data.token) {
+      await dispatch(
+        createNewEvents(temp._id, {
+          title: addressEvent,
+          eventDate: convertToTimestamp(DateLiveBroadCast),
+          productIds: productName?.selectedIds,
+          userIds: addUsers?.selectedIds,
+          hostIds: [temp._id],
+          allowchat: isChecked,
+          description: Description,
+          token: generateToken.data?.token,
+        })
+      );
+    }
     if (isChecked) {
       await dispatch(generateAgoraTokenChat(temp._id));
     }

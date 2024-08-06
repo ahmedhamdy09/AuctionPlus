@@ -13,6 +13,7 @@ const PaymentMethods = () => {
   const [handleChooseAddress, addressDetails, createOrderCashClick] =
     OrderPayCash();
 
+    
   const [handleCreateOrderCard] = OrderPayCardHook(addressDetails);
 
   const [, , totalPrice, , totalPriceAfterDiscount, ,] = GetAllUserCartHook();
